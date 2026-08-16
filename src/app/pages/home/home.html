@@ -1,6 +1,7 @@
 <section class="hero">
   <div class="hero__inner">
     <div class="hero__content" appScrollReveal>
+      <span class="hero__badge">{{ 'home.hero.badge' | translate }}</span>
       <h1 class="hero__title">
         {{ 'home.hero.title1' | translate }}<br />
         {{ 'home.hero.title2' | translate }}<br />
@@ -8,67 +9,331 @@
       </h1>
       <p class="hero__subtitle">{{ 'home.hero.subtitle' | translate }}</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" [routerLink]="'/services' | langLink">{{ 'home.hero.ctaPrimary' | translate }} →</a>
-        <a class="btn btn--outline-light" [routerLink]="'/contact' | langLink">{{
+        <a class="btn btn--primary" [routerLink]="'/contact' | langLink">{{ 'home.hero.ctaPrimary' | translate }} →</a>
+        <a class="btn btn--outline-light" [routerLink]="'/how-it-works' | langLink">{{
           'home.hero.ctaSecondary' | translate
-        }}</a>
+        }} →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="home-services">
-  <div class="home-services__inner">
-    <div class="home-services__intro" appScrollReveal>
-      <span class="home-services__eyebrow">{{ 'home.services.eyebrow' | translate }}</span>
-      <h2 class="home-services__title">{{ 'home.services.title' | translate }}</h2>
+<section class="home-problem">
+  <div class="home-problem__inner">
+    <div class="home-problem__intro" appScrollReveal>
+      <span class="home-problem__eyebrow">{{ 'home.problem.eyebrow' | translate }}</span>
+      <h2 class="home-problem__title">
+        {{ 'home.problem.title' | translate }}<br />
+        <span class="home-problem__title-accent">{{ 'home.problem.titleAccent' | translate }}</span>
+      </h2>
+      <p class="home-problem__body">{{ 'home.problem.body' | translate }}</p>
     </div>
 
-    <div class="home-services__grid">
-      <div class="home-services__card" appScrollReveal>
-        <span class="home-services__number">{{ 'home.services.items.0.n' | translate }}</span>
-        <h3 class="home-services__card-title">{{ 'home.services.items.0.name' | translate }}</h3>
-        <p class="home-services__card-desc">{{ 'home.services.items.0.desc' | translate }}</p>
+    <div class="home-problem__list" appScrollReveal>
+      <div class="home-problem__item">
+        <span class="home-problem__item-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h11M4 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+          <span class="home-problem__item-badge">✕</span>
+        </span>
+        <span class="home-problem__item-label">{{ 'home.problem.items.0.title' | translate }}</span>
       </div>
-      <div class="home-services__card" appScrollReveal>
-        <span class="home-services__number">{{ 'home.services.items.1.n' | translate }}</span>
-        <h3 class="home-services__card-title">{{ 'home.services.items.1.name' | translate }}</h3>
-        <p class="home-services__card-desc">{{ 'home.services.items.1.desc' | translate }}</p>
+
+      <div class="home-problem__item">
+        <span class="home-problem__item-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M3 12a9 9 0 0 1 15-6.7L21 8M21 8V3M21 8h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 16v5M3 16h5"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="home-problem__item-badge">✕</span>
+        </span>
+        <span class="home-problem__item-label">{{ 'home.problem.items.1.title' | translate }}</span>
       </div>
-      <div class="home-services__card" appScrollReveal>
-        <span class="home-services__number">{{ 'home.services.items.2.n' | translate }}</span>
-        <h3 class="home-services__card-title">{{ 'home.services.items.2.name' | translate }}</h3>
-        <p class="home-services__card-desc">{{ 'home.services.items.2.desc' | translate }}</p>
+
+      <div class="home-problem__item">
+        <span class="home-problem__item-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="5" cy="12" r="2" fill="currentColor" />
+            <circle cx="12" cy="6" r="2" fill="currentColor" />
+            <circle cx="19" cy="16" r="2" fill="currentColor" />
+          </svg>
+          <span class="home-problem__item-badge">✕</span>
+        </span>
+        <span class="home-problem__item-label">{{ 'home.problem.items.2.title' | translate }}</span>
       </div>
-      <div class="home-services__card" appScrollReveal>
-        <span class="home-services__number">{{ 'home.services.items.3.n' | translate }}</span>
-        <h3 class="home-services__card-title">{{ 'home.services.items.3.name' | translate }}</h3>
-        <p class="home-services__card-desc">{{ 'home.services.items.3.desc' | translate }}</p>
+
+      <div class="home-problem__item">
+        <span class="home-problem__item-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M3 6l5 5-3 3 6 6 4-8 6 6"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="home-problem__item-badge">✕</span>
+        </span>
+        <span class="home-problem__item-label">{{ 'home.problem.items.3.title' | translate }}</span>
       </div>
     </div>
-
-    <a class="home-services__cta" [routerLink]="'/services' | langLink">{{ 'home.services.cta' | translate }} →</a>
   </div>
 </section>
 
-<section class="home-about">
-  <div class="home-about__inner">
-    <div class="home-about__media" appScrollReveal>
-      <app-image-placeholder class="home-about__image" [label]="'home.about.imageAlt' | translate" />
+<section class="home-solutions">
+  <div class="home-solutions__inner">
+    <div class="home-solutions__intro" appScrollReveal>
+      <span class="home-solutions__eyebrow">{{ 'home.whatWeDo.eyebrow' | translate }}</span>
+      <h2 class="home-solutions__title">
+        {{ 'home.whatWeDo.title' | translate }}<br />
+        <span class="home-solutions__title-accent">{{ 'home.whatWeDo.titleAccent' | translate }}</span>
+      </h2>
+      <p class="home-solutions__body">{{ 'home.whatWeDo.body' | translate }}</p>
     </div>
-    <div class="home-about__content" appScrollReveal>
-      <span class="home-about__eyebrow">{{ 'home.about.eyebrow' | translate }}</span>
-      <h2 class="home-about__title">{{ 'home.about.title' | translate }}</h2>
-      <p class="home-about__body">{{ 'home.about.body' | translate }}</p>
-      <a class="btn btn--outline-light" [routerLink]="'/about' | langLink">{{ 'home.about.cta' | translate }}</a>
+
+    <div class="home-solutions__grid">
+      <div class="home-solutions__card" appScrollReveal>
+        <div class="home-solutions__card-head">
+          <span class="home-solutions__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6" />
+              <path d="M20 20l-4.5-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="home-solutions__card-arrow" aria-hidden="true">→</span>
+        </div>
+        <h3 class="home-solutions__card-title">{{ 'home.whatWeDo.items.0.title' | translate }}</h3>
+        <p class="home-solutions__card-desc">{{ 'home.whatWeDo.items.0.desc' | translate }}</p>
+      </div>
+
+      <div class="home-solutions__card" appScrollReveal>
+        <div class="home-solutions__card-head">
+          <span class="home-solutions__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="8" cy="12" r="2" fill="currentColor" />
+              <circle cx="16" cy="6" r="2" fill="currentColor" />
+              <circle cx="17" cy="18" r="2" fill="currentColor" />
+              <path
+                d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h11M19 18h1"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <span class="home-solutions__card-arrow" aria-hidden="true">→</span>
+        </div>
+        <h3 class="home-solutions__card-title">{{ 'home.whatWeDo.items.1.title' | translate }}</h3>
+        <p class="home-solutions__card-desc">{{ 'home.whatWeDo.items.1.desc' | translate }}</p>
+      </div>
+
+      <div class="home-solutions__card" appScrollReveal>
+        <div class="home-solutions__card-head">
+          <span class="home-solutions__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6" />
+              <path
+                d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <span class="home-solutions__card-arrow" aria-hidden="true">→</span>
+        </div>
+        <h3 class="home-solutions__card-title">{{ 'home.whatWeDo.items.2.title' | translate }}</h3>
+        <p class="home-solutions__card-desc">{{ 'home.whatWeDo.items.2.desc' | translate }}</p>
+      </div>
+
+      <div class="home-solutions__card" appScrollReveal>
+        <div class="home-solutions__card-head">
+          <span class="home-solutions__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M3 17l6-6 4 4 8-8M21 7h-6v6"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="home-solutions__card-arrow" aria-hidden="true">→</span>
+        </div>
+        <h3 class="home-solutions__card-title">{{ 'home.whatWeDo.items.3.title' | translate }}</h3>
+        <p class="home-solutions__card-desc">{{ 'home.whatWeDo.items.3.desc' | translate }}</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="home-cta">
-  <div class="home-cta__inner" appScrollReveal>
-    <h2 class="home-cta__title">{{ 'home.ctaBanner.title' | translate }}</h2>
-    <p class="home-cta__subtitle">{{ 'home.ctaBanner.sub' | translate }}</p>
-    <a class="btn btn--primary" [routerLink]="'/contact' | langLink">{{ 'home.ctaBanner.button' | translate }}</a>
+<section class="home-process">
+  <div class="home-process__inner">
+    <div class="home-process__intro" appScrollReveal>
+      <span class="home-process__eyebrow">{{ 'home.process.eyebrow' | translate }}</span>
+      <h2 class="home-process__title">
+        {{ 'home.process.title' | translate }}<br />
+        <span class="home-process__title-accent">{{ 'home.process.titleAccent' | translate }}</span>
+      </h2>
+    </div>
+
+    <div class="home-process__row">
+      <div class="home-process__step" appScrollReveal>
+        <div class="home-process__step-head">
+          <span class="home-process__step-number">{{ 'home.process.items.0.number' | translate }}</span>
+          <span class="home-process__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6" />
+              <path d="M20 20l-4.5-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </span>
+        </div>
+        <h3 class="home-process__step-title">{{ 'home.process.items.0.title' | translate }}</h3>
+        <p class="home-process__step-desc">{{ 'home.process.items.0.desc' | translate }}</p>
+      </div>
+
+      <span class="home-process__arrow" aria-hidden="true">→</span>
+
+      <div class="home-process__step" appScrollReveal>
+        <div class="home-process__step-head">
+          <span class="home-process__step-number">{{ 'home.process.items.1.number' | translate }}</span>
+          <span class="home-process__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="8" cy="12" r="2" fill="currentColor" />
+              <circle cx="16" cy="6" r="2" fill="currentColor" />
+              <circle cx="17" cy="18" r="2" fill="currentColor" />
+              <path
+                d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h11M19 18h1"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+        </div>
+        <h3 class="home-process__step-title">{{ 'home.process.items.1.title' | translate }}</h3>
+        <p class="home-process__step-desc">{{ 'home.process.items.1.desc' | translate }}</p>
+      </div>
+
+      <span class="home-process__arrow" aria-hidden="true">→</span>
+
+      <div class="home-process__step" appScrollReveal>
+        <div class="home-process__step-head">
+          <span class="home-process__step-number">{{ 'home.process.items.2.number' | translate }}</span>
+          <span class="home-process__step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M3 17l6-6 4 4 8-8M21 7h-6v6"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </div>
+        <h3 class="home-process__step-title">{{ 'home.process.items.2.title' | translate }}</h3>
+        <p class="home-process__step-desc">{{ 'home.process.items.2.desc' | translate }}</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="home-results">
+  <div class="home-results__inner">
+    <div class="home-results__intro" appScrollReveal>
+      <span class="home-results__eyebrow">{{ 'home.results.eyebrow' | translate }}</span>
+      <h2 class="home-results__title">
+        {{ 'home.results.title1' | translate }}<br />
+        {{ 'home.results.title2' | translate }}<br />
+        <span class="home-results__title-accent">{{ 'home.results.title3' | translate }}</span>
+      </h2>
+      <p class="home-results__body">{{ 'home.results.body' | translate }}</p>
+    </div>
+
+    <div class="home-results__grid" appScrollReveal>
+      <div class="home-results__stat">
+        <span class="home-results__stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+            <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="home-results__stat-value">{{ 'home.results.stats.0.value' | translate }}</span>
+        <span class="home-results__stat-label">{{ 'home.results.stats.0.label' | translate }}</span>
+      </div>
+
+      <div class="home-results__stat">
+        <span class="home-results__stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 2v20M17 6.5c0-1.9-2.2-3-5-3s-5 1.1-5 3c0 4 10 2 10 6.5 0 1.9-2.2 3-5 3s-5-1.1-5-3"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <span class="home-results__stat-value">{{ 'home.results.stats.1.value' | translate }}</span>
+        <span class="home-results__stat-label">{{ 'home.results.stats.1.label' | translate }}</span>
+      </div>
+
+      <div class="home-results__stat">
+        <span class="home-results__stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M3 17l6-6 4 4 8-8M21 7h-6v6"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <span class="home-results__stat-value">{{ 'home.results.stats.2.value' | translate }}</span>
+        <span class="home-results__stat-label">{{ 'home.results.stats.2.label' | translate }}</span>
+      </div>
+
+      <div class="home-results__stat">
+        <span class="home-results__stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="12" cy="12" r="1.3" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="home-results__stat-value">{{ 'home.results.stats.3.value' | translate }}</span>
+        <span class="home-results__stat-label">{{ 'home.results.stats.3.label' | translate }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-cta-wrap">
+  <a
+    class="home-cta"
+    href="https://calendly.com/epixcode/freediagnosticcall"
+    target="_blank"
+    rel="noopener"
+    appScrollReveal
+  >
+    <div class="home-cta__text">
+      <h2 class="home-cta__title">
+        {{ 'home.cta.title' | translate }}<br />
+        <span class="home-cta__title-accent">{{ 'home.cta.titleAccent' | translate }}</span>
+      </h2>
+      <span class="btn btn--light home-cta__button">{{ 'home.cta.button' | translate }} →</span>
+    </div>
+
+    <span class="home-cta__response">{{ 'home.cta.response' | translate }}</span>
+  </a>
 </section>

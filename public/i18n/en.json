@@ -13,36 +13,90 @@
   },
   "home": {
     "hero": {
-      "title1": "Digital strategy.",
-      "title2": "Intelligent processes.",
-      "title3": "Real results.",
-      "subtitle": "We help businesses streamline operations through automation, web development, and AI integration.",
-      "ctaPrimary": "See services",
-      "ctaSecondary": "Book a free consultation",
-      "imageAlt": "Hero visual — AI-generated image"
+      "badge": "Process optimization powered by AI",
+      "title1": "We optimize",
+      "title2": "your processes.",
+      "title3": "You grow faster.",
+      "subtitle": "We evaluate your business, identify inefficiencies, and design smarter processes powered by automation and AI to deliver real, measurable results.",
+      "ctaPrimary": "Book a free consultation",
+      "ctaSecondary": "See how we help"
     },
-    "services": {
-      "eyebrow": "What we do",
-      "title": "One team, four fronts.",
+    "problem": {
+      "eyebrow": "The problem",
+      "title": "Outdated processes",
+      "titleAccent": "hold businesses back.",
+      "body": "Too much time is lost to manual work, repetitive tasks, disconnected tools, and inefficient workflows.",
       "items": [
-        { "n": "01", "name": "Consulting", "desc": "Tailored strategy for your business." },
-        { "n": "02", "name": "Automation", "desc": "Simpler, faster, more efficient processes." },
-        { "n": "03", "name": "Marketing", "desc": "Digital strategies that convert." },
-        { "n": "04", "name": "Applied AI", "desc": "We implement AI to boost results." }
-      ],
-      "cta": "See all services"
+        { "title": "Manual processes" },
+        { "title": "Repetitive tasks" },
+        { "title": "Disconnected tools" },
+        { "title": "Inefficient workflows" }
+      ]
     },
-    "about": {
-      "eyebrow": "About Epix Code",
-      "title": "We turn operational complexity into competitive advantage.",
-      "body": "We design and implement automation systems, web platforms, and AI integrations that give teams back their time and bring consistency to operations.",
-      "cta": "Meet us",
-      "imageAlt": "Team / office — AI-generated image"
+    "whatWeDo": {
+      "eyebrow": "What we do",
+      "title": "Smart solutions for",
+      "titleAccent": "smarter businesses.",
+      "body": "We combine strategy, technology and automation to help you work smarter.",
+      "items": [
+        {
+          "title": "Process Evaluation",
+          "desc": "We analyze your current operations and identify gaps and opportunities."
+        },
+        {
+          "title": "Process Optimization",
+          "desc": "We redesign workflows to eliminate waste and improve efficiency."
+        },
+        {
+          "title": "Automation & AI",
+          "desc": "We implement automation and AI where it creates the most impact."
+        },
+        {
+          "title": "Continuous Improvement",
+          "desc": "We measure results and keep optimizing as you grow."
+        }
+      ]
     },
-    "ctaBanner": {
-      "title": "Ready to optimize your operation?",
-      "sub": "Tell us what you need and we'll show you how automation and AI can help.",
-      "button": "Contact us"
+    "process": {
+      "eyebrow": "How it works",
+      "title": "A simple process",
+      "titleAccent": "that drives results.",
+      "items": [
+        {
+          "number": "01",
+          "title": "Evaluate",
+          "desc": "We understand your business and analyze your current processes."
+        },
+        {
+          "number": "02",
+          "title": "Optimize",
+          "desc": "We design and prioritize improvements for maximum efficiency."
+        },
+        {
+          "number": "03",
+          "title": "Implement",
+          "desc": "We automate and integrate solutions that generate real impact."
+        }
+      ]
+    },
+    "results": {
+      "eyebrow": "The results",
+      "title1": "Less manual work.",
+      "title2": "More efficiency.",
+      "title3": "Better results.",
+      "body": "We help you build a business that's ready for today, and ready for tomorrow.",
+      "stats": [
+        { "value": "-40%", "label": "Less time spent on manual tasks" },
+        { "value": "-30%", "label": "Lower operational costs" },
+        { "value": "2.5x", "label": "Increase in process efficiency" },
+        { "value": "More time", "label": "To focus on what really matters" }
+      ]
+    },
+    "cta": {
+      "title": "Ready to work smarter?",
+      "titleAccent": "Let's optimize your processes.",
+      "button": "Book a free consultation",
+      "response": "We typically respond within a few hours."
     }
   },
   "about": {

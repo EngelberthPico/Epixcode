@@ -13,36 +13,90 @@
   },
   "home": {
     "hero": {
-      "title1": "Estrategia digital.",
-      "title2": "Procesos inteligentes.",
-      "title3": "Resultados reales.",
-      "subtitle": "Ayudamos a empresas a optimizar sus procesos mediante automatización, desarrollo web e integración de inteligencia artificial.",
-      "ctaPrimary": "Ver servicios",
-      "ctaSecondary": "Agenda una asesoría gratuita",
-      "imageAlt": "Visual de héroe — imagen generada con IA"
+      "badge": "Optimización de procesos con IA",
+      "title1": "Optimizamos",
+      "title2": "tus procesos.",
+      "title3": "Tú creces más rápido.",
+      "subtitle": "Evaluamos tu negocio, identificamos ineficiencias y diseñamos procesos más inteligentes potenciados por automatización e IA para entregar resultados reales y medibles.",
+      "ctaPrimary": "Agenda una asesoría gratuita",
+      "ctaSecondary": "Mira cómo ayudamos"
     },
-    "services": {
-      "eyebrow": "Qué hacemos",
-      "title": "Un equipo, cuatro frentes.",
+    "problem": {
+      "eyebrow": "El problema",
+      "title": "Los procesos desactualizados",
+      "titleAccent": "frenan a las empresas.",
+      "body": "Se pierde demasiado tiempo en trabajo manual, tareas repetitivas, herramientas desconectadas y flujos de trabajo ineficientes.",
       "items": [
-        { "n": "01", "name": "Consultoría", "desc": "Estrategias a la medida para tu negocio." },
-        { "n": "02", "name": "Automatizaciones", "desc": "Procesos más simples, rápidos y eficientes." },
-        { "n": "03", "name": "Marketing", "desc": "Estrategias digitales que convierten." },
-        { "n": "04", "name": "IA orientada", "desc": "Implementamos IA para potenciar resultados." }
-      ],
-      "cta": "Ver todos los servicios"
+        { "title": "Procesos manuales" },
+        { "title": "Tareas repetitivas" },
+        { "title": "Herramientas desconectadas" },
+        { "title": "Flujos de trabajo ineficientes" }
+      ]
     },
-    "about": {
-      "eyebrow": "Sobre Epix Code",
-      "title": "Convertimos la complejidad operativa en ventaja competitiva.",
-      "body": "Diseñamos e implementamos sistemas de automatización, plataformas web e integraciones de inteligencia artificial que le devuelven tiempo a los equipos y consistencia a las operaciones.",
-      "cta": "Conócenos",
-      "imageAlt": "Equipo / oficina — imagen generada con IA"
+    "whatWeDo": {
+      "eyebrow": "Qué hacemos",
+      "title": "Soluciones inteligentes para",
+      "titleAccent": "negocios más inteligentes.",
+      "body": "Combinamos estrategia, tecnología y automatización para ayudarte a trabajar de forma más inteligente.",
+      "items": [
+        {
+          "title": "Evaluación de procesos",
+          "desc": "Analizamos tus operaciones actuales e identificamos brechas y oportunidades."
+        },
+        {
+          "title": "Optimización de procesos",
+          "desc": "Rediseñamos flujos de trabajo para eliminar desperdicio y mejorar la eficiencia."
+        },
+        {
+          "title": "Automatización e IA",
+          "desc": "Implementamos automatización e IA donde generan el mayor impacto."
+        },
+        {
+          "title": "Mejora continua",
+          "desc": "Medimos resultados y seguimos optimizando a medida que creces."
+        }
+      ]
     },
-    "ctaBanner": {
-      "title": "¿Listo para optimizar tu operación?",
-      "sub": "Cuéntanos qué necesitas y te mostramos cómo la automatización y la IA pueden ayudarte.",
-      "button": "Contáctanos"
+    "process": {
+      "eyebrow": "Cómo trabajamos",
+      "title": "Un proceso simple",
+      "titleAccent": "que genera resultados.",
+      "items": [
+        {
+          "number": "01",
+          "title": "Evaluamos",
+          "desc": "Entendemos tu negocio y analizamos tus procesos actuales."
+        },
+        {
+          "number": "02",
+          "title": "Optimizamos",
+          "desc": "Diseñamos y priorizamos mejoras para maximizar la eficiencia."
+        },
+        {
+          "number": "03",
+          "title": "Implementamos",
+          "desc": "Automatizamos e integramos soluciones que generan impacto real."
+        }
+      ]
+    },
+    "results": {
+      "eyebrow": "Los resultados",
+      "title1": "Menos trabajo manual.",
+      "title2": "Más eficiencia.",
+      "title3": "Mejores resultados.",
+      "body": "Te ayudamos a construir un negocio listo para hoy, y preparado para el futuro.",
+      "stats": [
+        { "value": "-40%", "label": "Menos tiempo en tareas manuales" },
+        { "value": "-30%", "label": "Menores costos operativos" },
+        { "value": "2.5x", "label": "Aumento en eficiencia de procesos" },
+        { "value": "Más tiempo", "label": "Para enfocarte en lo que realmente importa" }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para trabajar de forma más inteligente?",
+      "titleAccent": "Optimicemos tus procesos.",
+      "button": "Agenda una asesoría gratuita",
+      "response": "Normalmente respondemos en pocas horas."
     }
   },
   "about": {
