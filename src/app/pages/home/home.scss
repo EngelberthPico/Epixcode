@@ -6,7 +6,11 @@
   display: flex;
   align-items: center;
   padding: 7.5rem 3rem 5rem;
-  background: $color-negro;
+  // Overlay oscuro sobre la imagen para mantener la legibilidad del texto
+  // crema exactamente como se veía sobre el fondo sólido anterior.
+  background:
+    linear-gradient(180deg, rgba(22, 26, 29, 0.55), rgba(22, 26, 29, 0.7)),
+    url('/FondoHero.png') center / cover no-repeat;
   color: $color-crema;
 }
 
@@ -50,20 +54,6 @@
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
-}
-
-.hero__media {
-  width: 100%;
-  max-width: 480px;
-}
-
-.hero__image {
-  display: block;
-  width: 100%;
-  height: 420px;
-  border-radius: 1.125rem;
-  border: 1px solid color-mix(in srgb, $color-crema 15%, transparent);
-  overflow: hidden;
 }
 
 // Servicios (grid de 4)
@@ -258,11 +248,6 @@
   .hero__actions {
     flex-direction: row;
     justify-content: flex-start;
-  }
-
-  .hero__media {
-    flex: 1;
-    max-width: 520px;
   }
 
   .home-about__inner {
