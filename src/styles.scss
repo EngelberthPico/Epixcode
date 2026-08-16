@@ -1,1 +1,179 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'styles/variables' as *;
+
+// Bootstrap — solo CSS (grid y utilidades). No se importa bootstrap.bundle.js.
+@use 'bootstrap/scss/bootstrap';
+
+// Tipografía de marca — Poppins en todo el sitio. La jerarquía entre
+// títulos y texto se marca con peso (bold en títulos, regular/medium en
+// texto) y tamaño, no con familias distintas.
+body {
+  font-family: $font-body;
+  font-weight: 400;
+  background: $color-crema;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-heading;
+  font-weight: 700;
+}
+
+// Reset de enlaces (mismo criterio que el diseño de referencia): sin
+// subrayado por defecto, en oliva. Los componentes que necesiten otro color
+// (navbar, footer sobre fondo negro, etc.) lo sobrescriben puntualmente.
+a {
+  color: $color-oliva;
+  text-decoration: none;
+
+  &:hover {
+    color: color-mix(in srgb, $color-oliva 85%, black);
+  }
+}
+
+// Botones de marca — compartidos entre secciones (Home, Contacto, ...).
+.btn {
+  display: inline-block;
+  padding: 0.9375rem 2rem;
+  border-radius: 28px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.btn--primary {
+  background: $color-oliva;
+  color: $color-crema;
+  border: 1px solid $color-oliva;
+
+  &:hover {
+    background: $color-oliva-hover;
+    border-color: $color-oliva-hover;
+  }
+}
+
+.btn--secondary {
+  background: transparent;
+  color: $color-oliva;
+  border: 1px solid $color-oliva;
+
+  &:hover {
+    background: color-mix(in srgb, $color-oliva 10%, transparent);
+  }
+}
+
+// Variante para usar sobre fondos oscuros (ej. la franja de CTA en oliva).
+.btn--light {
+  background: $color-crema;
+  color: $color-oliva;
+  border: 1px solid $color-crema;
+
+  &:hover {
+    background: color-mix(in srgb, $color-crema 85%, $color-negro);
+  }
+}
+
+// Variante outline para usar sobre fondos oscuros (ej. el Hero en negro):
+// oliva sobre negro no cumple el contraste mínimo de texto (~3.5:1), por eso
+// esta variante usa crema en vez de oliva para el texto/borde.
+.btn--outline-light {
+  background: transparent;
+  color: $color-crema;
+  border: 1px solid color-mix(in srgb, $color-crema 35%, transparent);
+
+  &:hover {
+    border-color: color-mix(in srgb, $color-crema 60%, transparent);
+    background: color-mix(in srgb, $color-crema 12%, transparent);
+  }
+}
+
+// Revelado sutil al hacer scroll — ver ScrollRevealDirective ([appScrollReveal]).
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Elevación sutil en hover para tarjetas de contenido en toda la marca.
+.card-hover {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px -8px color-mix(in srgb, $color-negro 25%, transparent);
+    border-color: color-mix(in srgb, $color-oliva 40%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// `transition` es shorthand: cuando un elemento tiene ambas clases, la regla
+// que aparece después en la cascada reemplaza la lista completa de la otra
+// (no se combinan). Esta regla combinada evita perder la transición de
+// opacidad de .scroll-reveal en tarjetas que también usan .card-hover.
+.scroll-reveal.card-hover {
+  transition:
+    opacity 350ms ease,
+    transform 300ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+// Patrón de puntos sutil — sin imágenes, refuerza la sensación "tech".
+.dot-grid {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.08;
+  }
+}

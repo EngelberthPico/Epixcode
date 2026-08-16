@@ -1,0 +1,42 @@
+@use '../../../styles/variables' as *;
+
+// Verde de marca de WhatsApp (#25D366): excepción explícita a la paleta de
+// CLAUDE.md (crema/negro/oliva), confirmada por el proyecto de diseño
+// importado desde claude.ai/design — se prioriza el reconocimiento
+// inmediato del botón sobre la pureza de paleta en este caso puntual.
+.whatsapp-button {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 200ms ease,
+    background 200ms ease;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  &:hover {
+    background: color-mix(in srgb, #25d366 85%, black);
+    transform: scale(1.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

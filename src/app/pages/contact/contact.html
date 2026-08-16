@@ -1,0 +1,167 @@
+<section class="contact-hero">
+  <div class="contact-hero__inner" appScrollReveal>
+    <span class="contact-hero__eyebrow">{{ 'contact.hero.eyebrow' | translate }}</span>
+    <h1 class="contact-hero__title">{{ 'contact.hero.title' | translate }}</h1>
+    <p class="contact-hero__subtitle">{{ 'contact.hero.subtitle' | translate }}</p>
+  </div>
+</section>
+
+<section class="contact-body">
+  <div class="contact-body__inner">
+    <div class="contact-body__form-col" appScrollReveal>
+      @if (submitted()) {
+        <div class="contact-body__success" role="status" aria-live="polite">
+          <h2 class="contact-body__success-title">{{ 'contact.form.successTitle' | translate }}</h2>
+          <p class="contact-body__success-message">{{ 'contact.form.successMessage' | translate }}</p>
+        </div>
+      } @else {
+        <form class="contact-body__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="contact-body__field">
+            <label class="contact-body__label" for="contact-name">{{
+              'contact.form.nameLabel' | translate
+            }}</label>
+            <input
+              id="contact-name"
+              name="name"
+              type="text"
+              class="contact-body__input"
+              formControlName="name"
+              [placeholder]="'contact.form.namePlaceholder' | translate"
+              [attr.aria-invalid]="form.controls.name.invalid && form.controls.name.touched ? 'true' : null"
+              [attr.aria-describedby]="
+                form.controls.name.invalid && form.controls.name.touched ? 'contact-name-error' : null
+              "
+            />
+            @if (form.controls.name.invalid && form.controls.name.touched) {
+              <p class="contact-body__error" id="contact-name-error">
+                {{ 'contact.form.errors.nameRequired' | translate }}
+              </p>
+            }
+          </div>
+
+          <div class="contact-body__field">
+            <label class="contact-body__label" for="contact-email">{{
+              'contact.form.emailLabel' | translate
+            }}</label>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              class="contact-body__input"
+              formControlName="email"
+              [placeholder]="'contact.form.emailPlaceholder' | translate"
+              [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched ? 'true' : null"
+              [attr.aria-describedby]="
+                form.controls.email.invalid && form.controls.email.touched ? 'contact-email-error' : null
+              "
+            />
+            @if (form.controls.email.invalid && form.controls.email.touched) {
+              <p class="contact-body__error" id="contact-email-error">
+                {{
+                  (form.controls.email.errors?.['required']
+                    ? 'contact.form.errors.emailRequired'
+                    : 'contact.form.errors.emailInvalid'
+                  ) | translate
+                }}
+              </p>
+            }
+          </div>
+
+          <div class="contact-body__field">
+            <label class="contact-body__label" for="contact-message">{{
+              'contact.form.messageLabel' | translate
+            }}</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="5"
+              class="contact-body__input contact-body__textarea"
+              formControlName="message"
+              [placeholder]="'contact.form.messagePlaceholder' | translate"
+              [attr.aria-invalid]="
+                form.controls.message.invalid && form.controls.message.touched ? 'true' : null
+              "
+              [attr.aria-describedby]="
+                form.controls.message.invalid && form.controls.message.touched
+                  ? 'contact-message-error'
+                  : null
+              "
+            ></textarea>
+            @if (form.controls.message.invalid && form.controls.message.touched) {
+              <p class="contact-body__error" id="contact-message-error">
+                {{ 'contact.form.errors.messageRequired' | translate }}
+              </p>
+            }
+          </div>
+
+          <!-- Honeypot: oculto de forma visual y del tab order, pero presente en el DOM (no display:none) -->
+          <div class="contact-body__honeypot" aria-hidden="true">
+            <label for="contact-company">Company</label>
+            <input
+              id="contact-company"
+              type="text"
+              formControlName="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          @if (submitError()) {
+            <p class="contact-body__form-error" role="alert">
+              {{ 'contact.form.submitError' | translate }}
+            </p>
+          }
+
+          <button
+            class="btn btn--primary contact-body__submit"
+            type="submit"
+            [class.contact-body__submit--sending]="submitting()"
+            [disabled]="submitting()"
+          >
+            {{ (submitting() ? 'contact.form.sending' : 'contact.form.submit') | translate }}
+          </button>
+
+          <p class="contact-body__privacy">{{ 'contact.privacyNotice' | translate }}</p>
+        </form>
+      }
+    </div>
+
+    <div class="contact-body__direct" appScrollReveal>
+      <h3 class="contact-body__direct-title">{{ 'contact.direct.title' | translate }}</h3>
+      <a class="contact-body__direct-email" href="mailto:contact@epixcode.com">{{
+        'contact.direct.email' | translate
+      }}</a>
+
+      <div class="contact-body__social">
+        <a
+          class="contact-body__social-link"
+          [href]="facebookUrl"
+          target="_blank"
+          rel="noopener"
+          [attr.aria-label]="'social.facebook' | translate"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"
+            />
+          </svg>
+        </a>
+        <a
+          class="contact-body__social-link"
+          [href]="instagramUrl"
+          target="_blank"
+          rel="noopener"
+          [attr.aria-label]="'social.instagram' | translate"
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="contact-body__response">{{ 'contact.direct.response' | translate }}</p>
+    </div>
+  </div>
+</section>

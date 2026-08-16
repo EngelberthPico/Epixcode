@@ -1,0 +1,203 @@
+@use '../../../styles/variables' as *;
+
+// Hero
+.about-hero {
+  padding: 5.625rem 3rem;
+}
+
+.about-hero__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-hero__eyebrow {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-oliva;
+}
+
+.about-hero__title {
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: $color-negro;
+  margin: 1rem 0 1.25rem;
+}
+
+.about-hero__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, $color-negro 65%, transparent);
+  margin: 0;
+}
+
+// Misión (imagen + texto)
+.mission {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.mission__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.mission__media {
+  width: 100%;
+}
+
+.mission__image {
+  display: block;
+  width: 100%;
+  height: 380px;
+  border-radius: 1.125rem;
+  border: 1px solid color-mix(in srgb, $color-negro 10%, transparent);
+  overflow: hidden;
+}
+
+.mission__eyebrow {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-oliva;
+}
+
+.mission__title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: $color-negro;
+  margin: 0.875rem 0 1.125rem;
+}
+
+.mission__body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, $color-negro 65%, transparent);
+  margin: 0;
+  max-width: 46ch;
+}
+
+// Cómo trabajamos (valores, fondo oscuro)
+.values {
+  background: $color-negro;
+  padding: 6.875rem 3rem;
+}
+
+.values__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.values__intro {
+  max-width: 640px;
+  margin: 0 0 3.5rem;
+}
+
+.values__eyebrow {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-oliva-light;
+}
+
+.values__title {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  color: $color-crema;
+  margin: 0.75rem 0 0;
+}
+
+.values__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+.values__card {
+  border: 1px solid color-mix(in srgb, $color-crema 15%, transparent);
+  border-radius: 1rem;
+  padding: 1.875rem 1.5rem;
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, $color-crema 35%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.values__card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $color-crema;
+  margin: 0 0 0.625rem;
+}
+
+.values__card-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, $color-crema 65%, transparent);
+  margin: 0;
+}
+
+// CTA final
+.about-cta {
+  padding: 6.875rem 3rem;
+  text-align: center;
+}
+
+.about-cta__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.about-cta__title {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  color: $color-negro;
+  margin: 0 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .mission__inner {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .mission__media,
+  .mission__content {
+    flex: 1 1 380px;
+    min-width: 300px;
+  }
+
+  .values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .values__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

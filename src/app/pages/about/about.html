@@ -1,0 +1,55 @@
+<section class="about-hero">
+  <div class="about-hero__inner" appScrollReveal>
+    <span class="about-hero__eyebrow">{{ 'about.hero.eyebrow' | translate }}</span>
+    <h1 class="about-hero__title">{{ 'about.hero.title' | translate }}</h1>
+    <p class="about-hero__subtitle">{{ 'about.hero.subtitle' | translate }}</p>
+  </div>
+</section>
+
+<section class="mission">
+  <div class="mission__inner">
+    <div class="mission__media" appScrollReveal>
+      <app-image-placeholder class="mission__image" [label]="'about.mission.imageAlt' | translate" />
+    </div>
+    <div class="mission__content" appScrollReveal>
+      <span class="mission__eyebrow">{{ 'about.mission.eyebrow' | translate }}</span>
+      <h2 class="mission__title">{{ 'about.mission.title' | translate }}</h2>
+      <p class="mission__body">{{ 'about.mission.body' | translate }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="values__inner">
+    <div class="values__intro" appScrollReveal>
+      <span class="values__eyebrow">{{ 'about.values.eyebrow' | translate }}</span>
+      <h2 class="values__title">{{ 'about.values.title' | translate }}</h2>
+    </div>
+
+    <div class="values__grid">
+      <div class="values__card" appScrollReveal>
+        <h3 class="values__card-title">{{ 'about.values.items.0.name' | translate }}</h3>
+        <p class="values__card-desc">{{ 'about.values.items.0.desc' | translate }}</p>
+      </div>
+      <div class="values__card" appScrollReveal>
+        <h3 class="values__card-title">{{ 'about.values.items.1.name' | translate }}</h3>
+        <p class="values__card-desc">{{ 'about.values.items.1.desc' | translate }}</p>
+      </div>
+      <div class="values__card" appScrollReveal>
+        <h3 class="values__card-title">{{ 'about.values.items.2.name' | translate }}</h3>
+        <p class="values__card-desc">{{ 'about.values.items.2.desc' | translate }}</p>
+      </div>
+      <div class="values__card" appScrollReveal>
+        <h3 class="values__card-title">{{ 'about.values.items.3.name' | translate }}</h3>
+        <p class="values__card-desc">{{ 'about.values.items.3.desc' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="about-cta__inner" appScrollReveal>
+    <h2 class="about-cta__title">{{ 'about.cta.title' | translate }}</h2>
+    <a class="btn btn--primary" routerLink="/contact">{{ 'about.cta.button' | translate }}</a>
+  </div>
+</section>

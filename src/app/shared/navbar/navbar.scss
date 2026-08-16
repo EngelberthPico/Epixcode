@@ -1,0 +1,233 @@
+@use '../../../styles/variables' as *;
+
+// Nombrado ".site-header" (no ".navbar") a propósito: la librería completa de
+// Bootstrap que importamos en styles.scss define su propia clase ".navbar"
+// (display:flex, justify-content:space-between, etc.). Como esa regla es
+// global y la nuestra está a nivel de componente, coexistían en el mismo
+// <header> y Bootstrap terminaba ganando en las propiedades que nosotros no
+// sobrescribíamos explícitamente — eso rompía el layout (el contenedor
+// interno se encogía a su contenido en vez de ocupar el ancho completo).
+//
+// Comportamiento por página (ver spec de diseño):
+// - Home (".site-header--home"): fixed, flotando sobre el hero oscuro.
+//   Empieza transparente con texto crema; al hacer scroll pasa a fondo
+//   sólido con blur y texto negro.
+// - Resto de páginas: sticky (reserva su espacio, sin solaparse con el
+//   contenido), fondo sólido con blur siempre; solo la sombra aparece con
+//   el scroll.
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 16px 20px;
+  background: color-mix(in srgb, $color-crema 92%, transparent);
+  backdrop-filter: blur(10px);
+  color: $color-negro;
+  box-shadow: none;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  &--home {
+    position: fixed;
+    inset-inline: 0;
+  }
+
+  &--shadow {
+    box-shadow: 0 1px 0 color-mix(in srgb, $color-negro 8%, transparent);
+  }
+
+  &--transparent {
+    background: transparent;
+    backdrop-filter: none;
+    color: $color-crema;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  @media (min-width: 768px) {
+    padding: 20px 48px;
+  }
+}
+
+.navbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar__logo {
+  height: 26px;
+  width: auto;
+  display: block;
+  transition: filter 0.35s ease;
+
+  // El PNG es de color fijo (oscuro); sobre el navbar transparente del hero
+  // oscuro de Home queda invisible. Se invierte a blanco solo en ese estado.
+  .site-header--transparent & {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.navbar__wordmark {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 21px;
+  color: inherit;
+}
+
+.navbar__wordmark-accent {
+  color: $color-oliva;
+}
+
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.navbar__menu {
+  display: none;
+  flex-basis: 100%;
+  width: 100%;
+}
+
+.navbar__menu--open {
+  display: block;
+}
+
+.navbar__links {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  a {
+    display: block;
+    padding: 0.5rem 0;
+    color: inherit;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+
+    &.active {
+      border-bottom-color: $color-oliva;
+    }
+
+    &:hover {
+      color: $color-oliva;
+    }
+  }
+}
+
+.navbar__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.navbar__cta {
+  padding: 10px 22px;
+  font-size: 14px;
+  align-self: flex-start;
+}
+
+.navbar__lang {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.navbar__lang-btn {
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  color: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &--active {
+    background: $color-oliva;
+    color: $color-crema;
+  }
+}
+
+// El breakpoint mobile/desktop del navbar es 900px (no 768px como el resto
+// del sitio): con el padding full-bleed de 48px + logo + 3 links + selector
+// de idioma + botón de contacto, el grupo entero no cabe en una sola fila
+// antes de los 900px y el flexbox lo empujaba a una segunda línea.
+@media (min-width: 900px) {
+  .navbar__inner {
+    flex-wrap: nowrap;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+    width: auto;
+  }
+
+  .navbar__links {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0;
+    gap: 1.5rem;
+
+    a {
+      padding: 0.25rem 0;
+    }
+  }
+
+  .navbar__actions {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,78 @@
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__content" appScrollReveal>
+      <h1 class="hero__title">
+        {{ 'home.hero.title1' | translate }}<br />
+        {{ 'home.hero.title2' | translate }}<br />
+        <span class="hero__title-accent">{{ 'home.hero.title3' | translate }}</span>
+      </h1>
+      <p class="hero__subtitle">{{ 'home.hero.subtitle' | translate }}</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" routerLink="/services">{{ 'home.hero.ctaPrimary' | translate }} →</a>
+        <a class="btn btn--outline-light" routerLink="/contact">{{
+          'home.hero.ctaSecondary' | translate
+        }}</a>
+      </div>
+    </div>
+
+    <div class="hero__media" appScrollReveal>
+      <app-image-placeholder class="hero__image" [label]="'home.hero.imageAlt' | translate" />
+    </div>
+  </div>
+</section>
+
+<section class="home-services">
+  <div class="home-services__inner">
+    <div class="home-services__intro" appScrollReveal>
+      <span class="home-services__eyebrow">{{ 'home.services.eyebrow' | translate }}</span>
+      <h2 class="home-services__title">{{ 'home.services.title' | translate }}</h2>
+    </div>
+
+    <div class="home-services__grid">
+      <div class="home-services__card" appScrollReveal>
+        <span class="home-services__number">{{ 'home.services.items.0.n' | translate }}</span>
+        <h3 class="home-services__card-title">{{ 'home.services.items.0.name' | translate }}</h3>
+        <p class="home-services__card-desc">{{ 'home.services.items.0.desc' | translate }}</p>
+      </div>
+      <div class="home-services__card" appScrollReveal>
+        <span class="home-services__number">{{ 'home.services.items.1.n' | translate }}</span>
+        <h3 class="home-services__card-title">{{ 'home.services.items.1.name' | translate }}</h3>
+        <p class="home-services__card-desc">{{ 'home.services.items.1.desc' | translate }}</p>
+      </div>
+      <div class="home-services__card" appScrollReveal>
+        <span class="home-services__number">{{ 'home.services.items.2.n' | translate }}</span>
+        <h3 class="home-services__card-title">{{ 'home.services.items.2.name' | translate }}</h3>
+        <p class="home-services__card-desc">{{ 'home.services.items.2.desc' | translate }}</p>
+      </div>
+      <div class="home-services__card" appScrollReveal>
+        <span class="home-services__number">{{ 'home.services.items.3.n' | translate }}</span>
+        <h3 class="home-services__card-title">{{ 'home.services.items.3.name' | translate }}</h3>
+        <p class="home-services__card-desc">{{ 'home.services.items.3.desc' | translate }}</p>
+      </div>
+    </div>
+
+    <a class="home-services__cta" routerLink="/services">{{ 'home.services.cta' | translate }} →</a>
+  </div>
+</section>
+
+<section class="home-about">
+  <div class="home-about__inner">
+    <div class="home-about__media" appScrollReveal>
+      <app-image-placeholder class="home-about__image" [label]="'home.about.imageAlt' | translate" />
+    </div>
+    <div class="home-about__content" appScrollReveal>
+      <span class="home-about__eyebrow">{{ 'home.about.eyebrow' | translate }}</span>
+      <h2 class="home-about__title">{{ 'home.about.title' | translate }}</h2>
+      <p class="home-about__body">{{ 'home.about.body' | translate }}</p>
+      <a class="btn btn--outline-light" routerLink="/about">{{ 'home.about.cta' | translate }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-cta">
+  <div class="home-cta__inner" appScrollReveal>
+    <h2 class="home-cta__title">{{ 'home.ctaBanner.title' | translate }}</h2>
+    <p class="home-cta__subtitle">{{ 'home.ctaBanner.sub' | translate }}</p>
+    <a class="btn btn--primary" routerLink="/contact">{{ 'home.ctaBanner.button' | translate }}</a>
+  </div>
+</section>

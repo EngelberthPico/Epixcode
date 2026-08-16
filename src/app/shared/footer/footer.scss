@@ -1,0 +1,139 @@
+@use '../../../styles/variables' as *;
+
+.site-footer {
+  background: $color-negro;
+  color: color-mix(in srgb, $color-crema 85%, transparent);
+  padding: 4.5rem 3rem 2rem;
+}
+
+.site-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-footer__top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid color-mix(in srgb, $color-crema 10%, transparent);
+}
+
+.site-footer__brand {
+  grid-column: 1 / -1;
+}
+
+.site-footer__logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.site-footer__logo {
+  height: 22px;
+  width: auto;
+  color: $color-oliva;
+}
+
+.site-footer__wordmark {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: $color-crema;
+}
+
+.site-footer__wordmark-accent {
+  color: $color-oliva;
+}
+
+.site-footer__tagline {
+  max-width: 32ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, $color-crema 75%, transparent);
+  margin: 0;
+}
+
+.site-footer__col-title {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-oliva-light;
+  margin: 0 0 1rem;
+}
+
+.site-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  a {
+    color: color-mix(in srgb, $color-crema 80%, transparent);
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    &:hover {
+      color: $color-oliva;
+    }
+  }
+}
+
+.site-footer__social {
+  display: flex;
+  gap: 0.625rem;
+  margin-top: 0.75rem;
+}
+
+.site-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, $color-crema 25%, transparent);
+  color: color-mix(in srgb, $color-crema 85%, transparent);
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background: $color-oliva;
+    border-color: $color-oliva;
+    color: $color-crema;
+  }
+}
+
+.site-footer__bottom {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.site-footer__rights {
+  margin: 0;
+  font-size: 0.8rem;
+  color: color-mix(in srgb, $color-crema 60%, transparent);
+}
+
+@media (min-width: 1024px) {
+  .site-footer__brand {
+    grid-column: auto;
+  }
+
+  .site-footer__bottom {
+    text-align: left;
+  }
+}

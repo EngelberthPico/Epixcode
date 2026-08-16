@@ -1,0 +1,18 @@
+// Paleta de marca — Epix Code (ver CLAUDE.md, sección "Identidad visual")
+$color-crema: #faf7f2;
+$color-negro: #161a1d;
+$color-oliva: #616c44;
+// Variante clara del oliva, para etiquetas/eyebrows sobre fondos oscuros
+// (mejor contraste ahí que el oliva base).
+$color-oliva-light: #8a9468;
+// Hover de botones/links en oliva (oliva oscurecido).
+$color-oliva-hover: #4a5335;
+// Mensajes de error de formularios.
+$color-error: #a13a3a;
+
+// Tipografía de marca — una sola familia (Poppins) para todo el sitio. La
+// jerarquía entre títulos y texto se logra con peso y tamaño (ver reglas
+// h1/h2/h3 en styles.scss y las clases `__title` de cada página), no con
+// familias tipográficas distintas.
+$font-heading: 'Poppins', sans-serif;
+$font-body: 'Poppins', sans-serif;

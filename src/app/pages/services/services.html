@@ -1,0 +1,87 @@
+<section class="services-hero">
+  <div class="services-hero__inner" appScrollReveal>
+    <span class="services-hero__eyebrow">{{ 'services.hero.eyebrow' | translate }}</span>
+    <h1 class="services-hero__title">{{ 'services.hero.title' | translate }}</h1>
+    <p class="services-hero__subtitle">{{ 'services.hero.subtitle' | translate }}</p>
+  </div>
+</section>
+
+<section class="services-list">
+  <article class="services-row" appScrollReveal>
+    <div class="services-row__media">
+      <app-image-placeholder
+        class="services-row__image"
+        [label]="'services.automation.imageAlt' | translate"
+      />
+    </div>
+    <div class="services-row__content">
+      <span class="services-row__number">01</span>
+      <h2 class="services-row__title">{{ 'services.automation.title' | translate }}</h2>
+      <p class="services-row__body">{{ 'services.automation.body' | translate }}</p>
+    </div>
+  </article>
+
+  <article class="services-row services-row--reverse" appScrollReveal>
+    <div class="services-row__content">
+      <span class="services-row__number">02</span>
+      <h2 class="services-row__title">{{ 'services.webdev.title' | translate }}</h2>
+      <p class="services-row__body">{{ 'services.webdev.body' | translate }}</p>
+    </div>
+    <div class="services-row__media">
+      <app-image-placeholder
+        class="services-row__image"
+        [label]="'services.webdev.imageAlt' | translate"
+      />
+    </div>
+  </article>
+
+  <article class="services-row" appScrollReveal>
+    <div class="services-row__media">
+      <app-image-placeholder class="services-row__image" [label]="'services.ai.imageAlt' | translate" />
+    </div>
+    <div class="services-row__content">
+      <span class="services-row__number">03</span>
+      <h2 class="services-row__title">{{ 'services.ai.title' | translate }}</h2>
+      <p class="services-row__body">{{ 'services.ai.body' | translate }}</p>
+    </div>
+  </article>
+
+  <article class="services-row services-row--reverse" appScrollReveal>
+    <div class="services-row__content">
+      <span class="services-row__number">04</span>
+      <h2 class="services-row__title">{{ 'services.marketing.title' | translate }}</h2>
+      <p class="services-row__body">{{ 'services.marketing.body' | translate }}</p>
+      <ul class="services-row__list">
+        <li class="services-row__list-item">
+          <span class="services-row__dot" aria-hidden="true"></span>
+          <span>{{ 'services.marketing.items.0' | translate }}</span>
+        </li>
+        <li class="services-row__list-item">
+          <span class="services-row__dot" aria-hidden="true"></span>
+          <span>{{ 'services.marketing.items.1' | translate }}</span>
+        </li>
+        <li class="services-row__list-item">
+          <span class="services-row__dot" aria-hidden="true"></span>
+          <span>{{ 'services.marketing.items.2' | translate }}</span>
+        </li>
+        <li class="services-row__list-item">
+          <span class="services-row__dot" aria-hidden="true"></span>
+          <span>{{ 'services.marketing.items.3' | translate }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="services-row__media">
+      <app-image-placeholder
+        class="services-row__image"
+        [label]="'services.marketing.imageAlt' | translate"
+      />
+    </div>
+  </article>
+</section>
+
+<section class="services-cta">
+  <div class="services-cta__inner" appScrollReveal>
+    <h2 class="services-cta__title">{{ 'services.cta.title' | translate }}</h2>
+    <a class="btn btn--primary" routerLink="/contact">{{ 'services.cta.button' | translate }}</a>
+  </div>
+</section>

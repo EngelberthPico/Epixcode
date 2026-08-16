@@ -1,0 +1,33 @@
+@use '../../../styles/variables' as *;
+
+// Estado "sin imagen todavía" — sutil a propósito, para no competir
+// visualmente con el contenido real (ver CLAUDE.md, punto 9: placeholders
+// mientras no haya imágenes generadas).
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: inherit;
+  // Gris neutro fijo (no derivado de negro/crema) para que se vea igual de
+  // sutil sobre fondo claro u oscuro, en vez de desaparecer o invertirse.
+  background: rgba(127, 127, 127, 0.08);
+  color: #6e6c66;
+}
+
+.image-placeholder__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.image-placeholder__label {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  max-width: 26ch;
+}

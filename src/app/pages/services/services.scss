@@ -1,0 +1,161 @@
+@use '../../../styles/variables' as *;
+
+// Hero
+.services-hero {
+  padding: 5.625rem 3rem;
+}
+
+.services-hero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-hero__eyebrow {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-oliva;
+}
+
+.services-hero__title {
+  font-size: clamp(2rem, 4.6vw, 3.375rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: $color-negro;
+  margin: 1rem 0 1.25rem;
+}
+
+.services-hero__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, $color-negro 65%, transparent);
+  max-width: 37.5rem;
+  margin: 0 auto;
+}
+
+// Filas alternadas imagen/texto
+.services-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem 6.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6.25rem;
+}
+
+.services-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.services-row__media {
+  width: 100%;
+  order: 2;
+}
+
+.services-row__content {
+  width: 100%;
+  order: 1;
+}
+
+.services-row__image {
+  width: 100%;
+  height: 340px;
+  border-radius: 1.125rem;
+  border: 1px solid color-mix(in srgb, $color-negro 10%, transparent);
+  overflow: hidden;
+  display: block;
+}
+
+.services-row__number {
+  font-family: $font-heading;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $color-oliva;
+}
+
+.services-row__title {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: $color-negro;
+  margin: 0.75rem 0 1rem;
+}
+
+.services-row__body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, $color-negro 65%, transparent);
+  margin: 0;
+  max-width: 30ch;
+}
+
+.services-row__list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.services-row__list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: $color-negro;
+}
+
+.services-row__dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-oliva;
+}
+
+// CTA final
+.services-cta {
+  padding: 6.875rem 3rem;
+  text-align: center;
+  color: $color-negro; // contexto de color para el patrón .dot-grid
+}
+
+.services-cta__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.services-cta__title {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  color: $color-negro;
+  margin: 0 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .services-row {
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+
+  .services-row__media,
+  .services-row__content {
+    flex: 1 1 380px;
+    min-width: 300px;
+    order: initial;
+  }
+
+  .services-row__body {
+    max-width: 46ch;
+  }
+
+  .services-row--reverse {
+    flex-direction: row-reverse;
+  }
+}

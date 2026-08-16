@@ -1,0 +1,191 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "contact": "Contáctanos",
+    "logoAlt": "Epix Code",
+    "toggleMenuOpen": "Abrir menú de navegación",
+    "toggleMenuClose": "Cerrar menú de navegación",
+    "languageSwitcher": "Cambiar idioma"
+  },
+  "home": {
+    "hero": {
+      "title1": "Estrategia digital.",
+      "title2": "Procesos inteligentes.",
+      "title3": "Resultados reales.",
+      "subtitle": "Ayudamos a empresas a optimizar sus procesos mediante automatización, desarrollo web e integración de inteligencia artificial.",
+      "ctaPrimary": "Ver servicios",
+      "ctaSecondary": "Agenda una asesoría gratuita",
+      "imageAlt": "Visual de héroe — imagen generada con IA"
+    },
+    "services": {
+      "eyebrow": "Qué hacemos",
+      "title": "Un equipo, cuatro frentes.",
+      "items": [
+        { "n": "01", "name": "Consultoría", "desc": "Estrategias a la medida para tu negocio." },
+        { "n": "02", "name": "Automatizaciones", "desc": "Procesos más simples, rápidos y eficientes." },
+        { "n": "03", "name": "Marketing", "desc": "Estrategias digitales que convierten." },
+        { "n": "04", "name": "IA orientada", "desc": "Implementamos IA para potenciar resultados." }
+      ],
+      "cta": "Ver todos los servicios"
+    },
+    "about": {
+      "eyebrow": "Sobre Epix Code",
+      "title": "Convertimos la complejidad operativa en ventaja competitiva.",
+      "body": "Diseñamos e implementamos sistemas de automatización, plataformas web e integraciones de inteligencia artificial que le devuelven tiempo a los equipos y consistencia a las operaciones.",
+      "cta": "Conócenos",
+      "imageAlt": "Equipo / oficina — imagen generada con IA"
+    },
+    "ctaBanner": {
+      "title": "¿Listo para optimizar tu operación?",
+      "sub": "Cuéntanos qué necesitas y te mostramos cómo la automatización y la IA pueden ayudarte.",
+      "button": "Contáctanos"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Sobre nosotros",
+      "title": "Tecnología con propósito, resultados con sentido.",
+      "subtitle": "Somos un equipo enfocado en ayudar a empresas a operar de forma más simple, rápida e inteligente."
+    },
+    "mission": {
+      "eyebrow": "Nuestra misión",
+      "title": "Optimizar procesos, liberar tiempo.",
+      "body": "En Epix Code combinamos automatización, desarrollo web e inteligencia artificial para que las empresas dediquen menos tiempo a tareas repetitivas y más a lo que realmente genera valor.",
+      "imageAlt": "Equipo Epix Code — imagen generada con IA"
+    },
+    "values": {
+      "eyebrow": "Cómo trabajamos",
+      "title": "Los principios detrás de cada proyecto.",
+      "items": [
+        { "name": "Eficiencia", "desc": "Diseñamos soluciones simples que resuelven problemas reales." },
+        { "name": "Cercanía", "desc": "Trabajamos codo a codo con cada cliente, sin intermediarios." },
+        { "name": "Innovación", "desc": "Integramos las herramientas de IA más relevantes para cada caso." },
+        { "name": "Transparencia", "desc": "Comunicación clara sobre alcance, tiempos y resultados." }
+      ]
+    },
+    "cta": {
+      "title": "¿Trabajamos juntos?",
+      "button": "Contáctanos"
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "Servicios",
+      "title": "Automatización, desarrollo e IA, todo en un mismo equipo.",
+      "subtitle": "Cuatro frentes de trabajo diseñados para simplificar tu operación y acelerar tu crecimiento."
+    },
+    "automation": {
+      "title": "Automatización de procesos",
+      "body": "Identificamos tareas manuales y repetitivas y las convertimos en flujos automáticos, conectando las herramientas que ya usa tu equipo.",
+      "imageAlt": "Ilustración de automatización de procesos"
+    },
+    "webdev": {
+      "title": "Desarrollo web",
+      "body": "Construimos sitios y aplicaciones web rápidas, funcionales y a la medida de tu marca, desde landing pages hasta plataformas completas.",
+      "imageAlt": "Ilustración de desarrollo web"
+    },
+    "ai": {
+      "title": "Integración de inteligencia artificial",
+      "body": "Incorporamos IA en tus procesos y productos: asistentes, automatizaciones inteligentes y herramientas a la medida de tu negocio.",
+      "imageAlt": "Ilustración de integración de inteligencia artificial"
+    },
+    "marketing": {
+      "title": "Marketing",
+      "body": "Un equipo de marketing enfocado en resultados medibles.",
+      "imageAlt": "Ilustración de marketing",
+      "items": [
+        "Media buying",
+        "Campañas de contenido",
+        "Estrategias de marketing",
+        "Consultoría de redes sociales"
+      ]
+    },
+    "cta": {
+      "title": "¿Hablamos de tu proyecto?",
+      "button": "Contáctanos"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Algunos de los productos y herramientas que hemos construido para nuestros clientes.",
+    "items": {
+      "ecommerce": {
+        "title": "E-commerce Cafetal Sobre Piedra",
+        "description": "Desarrollamos y desplegamos una tienda en línea sobre infraestructura propia, con dominio propio, lista para escalar sin depender de plataformas de terceros.",
+        "imageAlt": "Panel del e-commerce Cafetal Sobre Piedra"
+      },
+      "adsSync": {
+        "title": "Sincronización de métricas publicitarias",
+        "description": "Creamos una herramienta que sincroniza automáticamente las métricas de campañas publicitarias con el gestor de proyectos del equipo, eliminando reportes manuales.",
+        "imageAlt": "Panel de sincronización de métricas publicitarias"
+      },
+      "invoiceReconciliation": {
+        "title": "Conciliación automática de facturas",
+        "description": "Desarrollamos una herramienta que procesa archivos XML de facturación y concilia los pagos automáticamente, reduciendo el trabajo manual del equipo contable.",
+        "imageAlt": "Panel de la herramienta de conciliación de facturas"
+      },
+      "wooRedesign": {
+        "title": "Rediseño de tienda online",
+        "description": "Rediseñamos la tienda en línea de un cliente sobre WordPress y WooCommerce, mejorando la experiencia de compra y la presentación de sus productos.",
+        "imageAlt": "Vista del rediseño de la tienda online"
+      },
+      "caseManagement": {
+        "title": "Gestión de casos con exportación de datos",
+        "description": "Construimos una aplicación para gestionar casos internos, con exportación de datos que agiliza los reportes del equipo.",
+        "imageAlt": "Panel de la aplicación de gestión de casos"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contacto",
+      "title": "Hablemos de tu proyecto.",
+      "subtitle": "Cuéntanos qué necesitas, te respondemos lo antes posible."
+    },
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "emailLabel": "Email",
+      "emailPlaceholder": "tu@empresa.com",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Cuéntanos sobre tu proyecto...",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "successTitle": "¡Mensaje enviado!",
+      "successMessage": "Gracias por escribirnos. Te responderemos lo antes posible.",
+      "submitError": "Algo salió mal al enviar tu mensaje. Por favor intenta de nuevo en unos minutos.",
+      "errors": {
+        "nameRequired": "Por favor ingresa tu nombre.",
+        "emailRequired": "Por favor ingresa tu correo electrónico.",
+        "emailInvalid": "Ingresa un correo electrónico válido.",
+        "messageRequired": "Por favor escribe tu mensaje."
+      }
+    },
+    "privacyNotice": "Solo usamos tu información para responder tu mensaje, nunca la compartimos con terceros.",
+    "direct": {
+      "title": "Contacto directo",
+      "email": "contact@epixcode.com",
+      "response": "Normalmente respondemos en menos de 24 horas hábiles."
+    }
+  },
+  "social": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "tagline": "Automatización, desarrollo web e inteligencia artificial para hacer crecer tu negocio.",
+    "navTitle": "Navegación",
+    "servicesTitle": "Servicios",
+    "services": ["Consultoría", "Automatizaciones", "Marketing", "IA orientada"],
+    "socialTitle": "Síguenos",
+    "contactTitle": "Contacto",
+    "rights": "© {{year}} Epix Code. Todos los derechos reservados."
+  },
+  "whatsapp": {
+    "buttonLabel": "Chatea con nosotros por WhatsApp"
+  }
+}

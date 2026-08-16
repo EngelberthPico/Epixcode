@@ -1,0 +1,69 @@
+<header
+  class="site-header"
+  [class.site-header--home]="isHome()"
+  [class.site-header--transparent]="isHome() && !scrolled()"
+  [class.site-header--shadow]="scrolled()"
+>
+  <div class="navbar__inner">
+    <a class="navbar__brand" routerLink="/" (click)="closeMenu()">
+      <img class="navbar__logo" src="logo-icon.png" alt="Epix Code" />
+      <span class="navbar__wordmark">epix<span class="navbar__wordmark-accent">code</span></span>
+    </a>
+
+    <button
+      type="button"
+      class="navbar__toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()"
+      [attr.aria-label]="(isMenuOpen() ? 'nav.toggleMenuClose' : 'nav.toggleMenuOpen') | translate"
+    >
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+
+    <nav class="navbar__menu" [class.navbar__menu--open]="isMenuOpen()">
+      <ul class="navbar__links">
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()"
+            >{{ 'nav.home' | translate }}</a
+          >
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">{{
+            'nav.about' | translate
+          }}</a>
+        </li>
+        <li>
+          <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">{{
+            'nav.services' | translate
+          }}</a>
+        </li>
+      </ul>
+
+      <div class="navbar__actions">
+        <div class="navbar__lang" role="group" [attr.aria-label]="'nav.languageSwitcher' | translate">
+          @for (lang of languages; track lang) {
+            <button
+              type="button"
+              class="navbar__lang-btn"
+              [class.navbar__lang-btn--active]="currentLang() === lang"
+              [attr.aria-pressed]="currentLang() === lang"
+              (click)="setLang(lang)"
+            >
+              {{ lang.toUpperCase() }}
+            </button>
+          }
+        </div>
+
+        <a class="btn btn--primary navbar__cta" routerLink="/contact" (click)="closeMenu()">{{
+          'nav.contact' | translate
+        }}</a>
+      </div>
+    </nav>
+  </div>
+</header>

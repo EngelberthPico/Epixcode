@@ -1,0 +1,191 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact us",
+    "logoAlt": "Epix Code",
+    "toggleMenuOpen": "Open navigation menu",
+    "toggleMenuClose": "Close navigation menu",
+    "languageSwitcher": "Switch language"
+  },
+  "home": {
+    "hero": {
+      "title1": "Digital strategy.",
+      "title2": "Intelligent processes.",
+      "title3": "Real results.",
+      "subtitle": "We help businesses streamline operations through automation, web development, and AI integration.",
+      "ctaPrimary": "See services",
+      "ctaSecondary": "Book a free consultation",
+      "imageAlt": "Hero visual — AI-generated image"
+    },
+    "services": {
+      "eyebrow": "What we do",
+      "title": "One team, four fronts.",
+      "items": [
+        { "n": "01", "name": "Consulting", "desc": "Tailored strategy for your business." },
+        { "n": "02", "name": "Automation", "desc": "Simpler, faster, more efficient processes." },
+        { "n": "03", "name": "Marketing", "desc": "Digital strategies that convert." },
+        { "n": "04", "name": "Applied AI", "desc": "We implement AI to boost results." }
+      ],
+      "cta": "See all services"
+    },
+    "about": {
+      "eyebrow": "About Epix Code",
+      "title": "We turn operational complexity into competitive advantage.",
+      "body": "We design and implement automation systems, web platforms, and AI integrations that give teams back their time and bring consistency to operations.",
+      "cta": "Meet us",
+      "imageAlt": "Team / office — AI-generated image"
+    },
+    "ctaBanner": {
+      "title": "Ready to optimize your operation?",
+      "sub": "Tell us what you need and we'll show you how automation and AI can help.",
+      "button": "Contact us"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About us",
+      "title": "Technology with purpose, results that matter.",
+      "subtitle": "We're a team focused on helping businesses operate more simply, quickly, and intelligently."
+    },
+    "mission": {
+      "eyebrow": "Our mission",
+      "title": "Optimize processes, free up time.",
+      "body": "At Epix Code we combine automation, web development, and artificial intelligence so businesses spend less time on repetitive tasks and more on what actually creates value.",
+      "imageAlt": "Epix Code team — AI-generated image"
+    },
+    "values": {
+      "eyebrow": "How we work",
+      "title": "The principles behind every project.",
+      "items": [
+        { "name": "Efficiency", "desc": "We design simple solutions that solve real problems." },
+        { "name": "Close collaboration", "desc": "We work hand in hand with every client, no middlemen." },
+        { "name": "Innovation", "desc": "We integrate the most relevant AI tools for each case." },
+        { "name": "Transparency", "desc": "Clear communication on scope, timelines, and results." }
+      ]
+    },
+    "cta": {
+      "title": "Shall we work together?",
+      "button": "Contact us"
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "Services",
+      "title": "Automation, development, and AI, all under one team.",
+      "subtitle": "Four areas of work designed to simplify your operations and accelerate your growth."
+    },
+    "automation": {
+      "title": "Process automation",
+      "body": "We identify manual, repetitive tasks and turn them into automated workflows, connecting the tools your team already uses.",
+      "imageAlt": "Process automation illustration"
+    },
+    "webdev": {
+      "title": "Web development",
+      "body": "We build fast, functional, custom-made websites and web apps for your brand, from landing pages to full platforms.",
+      "imageAlt": "Web development illustration"
+    },
+    "ai": {
+      "title": "AI integration",
+      "body": "We embed AI into your processes and products: assistants, intelligent automations, and tools tailored to your business.",
+      "imageAlt": "AI integration illustration"
+    },
+    "marketing": {
+      "title": "Marketing",
+      "body": "A marketing team focused on measurable results.",
+      "imageAlt": "Marketing illustration",
+      "items": [
+        "Media buying",
+        "Content campaigns",
+        "Marketing strategy",
+        "Social media consulting"
+      ]
+    },
+    "cta": {
+      "title": "Let's talk about your project?",
+      "button": "Contact us"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A few of the products and tools we've built for our clients.",
+    "items": {
+      "ecommerce": {
+        "title": "Cafetal Sobre Piedra E-commerce",
+        "description": "We built and deployed an online store on our own infrastructure, with its own domain, ready to scale without relying on third-party platforms.",
+        "imageAlt": "Cafetal Sobre Piedra e-commerce dashboard"
+      },
+      "adsSync": {
+        "title": "Advertising Metrics Sync",
+        "description": "We built a tool that automatically syncs advertising campaign metrics with the team's project manager, eliminating manual reporting.",
+        "imageAlt": "Advertising metrics sync dashboard"
+      },
+      "invoiceReconciliation": {
+        "title": "Automated Invoice Reconciliation",
+        "description": "We developed a tool that processes XML invoice files and automatically reconciles payments, cutting down manual work for the accounting team.",
+        "imageAlt": "Invoice reconciliation tool dashboard"
+      },
+      "wooRedesign": {
+        "title": "Online Store Redesign",
+        "description": "We redesigned a client's online store on WordPress and WooCommerce, improving the shopping experience and how products are showcased.",
+        "imageAlt": "Online store redesign preview"
+      },
+      "caseManagement": {
+        "title": "Case Management App",
+        "description": "We built an internal case management application with data export, streamlining the team's reporting.",
+        "imageAlt": "Case management app dashboard"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your project.",
+      "subtitle": "Tell us what you need, we'll get back to you as soon as possible."
+    },
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@company.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "successTitle": "Message sent!",
+      "successMessage": "Thanks for reaching out. We'll get back to you as soon as possible.",
+      "submitError": "Something went wrong while sending your message. Please try again in a few minutes.",
+      "errors": {
+        "nameRequired": "Please enter your name.",
+        "emailRequired": "Please enter your email address.",
+        "emailInvalid": "Enter a valid email address.",
+        "messageRequired": "Please write your message."
+      }
+    },
+    "privacyNotice": "We only use your information to respond to your message — we never share it with third parties.",
+    "direct": {
+      "title": "Direct contact",
+      "email": "contact@epixcode.com",
+      "response": "We typically respond within 24 business hours."
+    }
+  },
+  "social": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "tagline": "Automation, web development, and artificial intelligence to grow your business.",
+    "navTitle": "Navigation",
+    "servicesTitle": "Services",
+    "services": ["Consulting", "Automation", "Marketing", "Applied AI"],
+    "socialTitle": "Follow us",
+    "contactTitle": "Contact",
+    "rights": "© {{year}} Epix Code. All rights reserved."
+  },
+  "whatsapp": {
+    "buttonLabel": "Chat with us on WhatsApp"
+  }
+}
