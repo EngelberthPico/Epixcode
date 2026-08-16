@@ -48,28 +48,37 @@
   "about": {
     "hero": {
       "eyebrow": "About us",
-      "title": "Technology with purpose, results that matter.",
-      "subtitle": "We're a team focused on helping businesses operate more simply, quickly, and intelligently."
+      "titlePrefix": "About",
+      "subtitle": "We turn operational complexity into competitive advantage.",
+      "paragraph1": "Epixcode was founded with a clear mission: help businesses work smarter.",
+      "paragraph2": "We combine deep process understanding with technology and automation to create efficient, scalable and future-ready operations."
     },
-    "mission": {
-      "eyebrow": "Our mission",
-      "title": "Optimize processes, free up time.",
-      "body": "At Epix Code we combine automation, web development, and artificial intelligence so businesses spend less time on repetitive tasks and more on what actually creates value.",
-      "imageAlt": "Epix Code team — AI-generated image"
+    "capabilities": {
+      "technology": {
+        "title": "Technology",
+        "items": ["Development", "Automation", "AI Integration", "Systems & Tools"]
+      },
+      "strategy": {
+        "title": "Strategy",
+        "items": ["Process Design", "Operational Strategy", "Efficiency Improvement", "Business Growth"]
+      }
     },
-    "values": {
-      "eyebrow": "How we work",
-      "title": "The principles behind every project.",
+    "principles": {
+      "title": "Our principles",
       "items": [
-        { "name": "Efficiency", "desc": "We design simple solutions that solve real problems." },
-        { "name": "Close collaboration", "desc": "We work hand in hand with every client, no middlemen." },
-        { "name": "Innovation", "desc": "We integrate the most relevant AI tools for each case." },
-        { "name": "Transparency", "desc": "Clear communication on scope, timelines, and results." }
+        {
+          "title": "Understand first",
+          "desc": "We listen, analyze and truly understand your business before acting."
+        },
+        {
+          "title": "Impact over tools",
+          "desc": "We use technology when it creates real impact, not just because it's available."
+        },
+        {
+          "title": "Long-term partner",
+          "desc": "We work with you to evolve your operations and grow together."
+        }
       ]
-    },
-    "cta": {
-      "title": "Shall we work together?",
-      "button": "Contact us"
     }
   },
   "services": {

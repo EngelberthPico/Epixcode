@@ -1,23 +1,23 @@
 <section class="contact-hero">
-  <div class="contact-hero__inner" appScrollReveal>
-    <span class="contact-hero__eyebrow">{{ 'contact.hero.eyebrow' | translate }}</span>
-    <h1 class="contact-hero__title">{{ 'contact.hero.title' | translate }}</h1>
-    <p class="contact-hero__subtitle">{{ 'contact.hero.subtitle' | translate }}</p>
-  </div>
-</section>
+  <div class="contact-hero__inner">
+    <div class="contact-hero__intro" appScrollReveal>
+      <span class="contact-hero__eyebrow">{{ 'contact.hero.eyebrow' | translate }}</span>
+      <h1 class="contact-hero__title">{{ 'contact.hero.title' | translate }}</h1>
+      <p class="contact-hero__subtitle">{{ 'contact.hero.subtitle' | translate }}</p>
 
-<section class="contact-body">
-  <div class="contact-body__inner">
+      <a class="contact-hero__direct-email" href="mailto:contact@epixcode.com">
+        <span class="contact-hero__direct-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6" />
+            <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        {{ 'contact.direct.email' | translate }}
+      </a>
 
-    <div class="contact-body__direct" appScrollReveal>
-      <h3 class="contact-body__direct-title">{{ 'contact.direct.title' | translate }}</h3>
-      <a class="contact-body__direct-email" href="mailto:contact@epixcode.com">{{
-        'contact.direct.email' | translate
-      }}</a>
-
-      <div class="contact-body__social">
+      <div class="contact-hero__social">
         <a
-          class="contact-body__social-link"
+          class="contact-hero__social-link"
           [href]="facebookUrl"
           target="_blank"
           rel="noopener"
@@ -30,7 +30,7 @@
           </svg>
         </a>
         <a
-          class="contact-body__social-link"
+          class="contact-hero__social-link"
           [href]="instagramUrl"
           target="_blank"
           rel="noopener"
@@ -44,10 +44,10 @@
         </a>
       </div>
 
-      <p class="contact-body__response">{{ 'contact.direct.response' | translate }}</p>
+      <p class="contact-hero__response">{{ 'contact.direct.response' | translate }}</p>
     </div>
-    
-    <div class="contact-body__form-col" appScrollReveal>
+
+    <div class="contact-hero__form-card" appScrollReveal>
       @if (submitted()) {
         <div class="contact-body__success" role="status" aria-live="polite">
           <h2 class="contact-body__success-title">{{ 'contact.form.successTitle' | translate }}</h2>
@@ -164,7 +164,5 @@
         </form>
       }
     </div>
-
-    
   </div>
 </section>

@@ -48,28 +48,37 @@
   "about": {
     "hero": {
       "eyebrow": "Sobre nosotros",
-      "title": "Tecnología con propósito, resultados con sentido.",
-      "subtitle": "Somos un equipo enfocado en ayudar a empresas a operar de forma más simple, rápida e inteligente."
+      "titlePrefix": "Sobre",
+      "subtitle": "Convertimos la complejidad operativa en ventaja competitiva.",
+      "paragraph1": "Epix Code nació con una misión clara: ayudar a las empresas a trabajar de forma más inteligente.",
+      "paragraph2": "Combinamos un profundo entendimiento de los procesos con tecnología y automatización para crear operaciones eficientes, escalables y preparadas para el futuro."
     },
-    "mission": {
-      "eyebrow": "Nuestra misión",
-      "title": "Optimizar procesos, liberar tiempo.",
-      "body": "En Epix Code combinamos automatización, desarrollo web e inteligencia artificial para que las empresas dediquen menos tiempo a tareas repetitivas y más a lo que realmente genera valor.",
-      "imageAlt": "Equipo Epix Code — imagen generada con IA"
+    "capabilities": {
+      "technology": {
+        "title": "Tecnología",
+        "items": ["Desarrollo", "Automatización", "Integración de IA", "Sistemas y herramientas"]
+      },
+      "strategy": {
+        "title": "Estrategia",
+        "items": ["Diseño de procesos", "Estrategia operativa", "Mejora de eficiencia", "Crecimiento del negocio"]
+      }
     },
-    "values": {
-      "eyebrow": "Cómo trabajamos",
-      "title": "Los principios detrás de cada proyecto.",
+    "principles": {
+      "title": "Nuestros principios",
       "items": [
-        { "name": "Eficiencia", "desc": "Diseñamos soluciones simples que resuelven problemas reales." },
-        { "name": "Cercanía", "desc": "Trabajamos codo a codo con cada cliente, sin intermediarios." },
-        { "name": "Innovación", "desc": "Integramos las herramientas de IA más relevantes para cada caso." },
-        { "name": "Transparencia", "desc": "Comunicación clara sobre alcance, tiempos y resultados." }
+        {
+          "title": "Entendemos primero",
+          "desc": "Escuchamos, analizamos y entendemos realmente tu negocio antes de actuar."
+        },
+        {
+          "title": "Impacto sobre herramientas",
+          "desc": "Usamos tecnología cuando genera un impacto real, no solo porque está disponible."
+        },
+        {
+          "title": "Socios a largo plazo",
+          "desc": "Trabajamos contigo para evolucionar tus operaciones y crecer juntos."
+        }
       ]
-    },
-    "cta": {
-      "title": "¿Trabajamos juntos?",
-      "button": "Contáctanos"
     }
   },
   "services": {

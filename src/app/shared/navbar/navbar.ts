@@ -6,10 +6,10 @@ import { filter, map } from 'rxjs';
 
 import { LANG_STORAGE_KEY, SUPPORTED_LANGS, SupportedLang } from '../i18n.constants';
 
-// Páginas cuyo hero es una franja oscura a pantalla completa: el navbar
-// arranca flotando transparente con texto crema y solo pasa a fondo sólido
-// al hacer scroll (ver spec de diseño de Home).
-const HERO_PAGE_PATHS = new Set(['/', '/how-it-works']);
+// Páginas cuyo hero es una franja oscura: el navbar arranca flotando
+// transparente con texto crema y solo pasa a fondo sólido al hacer scroll
+// (ver spec de diseño de Home).
+const HERO_PAGE_PATHS = new Set(['/', '/how-it-works', '/about', '/contact']);
 
 @Component({
   selector: 'app-navbar',
