@@ -8,8 +8,8 @@
       </h1>
       <p class="hero__subtitle">{{ 'home.hero.subtitle' | translate }}</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" routerLink="/services">{{ 'home.hero.ctaPrimary' | translate }} →</a>
-        <a class="btn btn--outline-light" routerLink="/contact">{{
+        <a class="btn btn--primary" [routerLink]="'/services' | langLink">{{ 'home.hero.ctaPrimary' | translate }} →</a>
+        <a class="btn btn--outline-light" [routerLink]="'/contact' | langLink">{{
           'home.hero.ctaSecondary' | translate
         }}</a>
       </div>
@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <a class="home-services__cta" routerLink="/services">{{ 'home.services.cta' | translate }} →</a>
+    <a class="home-services__cta" [routerLink]="'/services' | langLink">{{ 'home.services.cta' | translate }} →</a>
   </div>
 </section>
 
@@ -60,7 +60,7 @@
       <span class="home-about__eyebrow">{{ 'home.about.eyebrow' | translate }}</span>
       <h2 class="home-about__title">{{ 'home.about.title' | translate }}</h2>
       <p class="home-about__body">{{ 'home.about.body' | translate }}</p>
-      <a class="btn btn--outline-light" routerLink="/about">{{ 'home.about.cta' | translate }}</a>
+      <a class="btn btn--outline-light" [routerLink]="'/about' | langLink">{{ 'home.about.cta' | translate }}</a>
     </div>
   </div>
 </section>
@@ -69,6 +69,6 @@
   <div class="home-cta__inner" appScrollReveal>
     <h2 class="home-cta__title">{{ 'home.ctaBanner.title' | translate }}</h2>
     <p class="home-cta__subtitle">{{ 'home.ctaBanner.sub' | translate }}</p>
-    <a class="btn btn--primary" routerLink="/contact">{{ 'home.ctaBanner.button' | translate }}</a>
+    <a class="btn btn--primary" [routerLink]="'/contact' | langLink">{{ 'home.ctaBanner.button' | translate }}</a>
   </div>
 </section>

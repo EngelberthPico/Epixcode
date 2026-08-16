@@ -5,11 +5,11 @@ import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { routes } from './app.routes';
-import { LANG_STORAGE_KEY, SUPPORTED_LANGS, SupportedLang } from './shared/i18n.constants';
+import { SupportedLang } from './shared/i18n.constants';
+import { langFromUrl } from './shared/lang-url.util';
 
 function getInitialLang(): SupportedLang {
-  const stored = localStorage.getItem(LANG_STORAGE_KEY);
-  return SUPPORTED_LANGS.includes(stored as SupportedLang) ? (stored as SupportedLang) : 'es';
+  return langFromUrl(window.location.pathname);
 }
 
 export const appConfig: ApplicationConfig = {
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
         suffix: '.json'
       }),
       lang: getInitialLang(),
-      fallbackLang: 'es'
+      fallbackLang: 'en'
     })
   ]
 };

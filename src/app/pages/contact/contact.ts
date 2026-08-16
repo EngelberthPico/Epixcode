@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 
-import { FACEBOOK_URL, INSTAGRAM_URL } from '../../shared/social-links.constants';
+import { FACEBOOK_URL, INSTAGRAM_URL, WHATSAPP_URL } from '../../shared/social-links.constants';
 import { ScrollRevealDirective } from '../../shared/scroll-reveal.directive';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjybabqw';
@@ -18,6 +18,7 @@ export class Contact {
 
   protected readonly instagramUrl = INSTAGRAM_URL;
   protected readonly facebookUrl = FACEBOOK_URL;
+  protected readonly whatsappUrl = WHATSAPP_URL;
 
   protected readonly form = this.fb.nonNullable.group({
     name: ['', Validators.required],

@@ -82,6 +82,6 @@
 <section class="services-cta">
   <div class="services-cta__inner" appScrollReveal>
     <h2 class="services-cta__title">{{ 'services.cta.title' | translate }}</h2>
-    <a class="btn btn--primary" routerLink="/contact">{{ 'services.cta.button' | translate }}</a>
+    <a class="btn btn--primary" [routerLink]="'/contact' | langLink">{{ 'services.cta.button' | translate }}</a>
   </div>
 </section>

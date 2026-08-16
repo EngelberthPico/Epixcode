@@ -5,7 +5,7 @@
   [class.site-header--shadow]="scrolled()"
 >
   <div class="navbar__inner">
-    <a class="navbar__brand" routerLink="/" (click)="closeMenu()">
+    <a class="navbar__brand" [routerLink]="'/' | langLink" (click)="closeMenu()">
       <img class="navbar__logo" src="logo-icon.png" alt="Epix Code" />
       <span class="navbar__wordmark">epix<span class="navbar__wordmark-accent">code</span></span>
     </a>
@@ -26,7 +26,7 @@
       <ul class="navbar__links">
         <li>
           <a
-            routerLink="/"
+            [routerLink]="'/' | langLink"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             (click)="closeMenu()"
@@ -34,17 +34,17 @@
           >
         </li>
         <li>
-          <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">{{
+          <a [routerLink]="'/about' | langLink" routerLinkActive="active" (click)="closeMenu()">{{
             'nav.about' | translate
           }}</a>
         </li>
         <li>
-          <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">{{
+          <a [routerLink]="'/services' | langLink" routerLinkActive="active" (click)="closeMenu()">{{
             'nav.services' | translate
           }}</a>
         </li>
         <li>
-          <a routerLink="/how-it-works" routerLinkActive="active" (click)="closeMenu()">{{
+          <a [routerLink]="'/how-it-works' | langLink" routerLinkActive="active" (click)="closeMenu()">{{
             'nav.howItWorks' | translate
           }}</a>
         </li>
@@ -65,7 +65,7 @@
           }
         </div>
 
-        <a class="btn btn--primary navbar__cta" routerLink="/contact" (click)="closeMenu()">{{
+        <a class="btn btn--primary navbar__cta" [routerLink]="'/contact' | langLink" (click)="closeMenu()">{{
           'nav.contact' | translate
         }}</a>
       </div>

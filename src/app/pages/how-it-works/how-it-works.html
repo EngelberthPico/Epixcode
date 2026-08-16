@@ -7,7 +7,7 @@
     </h1>
     <p class="hiw-hero__subtitle" appScrollReveal>{{ 'howItWorks.hero.subtitle' | translate }}</p>
     <div class="hiw-hero__actions" appScrollReveal>
-      <a class="btn btn--primary" routerLink="/contact">{{ 'howItWorks.hero.cta' | translate }} →</a>
+      <a class="btn btn--primary" [routerLink]="'/contact' | langLink">{{ 'howItWorks.hero.cta' | translate }} →</a>
     </div>
 
     <div class="hiw-hero__features" appScrollReveal>
