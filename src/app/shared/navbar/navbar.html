@@ -1,7 +1,7 @@
 <header
   class="site-header"
-  [class.site-header--home]="isHome()"
-  [class.site-header--transparent]="isHome() && !scrolled()"
+  [class.site-header--hero]="isHeroPage()"
+  [class.site-header--transparent]="isHeroPage() && !scrolled()"
   [class.site-header--shadow]="scrolled()"
 >
   <div class="navbar__inner">
@@ -41,6 +41,11 @@
         <li>
           <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">{{
             'nav.services' | translate
+          }}</a>
+        </li>
+        <li>
+          <a routerLink="/how-it-works" routerLinkActive="active" (click)="closeMenu()">{{
+            'nav.howItWorks' | translate
           }}</a>
         </li>
       </ul>

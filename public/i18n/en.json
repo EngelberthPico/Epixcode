@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
+    "howItWorks": "How it works",
     "projects": "Projects",
     "contact": "Contact us",
     "logoAlt": "Epix Code",
@@ -106,6 +107,73 @@
     "cta": {
       "title": "Let's talk about your project?",
       "button": "Contact us"
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "eyebrow": "How it works",
+      "title1": "A simple process.",
+      "title2": "Real impact.",
+      "subtitle": "We follow a proven 3-step process to understand your business, optimize what matters, and implement solutions that drive results.",
+      "cta": "Book a free consultation",
+      "features": [
+        { "title": "Less manual work", "desc": "More time for what matters." },
+        { "title": "Lower costs", "desc": "Eliminate waste and inefficiencies." },
+        { "title": "Better results", "desc": "Smarter processes drive growth." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Our 3-step process",
+      "title": "From complexity to",
+      "titleAccent": "clarity.",
+      "subtitle": "We simplify the way your business works so you can scale with confidence.",
+      "whatYouGet": "What you get:",
+      "items": [
+        {
+          "number": "01",
+          "title": "Evaluate",
+          "highlight": "We understand your business.",
+          "desc": "We dive deep into your operations, analyze your current processes, tools and data to identify inefficiencies, bottlenecks and missed opportunities.",
+          "checklist": ["Process discovery sessions", "Current state analysis", "Opportunity report"]
+        },
+        {
+          "number": "02",
+          "title": "Optimize",
+          "highlight": "We design a better way.",
+          "desc": "We redesign your processes to eliminate waste, reduce friction and create a clear, efficient workflow aligned with your goals.",
+          "checklist": ["Optimized process map", "Workflow redesign", "Impact & ROI estimation"]
+        },
+        {
+          "number": "03",
+          "title": "Implement",
+          "highlight": "We make it happen.",
+          "desc": "We implement automation and AI solutions that fit your business, integrate with your systems and deliver measurable results.",
+          "checklist": ["Automation & AI implementation", "System integration", "Team enablement"]
+        }
+      ]
+    },
+    "journey": {
+      "eyebrow": "The transformation journey",
+      "title": "What you can expect.",
+      "items": [
+        { "title": "Kickoff", "desc": "We align on your goals and expectations." },
+        { "title": "Discovery", "desc": "We collect information and map your processes." },
+        { "title": "Insight", "desc": "We identify opportunities and prioritize impact." },
+        { "title": "Build", "desc": "We implement and test the right solutions." },
+        { "title": "Optimize", "desc": "We measure results and continuously improve." }
+      ]
+    },
+    "results": {
+      "eyebrow": "The result",
+      "title": "Measurable impact for your",
+      "titleAccent": "business.",
+      "subtitle": "Our process delivers real results that improve efficiency, reduce costs and drive sustainable growth.",
+      "stats": [
+        { "value": "-40%", "label": "Less time spent on manual tasks" },
+        { "value": "-30%", "label": "Lower operational costs" },
+        { "value": "2.5x", "label": "Increase in process efficiency" },
+        { "value": "100%", "label": "Visibility and control of operations" }
+      ]
     }
   },
   "projects": {

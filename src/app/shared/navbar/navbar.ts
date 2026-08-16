@@ -6,6 +6,11 @@ import { filter, map } from 'rxjs';
 
 import { LANG_STORAGE_KEY, SUPPORTED_LANGS, SupportedLang } from '../i18n.constants';
 
+// Páginas cuyo hero es una franja oscura a pantalla completa: el navbar
+// arranca flotando transparente con texto crema y solo pasa a fondo sólido
+// al hacer scroll (ver spec de diseño de Home).
+const HERO_PAGE_PATHS = new Set(['/', '/how-it-works']);
+
 @Component({
   selector: 'app-navbar',
   imports: [RouterLink, RouterLinkActive, TranslatePipe],
@@ -20,14 +25,12 @@ export class Navbar {
   protected readonly currentLang = this.translate.currentLang;
   protected readonly languages = SUPPORTED_LANGS;
 
-  // El hero de Home es oscuro: solo ahí el navbar arranca transparente/flotante
-  // (ver spec de diseño). En el resto de páginas el fondo es siempre sólido.
-  protected readonly isHome = toSignal(
+  protected readonly isHeroPage = toSignal(
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map((event) => event.urlAfterRedirects === '/'),
+      map((event) => HERO_PAGE_PATHS.has(event.urlAfterRedirects)),
     ),
-    { initialValue: this.router.url === '/' },
+    { initialValue: HERO_PAGE_PATHS.has(this.router.url) },
   );
 
   protected readonly scrolled = signal(typeof window !== 'undefined' && window.scrollY > 30);

@@ -3,6 +3,7 @@
     "home": "Inicio",
     "about": "Nosotros",
     "services": "Servicios",
+    "howItWorks": "Cómo trabajamos",
     "projects": "Proyectos",
     "contact": "Contáctanos",
     "logoAlt": "Epix Code",
@@ -106,6 +107,73 @@
     "cta": {
       "title": "¿Hablamos de tu proyecto?",
       "button": "Contáctanos"
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "eyebrow": "Cómo trabajamos",
+      "title1": "Un proceso simple.",
+      "title2": "Impacto real.",
+      "subtitle": "Seguimos un proceso probado de 3 pasos para entender tu negocio, optimizar lo que importa e implementar soluciones que generan resultados.",
+      "cta": "Agenda una asesoría gratuita",
+      "features": [
+        { "title": "Menos trabajo manual", "desc": "Más tiempo para lo que importa." },
+        { "title": "Costos más bajos", "desc": "Eliminamos desperdicio e ineficiencias." },
+        { "title": "Mejores resultados", "desc": "Procesos más inteligentes impulsan el crecimiento." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Nuestro proceso de 3 pasos",
+      "title": "De la complejidad a la",
+      "titleAccent": "claridad.",
+      "subtitle": "Simplificamos la forma en que opera tu negocio para que puedas crecer con confianza.",
+      "whatYouGet": "Qué incluye:",
+      "items": [
+        {
+          "number": "01",
+          "title": "Evaluamos",
+          "highlight": "Entendemos tu negocio.",
+          "desc": "Profundizamos en tus operaciones y analizamos tus procesos, herramientas y datos actuales para identificar ineficiencias, cuellos de botella y oportunidades no aprovechadas.",
+          "checklist": ["Sesiones de descubrimiento de procesos", "Análisis del estado actual", "Informe de oportunidades"]
+        },
+        {
+          "number": "02",
+          "title": "Optimizamos",
+          "highlight": "Diseñamos una mejor manera.",
+          "desc": "Rediseñamos tus procesos para eliminar desperdicio, reducir fricción y crear un flujo de trabajo claro y eficiente alineado con tus objetivos.",
+          "checklist": ["Mapa de proceso optimizado", "Rediseño de flujo de trabajo", "Estimación de impacto y ROI"]
+        },
+        {
+          "number": "03",
+          "title": "Implementamos",
+          "highlight": "Lo hacemos realidad.",
+          "desc": "Implementamos soluciones de automatización e IA a la medida de tu negocio, las integramos con tus sistemas y entregamos resultados medibles.",
+          "checklist": ["Implementación de automatización e IA", "Integración de sistemas", "Capacitación del equipo"]
+        }
+      ]
+    },
+    "journey": {
+      "eyebrow": "El viaje de transformación",
+      "title": "Qué puedes esperar.",
+      "items": [
+        { "title": "Arranque", "desc": "Alineamos objetivos y expectativas." },
+        { "title": "Descubrimiento", "desc": "Recopilamos información y mapeamos tus procesos." },
+        { "title": "Diagnóstico", "desc": "Identificamos oportunidades y priorizamos el impacto." },
+        { "title": "Construcción", "desc": "Implementamos y probamos las soluciones adecuadas." },
+        { "title": "Optimización", "desc": "Medimos resultados y mejoramos continuamente." }
+      ]
+    },
+    "results": {
+      "eyebrow": "El resultado",
+      "title": "Impacto medible para tu",
+      "titleAccent": "negocio.",
+      "subtitle": "Nuestro proceso entrega resultados reales que mejoran la eficiencia, reducen costos e impulsan un crecimiento sostenible.",
+      "stats": [
+        { "value": "-40%", "label": "Menos tiempo en tareas manuales" },
+        { "value": "-30%", "label": "Menores costos operativos" },
+        { "value": "2.5x", "label": "Aumento en eficiencia de procesos" },
+        { "value": "100%", "label": "Visibilidad y control de las operaciones" }
+      ]
     }
   },
   "projects": {
