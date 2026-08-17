@@ -297,9 +297,9 @@
   "howItWorks": {
     "hero": {
       "eyebrow": "Cómo trabajamos",
-      "title1": "Un proceso simple.",
-      "title2": "Impacto real.",
-      "subtitle": "Seguimos un proceso probado de 3 pasos para entender tu negocio, optimizar lo que importa e implementar soluciones que generan resultados.",
+      "title1": "Un proceso simple",
+      "title2": "Impacto real",
+      "subtitle": "Seguimos un proceso probado de 3 pasos para entender tu negocio, optimizar lo que importa e implementar la solución correcta — automatización, web o marketing — que genera resultados.",
       "cta": "Agenda una asesoría gratuita",
       "features": [
         {
@@ -312,14 +312,14 @@
         },
         {
           "title": "Mejores resultados",
-          "desc": "Procesos más inteligentes impulsan el crecimiento."
+          "desc": "Sistemas y estrategia más inteligentes impulsan el crecimiento."
         }
       ]
     },
     "process": {
       "eyebrow": "Nuestro proceso de 3 pasos",
       "title": "De la complejidad a la",
-      "titleAccent": "claridad.",
+      "titleAccent": "claridad",
       "subtitle": "Simplificamos la forma en que opera tu negocio para que puedas crecer con confianza.",
       "whatYouGet": "Qué incluye:",
       "items": [
@@ -327,9 +327,9 @@
           "number": "01",
           "title": "Evaluamos",
           "highlight": "Entendemos tu negocio.",
-          "desc": "Profundizamos en tus operaciones y analizamos tus procesos, herramientas y datos actuales para identificar ineficiencias, cuellos de botella y oportunidades no aprovechadas.",
+          "desc": "Profundizamos en tu negocio — operaciones, tecnología y marketing — para entender qué funciona, qué no, y dónde están las oportunidades.",
           "checklist": [
-            "Sesiones de descubrimiento de procesos",
+            "Sesiones de descubrimiento",
             "Análisis del estado actual",
             "Informe de oportunidades"
           ]
@@ -338,10 +338,11 @@
           "number": "02",
           "title": "Optimizamos",
           "highlight": "Diseñamos una mejor manera.",
-          "desc": "Rediseñamos tus procesos para eliminar desperdicio, reducir fricción y crear un flujo de trabajo claro y eficiente alineado con tus objetivos.",
+          "desc": "Diseñamos la solución correcta para tus objetivos — ya sea un proceso más ágil, un sitio web nuevo o una estrategia de marketing — y trazamos el camino para lograrlo.",
           "checklist": [
             "Mapa de proceso optimizado",
             "Rediseño de flujo de trabajo",
+            "Estrategia y diseño",
             "Estimación de impacto y ROI"
           ]
         },
@@ -349,26 +350,26 @@
           "number": "03",
           "title": "Implementamos",
           "highlight": "Lo hacemos realidad.",
-          "desc": "Implementamos soluciones de automatización e IA a la medida de tu negocio, las integramos con tus sistemas y entregamos resultados medibles.",
+          "desc": "Lo hacemos realidad — automatización e IA, un sitio web nuevo o una campaña de marketing — construido a la medida de tu negocio y con resultados medibles.",
           "checklist": [
             "Implementación de automatización e IA",
-            "Integración de sistemas",
+            "Integración de sistemas y canales",
             "Capacitación del equipo"
           ]
         }
       ]
     },
     "journey": {
-      "eyebrow": "El viaje de transformación",
-      "title": "Qué puedes esperar.",
+      "eyebrow": "El proceso de transformación",
+      "title": "Qué puedes esperar",
       "items": [
         {
-          "title": "Arranque",
+          "title": "Inicio",
           "desc": "Alineamos objetivos y expectativas."
         },
         {
           "title": "Descubrimiento",
-          "desc": "Recopilamos información y mapeamos tus procesos."
+          "desc": "Recopilamos información y entendemos cómo funciona tu negocio."
         },
         {
           "title": "Diagnóstico",
@@ -387,7 +388,7 @@
     "results": {
       "eyebrow": "El resultado",
       "title": "Impacto medible para tu",
-      "titleAccent": "negocio.",
+      "titleAccent": "negocio",
       "subtitle": "Nuestro proceso entrega resultados reales que mejoran la eficiencia, reducen costos e impulsan un crecimiento sostenible.",
       "stats": [
         {
@@ -400,11 +401,11 @@
         },
         {
           "value": "2.5x",
-          "label": "Aumento en eficiencia de procesos"
+          "label": "Aumento en eficiencia, de procesos a campañas"
         },
         {
           "value": "100%",
-          "label": "Visibilidad y control de las operaciones"
+          "label": "Visibilidad y control de todo tu negocio"
         }
       ]
     }

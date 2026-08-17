@@ -297,9 +297,9 @@
   "howItWorks": {
     "hero": {
       "eyebrow": "How it works",
-      "title1": "A simple process.",
-      "title2": "Real impact.",
-      "subtitle": "We follow a proven 3-step process to understand your business, optimize what matters, and implement solutions that drive results.",
+      "title1": "A simple process",
+      "title2": "Real impact",
+      "subtitle": "We follow a proven 3-step process to understand your business, optimize what matters, and implement the right solutions — automation, web or marketing — that drive results.",
       "cta": "Book a free consultation",
       "features": [
         {
@@ -312,14 +312,14 @@
         },
         {
           "title": "Better results",
-          "desc": "Smarter processes drive growth."
+          "desc": "Smarter systems and strategy drive growth."
         }
       ]
     },
     "process": {
       "eyebrow": "Our 3-step process",
       "title": "From complexity to",
-      "titleAccent": "clarity.",
+      "titleAccent": "clarity",
       "subtitle": "We simplify the way your business works so you can scale with confidence.",
       "whatYouGet": "What you get:",
       "items": [
@@ -327,9 +327,9 @@
           "number": "01",
           "title": "Evaluate",
           "highlight": "We understand your business.",
-          "desc": "We dive deep into your operations, analyze your current processes, tools and data to identify inefficiencies, bottlenecks and missed opportunities.",
+          "desc": "We dive deep into your business — operations, technology and marketing — to understand what's working, what's not, and where the opportunities are.",
           "checklist": [
-            "Process discovery sessions",
+            "Discovery sessions",
             "Current state analysis",
             "Opportunity report"
           ]
@@ -338,10 +338,11 @@
           "number": "02",
           "title": "Optimize",
           "highlight": "We design a better way.",
-          "desc": "We redesign your processes to eliminate waste, reduce friction and create a clear, efficient workflow aligned with your goals.",
+          "desc": "We design the right solution for your goals — whether that means a leaner process, a new website or a marketing strategy — and map out how to get there.",
           "checklist": [
-            "Optimized process map",
+            "Solution roadmap",
             "Workflow redesign",
+            "Strategy & design",
             "Impact & ROI estimation"
           ]
         },
@@ -349,18 +350,18 @@
           "number": "03",
           "title": "Implement",
           "highlight": "We make it happen.",
-          "desc": "We implement automation and AI solutions that fit your business, integrate with your systems and deliver measurable results.",
+          "desc": "We bring it to life — automation and AI, a new website, or a marketing campaign — built to fit your business and deliver measurable results.",
           "checklist": [
-            "Automation & AI implementation",
-            "System integration",
+            "Build & launch",
+            "System & channel integration",
             "Team enablement"
           ]
         }
       ]
     },
     "journey": {
-      "eyebrow": "The transformation journey",
-      "title": "What you can expect.",
+      "eyebrow": "The process journey",
+      "title": "What you can expect",
       "items": [
         {
           "title": "Kickoff",
@@ -368,7 +369,7 @@
         },
         {
           "title": "Discovery",
-          "desc": "We collect information and map your processes."
+          "desc": "We collect information and understand how your business runs."
         },
         {
           "title": "Insight",
@@ -387,7 +388,7 @@
     "results": {
       "eyebrow": "The result",
       "title": "Measurable impact for your",
-      "titleAccent": "business.",
+      "titleAccent": "business",
       "subtitle": "Our process delivers real results that improve efficiency, reduce costs and drive sustainable growth.",
       "stats": [
         {
@@ -400,11 +401,11 @@
         },
         {
           "value": "2.5x",
-          "label": "Increase in process efficiency"
+          "label": "Increase in efficiency, from processes to campaigns"
         },
         {
           "value": "100%",
-          "label": "Visibility and control of operations"
+          "label": "Visibility and control across your business"
         }
       ]
     }
