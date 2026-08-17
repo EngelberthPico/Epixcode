@@ -7,6 +7,7 @@ import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
 import { WhatsappButton } from './shared/whatsapp-button/whatsapp-button';
 import { langFromUrl } from './shared/lang-url.util';
+import { syncSeoTags } from './shared/seo.util';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ export class App {
           this.translate.use(lang);
         }
         document.documentElement.lang = lang;
+        syncSeoTags(event.urlAfterRedirects);
       });
   }
 }

@@ -1,9 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'styles/variables' as *;
 
-// Bootstrap — solo CSS (grid y utilidades). No se importa bootstrap.bundle.js.
-@use 'bootstrap/scss/bootstrap';
-
 // Tipografía de marca — Poppins en todo el sitio. La jerarquía entre
 // títulos y texto se marca con peso (bold en títulos, regular/medium en
 // texto) y tamaño, no con familias distintas.

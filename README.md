@@ -1,59 +1,76 @@
-# Epixcode
+# Epix Code — epixcode.com
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.5.
+Sitio web corporativo de **Epix Code**, empresa de automatización de procesos, desarrollo web e integración de inteligencia artificial (con un departamento de marketing complementario). Angular standalone, bilingüe (inglés/español), compilado como sitio 100% estático y desplegado en Hostinger sin backend propio.
 
-## Development server
+Las reglas de negocio, marca y seguridad obligatorias del proyecto viven en [`CLAUDE.md`](./CLAUDE.md) — léelo antes de tocar contenido, colores, formularios o rutas.
 
-To start a local development server, run:
+## Stack
 
-```bash
-ng serve
-```
+- **Angular 22** (standalone components, sin SSR) + TypeScript
+- **SCSS** con variables de marca propias (`src/styles/_variables.scss`) — sin Bootstrap ni ningún framework de UI
+- **Angular Router**, una ruta por sección, con revelado al hacer scroll vía `ScrollRevealDirective` (`appScrollReveal`)
+- **@ngx-translate** para el bilingüe (JSON en `public/i18n/`), con el idioma resuelto desde la URL (ver abajo), no desde `localStorage`
+- **Reactive Forms** para el formulario de contacto, enviado a un endpoint externo (Formspree), con honeypot anti-spam
+- **Vitest** para pruebas unitarias
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Cómo correr el proyecto
 
 ```bash
-ng generate --help
+npm install
+npm start          # ng serve — http://localhost:4200
 ```
-
-## Building
-
-To build the project run:
 
 ```bash
-ng build
+npm run build       # build de desarrollo, dist/epixcode/
+npm test            # pruebas unitarias con Vitest
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Para el build que se sube a Hostinger, usa siempre la configuración de producción (ver sección de despliegue):
 
 ```bash
-ng test
+ng build --configuration production
 ```
 
-## Running end-to-end tests
+## Estructura del proyecto
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```
+src/
+  app/
+    app.routes.ts         # rutas EN/ES (ver "Idioma y rutas" abajo)
+    app.ts                 # sincroniza idioma + SEO en cada navegación
+    pages/                 # una carpeta por sección: home, about, services,
+                            # how-it-works, contact, projects (en pausa)
+    shared/
+      lang-url.util.ts      # única fuente de verdad del prefijo /es
+      lang-link.pipe.ts     # pipe `| langLink` para routerLink internos
+      seo.util.ts           # canonical + hreflang dinámicos por ruta
+      scroll-reveal.directive.ts
+      navbar/ footer/ whatsapp-button/ image-placeholder/
+  styles/
+    _variables.scss         # $color-crema, $color-negro, $color-oliva, tipografía
+  styles.scss                # estilos globales (botones, scroll-reveal, etc.)
+public/
+  i18n/en.json, es.json      # textos del sitio en ambos idiomas
+  .htaccess                  # HTTPS forzado, fallback SPA, cabeceras de seguridad
+  logo*.png, Fondo*.png       # assets de marca
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Idioma y rutas
 
-## Additional Resources
+El español vive bajo el prefijo `/es/*` (ej. `/es/services`); el inglés es la ruta "desnuda" (ej. `/services`), y es el idioma por defecto. La URL es la **única** fuente de verdad del idioma activo — no se guarda preferencia en `localStorage` — para que cada campaña de ads pueda apuntar a un link fijo por idioma y siempre aterrice donde corresponde.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `shared/lang-url.util.ts` — helpers `langFromUrl` / `stripLangPrefix` / `withLang`.
+- `shared/lang-link.pipe.ts` — pipe `| langLink` usado en todo `routerLink` interno para que el link generado respete el idioma actual.
+- `app.routes.ts` — cada nivel (raíz y `/es`) tiene su propio wildcard `**`, en el orden correcto, para que una URL rota bajo `/es/*` caiga de vuelta en `/es` y no cruce a inglés.
+- `app.ts` — en cada navegación sincroniza `ngx-translate`, `document.documentElement.lang` y, vía `shared/seo.util.ts`, las etiquetas `canonical`/`hreflang` para que Google entienda que cada página y su equivalente en el otro idioma son la misma página.
+
+La ruta `/projects` está **en pausa**: el componente existe en `src/app/pages/projects/` pero no está enlazado en el navbar ni en `app.routes.ts`. No se borra — se reactiva cuando el usuario lo pida explícitamente.
+
+## Despliegue (Hostinger)
+
+1. `ng build --configuration production` genera el sitio estático en `dist/epixcode/browser/`.
+2. Sube el contenido de esa carpeta a la raíz pública del hosting (plan Single, tipo PHP/HTML).
+3. Verifica que `public/.htaccess` haya viajado con el build (fuerza HTTPS, hace el fallback de rutas de Angular Router a `index.html`, y agrega cabeceras de seguridad básicas).
+4. El dominio y el correo corporativo se gestionan por separado vía Google Workspace — no forman parte de este repo.
+
+No hay base de datos, autenticación de usuarios ni backend propio en esta fase — ver "Qué NO construir en esta fase" en `CLAUDE.md`.

@@ -20,8 +20,16 @@ const pageRoutes: Routes = [
 // cada campaña de ads puede apuntar a un link distinto por idioma. Ver
 // shared/lang-url.util.ts, que es la única fuente de verdad de este
 // prefijo (el idioma activo lo determina la URL, no localStorage).
+//
+// Cada nivel tiene su propio wildcard, y el de nivel superior va DESPUÉS
+// de 'es': un redirectTo relativo se resuelve contra el punto del árbol
+// donde está definido, así que /es/lo-que-sea-roto cae en /es (español) en
+// vez de saltar a / (inglés) — pero solo si Angular llega a intentar la
+// ruta 'es' antes que el wildcard raíz. Si el wildcard raíz fuera el
+// primero (o si ambos niveles compartieran el mismo array con el wildcard
+// incluido), atraparía /es/* también y rompería el idioma en cualquier 404.
 export const routes: Routes = [
   ...pageRoutes,
-  { path: 'es', children: pageRoutes },
+  { path: 'es', children: [...pageRoutes, { path: '**', redirectTo: '' }] },
   { path: '**', redirectTo: '' },
 ];
