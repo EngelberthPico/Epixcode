@@ -7,7 +7,7 @@ import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
 import { WhatsappButton } from './shared/whatsapp-button/whatsapp-button';
 import { langFromUrl } from './shared/lang-url.util';
-import { syncSeoTags } from './shared/seo.util';
+import { seoKeyForPath, syncSeoTags } from './shared/seo.util';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +28,24 @@ export class App {
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event) => {
-        const lang = langFromUrl(event.urlAfterRedirects);
+        const url = event.urlAfterRedirects;
+        const lang = langFromUrl(url);
         if (this.translate.currentLang() !== lang) {
           this.translate.use(lang);
         }
         document.documentElement.lang = lang;
-        syncSeoTags(event.urlAfterRedirects);
+
+        // Se pide la traducción explícitamente en `lang` (en vez de
+        // depender de currentLang()/instant()) porque get() espera a que
+        // el loader HTTP resuelva ese idioma, incluso en la primera
+        // navegación antes de que el JSON haya llegado.
+        const seoKey = seoKeyForPath(url);
+        this.translate.get([`seo.${seoKey}.title`, `seo.${seoKey}.description`], undefined, lang).subscribe((t) => {
+          syncSeoTags(url, {
+            title: t[`seo.${seoKey}.title`],
+            description: t[`seo.${seoKey}.description`],
+          });
+        });
       });
   }
 }

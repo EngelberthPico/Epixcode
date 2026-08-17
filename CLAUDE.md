@@ -64,9 +64,10 @@ Header set Referrer-Policy "strict-origin-when-cross-origin"
 - Al final, generar las imágenes reales y reemplazar los placeholders uno por uno.
 
 ### 10. SEO básico (index.html + rutas)
-- `src/index.html` trae `meta description`, Open Graph y Twitter Card estáticos — es lo único que ven los bots que no ejecutan JavaScript (vistas previas de WhatsApp/Slack/redes al compartir un link), así que si cambia el copy principal del Home o el dominio, hay que actualizarlos ahí también.
-- `src/app/shared/seo.util.ts` sincroniza `canonical` y `hreflang` (`en`/`es`/`x-default`) en cada navegación, para que Google entienda que cada página y su par en el otro idioma (ej. `/services` y `/es/services`) son la misma página en dos idiomas, no contenido duplicado. Si cambia el dominio de producción, actualizar la constante `SITE_URL` ahí (y las URLs hardcodeadas en `index.html`).
-- Si se agrega una ruta nueva, no hace falta tocar `seo.util.ts` — deriva la URL de la ruta actual automáticamente.
+- `src/index.html` trae `title`, `meta description`, Open Graph y Twitter Card estáticos — es lo único que ven los bots que no ejecutan JavaScript (vistas previas de WhatsApp/Slack/redes al compartir un link). Esos bots **nunca** ven el valor por-ruta que pone `seo.util.ts` (ver abajo), así que este bloque estático se queda fijo en el copy de Home en inglés a propósito; si cambia el copy principal del Home o el dominio, hay que actualizarlo aquí también.
+- `src/app/shared/seo.util.ts` sincroniza, en cada navegación: `canonical` + `hreflang` (`en`/`es`/`x-default`, para que Google entienda que cada página y su par en el otro idioma —ej. `/services` y `/es/services`— son la misma página en dos idiomas, no contenido duplicado) **y también** `<title>`, `meta[name=description]`, Open Graph y Twitter Card, tomando el copy de `seo.<key>.title` / `seo.<key>.description` en `public/i18n/{en,es}.json` según la ruta actual (mapeo en `SEO_KEY_BY_PATH` dentro del propio archivo). Esto sí lo ve Googlebot (renderiza JS) y la pestaña del navegador — pero no los bots de vista previa social, que solo leen el bloque estático de `index.html` de arriba, sin importar la ruta compartida. Resolver eso del todo requeriría SSR/prerender, fuera de alcance mientras el sitio sea 100% estático en Hostinger.
+- Si cambia el dominio de producción, actualizar la constante `SITE_URL` en `seo.util.ts` (y las URLs hardcodeadas en `index.html`).
+- Si se agrega una ruta nueva a `app.routes.ts`, sí hay que tocar `seo.util.ts`: agregar su entrada a `SEO_KEY_BY_PATH` y su bloque `seo.<key>.{title,description}` en ambos JSON — si no, cae al fallback `'home'`.
 
 ## Qué NO construir en esta fase
 
@@ -138,7 +139,7 @@ Mostrar ejemplos de trabajo realizado en tono de empresa ("hemos desarrollado", 
 ## Navegación: rutas separadas por sección (Angular Router)
 - `/` — Home / Hero
 - `/about` — Sobre nosotros
-- `/services` — Servicios (hero con imagen propia + acordeón de 5 categorías, ver "Página de Servicios" abajo)
+- `/services` — Servicios (sin hero de imagen, tabs Optimization&AI/Marketing + acordeón de 6 categorías, ver "Página de Servicios" abajo)
 - `/how-it-works` — Cómo trabajamos (proceso de 3 pasos + journey + resultados)
 - `/contact` — Contacto
 - Cada ruta existe también bajo `/es/*` (ver "Idioma" arriba) — no como entradas separadas en `app.routes.ts`, sino como children de una ruta `es` que reutiliza el mismo array de páginas.
@@ -159,15 +160,16 @@ Si se necesitan más colores (estados hover, fondos secundarios, sombras, etc.),
 Definir estos tres colores como variables SCSS (`$color-crema`, `$color-negro`, `$color-oliva`) en un archivo central de estilos (ej. `_variables.scss`) para reutilizarlos en todo el proyecto de forma consistente.
 
 ### Logo
-- Assets de marca en `public/`: `logo-icon.png` / `logo-icon-transparent.png` (isotipo, usado como favicon) y `logofondonegro.png` (logo completo sobre fondo negro, usado en navbar/footer sobre fondo oscuro y como imagen de Open Graph).
+- Assets de marca en `public/`: `logo-icon.png` (isotipo, usado como favicon) y `logofondonegro.png` (logo completo sobre fondo negro, usado en navbar/footer sobre fondo oscuro y como imagen de Open Graph). `logo-icon-transparent.png` se quitó del repo por no usarse en ningún componente (verificado con grep antes de borrarlo).
 - Basar cualquier elemento visual adicional (iconografía, estilo de las imágenes generadas con IA del punto 9 de seguridad) en el estilo y los colores del logo, para mantener consistencia de marca.
 
 ### Imágenes de fondo por sección (no placeholders — ya son las reales)
 - `FondoHero.png` — hero de Home.
-- `Fondohiw1.png` / `Fondohiw2.png` — hero y otra franja de Cómo trabajamos.
-- `FondoHeroServices.png` — hero de Servicios.
+- `Fondohiw1.png` — hero de Cómo trabajamos. (`Fondohiw2.png` se quitó del repo: se preparó para una segunda franja de esa página que nunca se usó en el código — verificado con grep antes de borrarlo.)
 - `FondoCta.png` — banner de CTA final ("Ready to work smarter?"), compartido entre Home y Servicios (ver "Banner de CTA compartido" abajo). El archivo de diseño original traía dos fotos de personas superpuestas — se pidió explícitamente no usarlas; el fondo que se integró es solo la textura/onda oliva, sin fotos.
+- Servicios (`/services`) **no tiene imagen de fondo** — se le quitó el hero por completo (ver "Página de Servicios" abajo); `FondoHeroServices.png` se quitó del repo por quedar sin usar.
 - Si se agrega una imagen de fondo nueva para otra página, seguir la convención de nombre `Fondo<Sección>.png` en `public/` (mayúscula inicial, sin espacios).
+- **Ojo con el case del nombre de archivo:** macOS (donde se desarrolla) no distingue mayúsculas/minúsculas en el filesystem, pero git sí las registra tal cual, y Hostinger corre Linux (sí distingue). Ya se corrigió un caso real donde git tenía `Fondocta.png`/`fondoheroservices.png` en su índice mientras el archivo en disco (y las referencias en el código, `url('/FondoCta.png')`) usaban otro case — invisible en local, hubiera roto la imagen en producción. Si se renombra solo el case de un archivo (`git mv viejo.png Viejo.png`), confirmar después con `git ls-files public/` que el case coincide exactamente con el que usa el código.
 
 ## Decisiones ya resueltas (quedan aquí como referencia, no reabrir sin pedido explícito)
 - [x] Paleta de colores — crema/negro/oliva (ver "Identidad visual" arriba).
@@ -176,7 +178,7 @@ Definir estos tres colores como variables SCSS (`$color-crema`, `$color-negro`, 
 - [x] Textos de "Sobre nosotros" y "Servicios" — reescritos y finalizados en `public/i18n/es.json` / `en.json`; el texto de partida de este documento (sección 2/3 arriba) es histórico, no la copia real del sitio.
 - [x] Icono del sitio — Lucide (paths copiados a mano, ver regla de seguridad #6), reemplazando los SVG dibujados a mano de la primera versión.
 - [x] Banner de CTA ("Ready to work smarter? / Let's optimize your processes.") — **sí va**, al final de Home y de Servicios (y candidato a agregarse a más páginas), tarjeta completa como link a `https://calendly.com/epixcode/freediagnosticcall`. Hubo una instrucción explícita anterior de NO agregarlo que luego se revirtió; tratar esta versión como la definitiva salvo nueva instrucción.
-- [x] Página de Servicios — rediseñada por completo (ya no es el layout viejo de filas imagen/texto alternadas). Hero con imagen propia (`FondoHeroServices.png`) igual de alto que los demás hero del sitio, luego 5 tarjetas tipo acordeón (Process Evaluation, Process Optimization, Automation & AI, Business Consulting, Marketing), cada una con 3–4 sub-ítems con ícono. Ver "Página de Servicios (acordeón)" abajo para el detalle de implementación.
+- [x] Página de Servicios — rediseñada por completo (ya no es el layout viejo de filas imagen/texto alternadas, y ya tampoco tiene el hero de imagen que tuvo en una iteración intermedia — se quitó a pedido explícito, junto con `FondoHeroServices.png`). Ahora es una intro de texto + tabs (Optimization & AI / Marketing) + tarjetas tipo acordeón por tab. Ver "Página de Servicios (acordeón)" abajo para el detalle de implementación.
 
 ## Banner de CTA compartido (Home + Servicios)
 El banner verde de cierre vive en dos páginas con el mismo contenido, mismo link de Calendly y mismo fondo (`FondoCta.png`), así que su copy se movió a una clave de traducción compartida en vez de duplicarse por página:
@@ -185,12 +187,13 @@ El banner verde de cierre vive en dos páginas con el mismo contenido, mismo lin
 - Toda la tarjeta es un único `<a>` externo a Calendly — el botón visual interno tiene `pointer-events: none`.
 - **Contacto NO usa este banner** — se probó (ver commit revertido) y el usuario prefirió, en su lugar, un botón simple `btn btn--primary` a Calendly justo debajo del texto de tiempo de respuesta (`contact.direct.response`), dentro de `.contact-hero__intro`. Clave i18n: `contact.direct.calendlyButton`. No reintroducir el banner ahí sin que se pida explícitamente.
 
-## Página de Servicios (acordeón)
-- Componente: `src/app/pages/services/services.ts`. Estado de apertura/cierre por tarjeta con un signal `openCategories = signal<ReadonlySet<number>>(...)` (arranca con las 5 abiertas, como en el diseño de referencia) y los métodos `isOpen(i)` / `toggle(i)` — nada de librerías de acordeón ni JS de terceros (ver regla de seguridad #6).
+## Página de Servicios (tabs + acordeón)
+- Componente: `src/app/pages/services/services.ts`. Sin hero de imagen — la página arranca directo con `.services-intro` (texto centrado) y no está en `HERO_PAGE_PATHS` de `navbar.ts`, así que el navbar es sticky normal ahí, no flotante transparente.
+- 6 categorías en total, repartidas en 2 tabs con un signal `activeTab = signal<ServicesTab>('automation')` / `setTab(tab)`: índices 0–3 bajo "Optimization & AI" (Process Evaluation, Process Optimization, Automation & AI, Business Consulting), índices 4–5 bajo "Marketing" (Web Design & Development, Marketing) — el desarrollo web vive bajo el tab de Marketing, no el de Optimization & AI.
+- Estado de apertura/cierre por tarjeta con un signal `openCategories = signal<ReadonlySet<number>>(new Set())` — **arrancan todas cerradas** (no abiertas como en una iteración anterior) y los métodos `isOpen(i)` / `toggle(i)` alternan cada tarjeta de forma independiente, no es un acordeón exclusivo de "una sola abierta a la vez" — nada de librerías de acordeón ni JS de terceros (ver regla de seguridad #6).
 - Cada cabecera de categoría es un `<button>` (no un `<div>` con click) por accesibilidad — título y descripción van en `<span>` (no `<h3>`/`<p>`) porque esos bloques no son contenido válido dentro de un `<button>`; el apilado vertical se logra con `display:flex; flex-direction:column` en el contenedor, no con los elementos en sí.
 - El colapsable usa el truco de `grid-template-rows: 0fr → 1fr` con transición (no `max-height`), porque anima a la altura real del contenido sin tener que calcularla en JS. Requiere un wrapper con `overflow:hidden; min-height:0` adentro.
-- El grid de sub-ítems usa `grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))`, no un número fijo de columnas — así categorías con 3 ítems y la de Marketing (con 4) se acomodan solas sin dejar hueco.
-- La altura del hero de Servicios se igualó a la de About/Cómo trabajamos (~578–612px medidos en desktop) con `min-height: 37.5rem; display:flex; align-items:center` en vez de agregarle contenido extra que no está en el diseño — si se agrega un hero nuevo sin contenido bajo el título, replicar esta técnica en vez de adivinar con padding.
+- El grid de sub-ítems usa `grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))`, no un número fijo de columnas — así categorías con distinta cantidad de ítems se acomodan solas sin dejar hueco.
 
 ## Reset global (`styles.scss`)
 El navegador pone ~8px de margin por defecto al `<body>`; sin resetearlo se veía como un borde alrededor de todo el sitio (bug real, ya corregido). `styles.scss` ya tiene `* { box-sizing: border-box; } html, body { margin: 0; padding: 0; }` al principio — no quitarlo.

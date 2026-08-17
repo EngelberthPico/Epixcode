@@ -16,9 +16,13 @@
 
   <!-- Canonical + hreflang por defecto (home). Angular los actualiza en
        cada navegación via shared/seo.util.ts para reflejar la página
-       actual; estos valores estáticos son el fallback que ven los bots
-       que no ejecutan JavaScript (ej. Facebook/WhatsApp/Slack al generar
-       la vista previa de un link). -->
+       actual — igual que <title>, meta description y Open Graph/Twitter
+       más abajo. Estos valores estáticos son el fallback que ven los bots
+       que NO ejecutan JavaScript: Googlebot sí renderiza JS y ve el valor
+       actualizado por ruta, pero los bots de vista previa social
+       (Facebook/WhatsApp/Slack/Twitter) no lo ejecutan y siempre leerán
+       este bloque estático (inglés, contenido de Home) sin importar la
+       página compartida — solo se resuelve con SSR/prerender. -->
   <link rel="canonical" href="https://epixcode.com/">
   <link rel="alternate" hreflang="en" href="https://epixcode.com/">
   <link rel="alternate" hreflang="es" href="https://epixcode.com/es">

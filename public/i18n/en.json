@@ -12,6 +12,28 @@
     "toggleMenuClose": "Close navigation menu",
     "languageSwitcher": "Switch language"
   },
+  "seo": {
+    "home": {
+      "title": "Epix Code — Process Automation, Web Development & AI Integration",
+      "description": "We evaluate your business, identify inefficiencies, and design smarter processes powered by automation and AI to deliver real, measurable results."
+    },
+    "about": {
+      "title": "About Us | Epix Code",
+      "description": "Epix Code combines process expertise with web development, automation, AI integration and marketing to help your business run smarter and grow faster."
+    },
+    "services": {
+      "title": "Our Services | Epix Code",
+      "description": "End-to-end solutions to optimize your business: process evaluation, automation, AI integration, business consulting and marketing."
+    },
+    "howItWorks": {
+      "title": "How It Works | Epix Code",
+      "description": "We follow a proven 3-step process to evaluate your business, optimize what matters, and implement automation, web or marketing solutions that drive results."
+    },
+    "contact": {
+      "title": "Contact Us | Epix Code",
+      "description": "Tell us what you need — we'll get back to you within 24 business hours. Book a free consultation with our team."
+    }
+  },
   "common": {
     "cta": {
       "title": "Ready to work smarter?",
