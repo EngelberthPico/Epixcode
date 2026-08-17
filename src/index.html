@@ -11,6 +11,15 @@
   <link rel="apple-touch-icon" href="favicon-512.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Analytics 4 (gtag.js, ID G-G32X4QK32J) NO está hardcodeado
+       acá a propósito: este archivo es el mismo en dev y producción (no
+       pasa por fileReplacements), así que una etiqueta estática cargaría
+       también en `ng serve` local. Se inyecta en este <head> en tiempo de
+       ejecución desde shared/analytics.service.ts, solo cuando
+       environment.production es true. Ese mismo servicio dispara el
+       evento page_view a mano en cada NavigationEnd (config inicial trae
+       send_page_view:false). -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
@@ -47,6 +56,24 @@
   <meta name="twitter:title" content="Epix Code — Automation, Web Development & AI Integration">
   <meta name="twitter:description" content="We help businesses optimize their processes through automation, web development, and AI integration.">
   <meta name="twitter:image" content="https://epixcode.com/og-share-image.png">
+
+  <!-- JSON-LD Organization: le da a Google datos estructurados de la marca
+       (nombre, logo, redes) para el knowledge panel / rich results. Estático
+       a propósito, no cambia por ruta ni por idioma. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Epix Code",
+      "url": "https://epixcode.com/",
+      "logo": "https://epixcode.com/logofondonegro.png",
+      "email": "contact@epixcode.com",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61593194379351",
+        "https://www.instagram.com/epix.code/"
+      ]
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>

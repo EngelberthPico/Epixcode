@@ -6,6 +6,7 @@ import { filter } from 'rxjs';
 import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
 import { WhatsappButton } from './shared/whatsapp-button/whatsapp-button';
+import { AnalyticsService } from './shared/analytics.service';
 import { langFromUrl } from './shared/lang-url.util';
 import { seoKeyForPath, syncSeoTags } from './shared/seo.util';
 
@@ -18,6 +19,9 @@ import { seoKeyForPath, syncSeoTags } from './shared/seo.util';
 export class App {
   private readonly router = inject(Router);
   private readonly translate = inject(TranslateService);
+  // Solo instanciarlo ya activa su tracking de page_view (ver
+  // shared/analytics.service.ts) — no hace falta llamar ningún método.
+  private readonly analytics = inject(AnalyticsService);
 
   constructor() {
     // La URL es la única fuente de verdad del idioma (ver

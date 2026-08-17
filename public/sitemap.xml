@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Cubre las 5 rutas reales del sitio (ver src/app/app.routes.ts) en sus dos
+  idiomas (EN en la ruta desnuda, ES bajo /es/*, ver
+  src/app/shared/lang-url.util.ts). Cada <url> trae sus 3 xhtml:link de
+  hreflang (en/es/x-default), igual que src/app/shared/seo.util.ts hace en
+  tiempo de ejecución vía canonical/hreflang — así Google entiende que cada
+  par EN/ES es la misma página en dos idiomas, no contenido duplicado.
+
+  /projects queda fuera a propósito: está en pausa, no enlazada en el
+  navbar ni en app.routes.ts (ver CLAUDE.md).
+
+  Si se agrega una ruta nueva a app.routes.ts, agregar aquí su par EN/ES
+  también.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://epixcode.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/" />
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://epixcode.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/" />
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://epixcode.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://epixcode.com/es/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epixcode.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://epixcode.com/es/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epixcode.com/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/how-it-works" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/how-it-works" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/how-it-works" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://epixcode.com/es/how-it-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/how-it-works" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/how-it-works" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/how-it-works" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://epixcode.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://epixcode.com/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://epixcode.com/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://epixcode.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://epixcode.com/contact" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

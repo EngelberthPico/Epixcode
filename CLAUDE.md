@@ -50,30 +50,41 @@ Este documento define el contexto y las reglas obligatorias para construir este 
 - Si el formulario de contacto recoge nombre, correo u otro dato personal, incluir una línea breve y visible indicando para qué se usarán esos datos (ej. "Solo usamos tu información para responder tu mensaje, nunca la compartimos con terceros").
 - No es necesario citar ninguna ley específica en el sitio en esta etapa — un aviso claro y honesto es suficiente para un sitio pequeño que recién arranca. Si el negocio crece y maneja datos de muchos clientes en California, valdría la pena revisar en ese momento si aplica la CCPA (California Consumer Privacy Act) con un abogado. Esto no es asesoría legal, es orientación general.
 
-### 8. Cabeceras de seguridad (si se genera `.htaccess`)
+### 8. Cabeceras de seguridad (`public/.htaccess`, ya implementadas)
 ```
 Header set X-Content-Type-Options "nosniff"
 Header set X-Frame-Options "SAMEORIGIN"
 Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; object-src 'none'; base-uri 'self';"
 ```
+- La CSP se verificó en navegador (build de producción, sin violaciones en consola) contra lo que el sitio realmente carga: gtag.js de GA4, la hoja de Google Fonts + sus `.woff2`, el `fetch` del formulario a Formspree, y el `<style>` que Angular inyecta por componente (de ahí el `'unsafe-inline'` en `style-src` — este hosting estático no puede generar un nonce por request).
+- Si se agrega un script/dominio de terceros nuevo (otro pixel, un embed, etc.), hay que sumarlo a la directiva de CSP correspondiente en `.htaccess` **y volver a probar en navegador** (revisar la consola por `Refused to ...` / `Content-Security-Policy`) — no asumir que va a funcionar solo por agregarlo al código.
+- `.htaccess` también trae compresión (`mod_deflate`) y cache (`mod_expires` + `Cache-Control`): el bundle de Angular (`main-*.js`/`styles-*.css`, con hash de contenido por `outputHashing:"all"`) se cachea un año como `immutable`; `index.html` nunca se cachea (para que un redeploy se vea de inmediato); imágenes/favicon se cachean 1 mes.
 
-### 9. Imágenes generadas con IA
-- El sitio usará imágenes generadas con IA para su identidad visual.
-- **Dejar la generación de imágenes reales para el final del proyecto**, para no agotar límites de uso/tokens a mitad de la construcción del resto del sitio.
-- Mientras se construye la estructura y el contenido, usar imágenes de marcador de posición (por ejemplo, bloques de color sólido o un servicio como `https://placehold.co/`).
-- Al final, generar las imágenes reales y reemplazar los placeholders uno por uno.
+### 9. Imágenes de marca
+- El sitio usa imágenes generadas con IA para su identidad visual (fondos de sección) más los assets de logo.
+- **Formato según transparencia**: los fondos de sección son opacos (sin canal alpha) y van en **JPEG** (~85% de calidad vía `sips -s format jpeg -s formatOptions 85`) — un PNG para una imagen fotográfica/con degradados pesa 5-10x más sin ganar nada, ya que no hay transparencia que preservar. Los logos (`logo-icon.png`, `logofondonegro.png`, `favicon-512.png`) sí tienen alpha y se quedan en PNG. Antes de convertir una imagen nueva, comprobar con `sips -g hasAlpha archivo.png` — si es `no`, va en JPEG.
+- Al reemplazar/agregar una imagen de fondo, verificar visualmente el resultado (Read del archivo generado) antes de commitear — a esta calidad no debería notarse el compression, pero confirmar caso por caso.
 
 ### 10. SEO básico (index.html + rutas)
-- `src/index.html` trae `title`, `meta description`, Open Graph y Twitter Card estáticos — es lo único que ven los bots que no ejecutan JavaScript (vistas previas de WhatsApp/Slack/redes al compartir un link). Esos bots **nunca** ven el valor por-ruta que pone `seo.util.ts` (ver abajo), así que este bloque estático se queda fijo en el copy de Home en inglés a propósito; si cambia el copy principal del Home o el dominio, hay que actualizarlo aquí también.
+- `src/index.html` trae `title`, `meta description`, Open Graph, Twitter Card y JSON-LD (`Organization`) estáticos — es lo único que ven los bots que no ejecutan JavaScript (vistas previas de WhatsApp/Slack/redes al compartir un link). Esos bots **nunca** ven el valor por-ruta que pone `seo.util.ts` (ver abajo), así que el bloque de title/description/OG se queda fijo en el copy de Home en inglés a propósito; si cambia el copy principal del Home o el dominio, hay que actualizarlo aquí también. El JSON-LD sí es el mismo en toda ruta/idioma a propósito (describe la organización, no la página).
 - `src/app/shared/seo.util.ts` sincroniza, en cada navegación: `canonical` + `hreflang` (`en`/`es`/`x-default`, para que Google entienda que cada página y su par en el otro idioma —ej. `/services` y `/es/services`— son la misma página en dos idiomas, no contenido duplicado) **y también** `<title>`, `meta[name=description]`, Open Graph y Twitter Card, tomando el copy de `seo.<key>.title` / `seo.<key>.description` en `public/i18n/{en,es}.json` según la ruta actual (mapeo en `SEO_KEY_BY_PATH` dentro del propio archivo). Esto sí lo ve Googlebot (renderiza JS) y la pestaña del navegador — pero no los bots de vista previa social, que solo leen el bloque estático de `index.html` de arriba, sin importar la ruta compartida. Resolver eso del todo requeriría SSR/prerender, fuera de alcance mientras el sitio sea 100% estático en Hostinger.
-- Si cambia el dominio de producción, actualizar la constante `SITE_URL` en `seo.util.ts` (y las URLs hardcodeadas en `index.html`).
-- Si se agrega una ruta nueva a `app.routes.ts`, sí hay que tocar `seo.util.ts`: agregar su entrada a `SEO_KEY_BY_PATH` y su bloque `seo.<key>.{title,description}` en ambos JSON — si no, cae al fallback `'home'`.
+- Si cambia el dominio de producción, actualizar la constante `SITE_URL` en `seo.util.ts` (y las URLs hardcodeadas en `index.html`, `public/robots.txt`, `public/sitemap.xml`).
+- Si se agrega una ruta nueva a `app.routes.ts`, hay que tocar 3 lugares: `seo.util.ts` (agregar su entrada a `SEO_KEY_BY_PATH` y su bloque `seo.<key>.{title,description}` en ambos JSON — si no, cae al fallback `'home'`), y `public/sitemap.xml` (agregar su par EN/ES con los 3 `xhtml:link` de hreflang, mismo patrón que las rutas existentes).
+- `public/robots.txt` apunta a `public/sitemap.xml` — ambos se copian al build igual que cualquier archivo de `public/` (no requieren configuración adicional en `angular.json`).
+
+### 11. Analytics (Google Analytics 4)
+- GA4 (Measurement ID `G-G32X4QK32J`) vive en `src/app/shared/analytics.service.ts`, inyectado una vez desde `app.ts`. **No** hay ninguna etiqueta de gtag.js estática en `index.html` a propósito: ese archivo es idéntico en dev y producción (no pasa por `fileReplacements`), así que una etiqueta estática cargaría también en `ng serve` local. El servicio inyecta el `<script>` de gtag.js en `<head>` en tiempo de ejecución, **solo si `environment.production` es `true`** — verificado en navegador: en build de producción se ve `window.gtag` y `dataLayer` poblados; en build de development, ninguno de los dos existe.
+- `send_page_view: false` en el `config` inicial — los `page_view` se disparan a mano en cada `NavigationEnd` del Router (cubre rutas en inglés y `/es/*` por igual, ya que usa `event.urlAfterRedirects` tal cual).
+- Si se agrega otro script de analytics/tracking en el futuro, replicar este mismo patrón (inyección condicionada a `environment.production`, nunca estático en `index.html`) y sumar su dominio a la CSP en `.htaccess` (ver regla de seguridad #8).
 
 ## Qué NO construir en esta fase
 
 - No agregar backend propio (Node, PHP, APIs) salvo que el usuario lo pida explícitamente.
 - No usar `localStorage` / `sessionStorage` para guardar datos sensibles.
-- No integrar scripts de terceros, píxeles de tracking o analíticos sin necesidad clara y sin avisar al usuario primero.
+- No integrar scripts de terceros, píxeles de tracking o analíticos sin necesidad clara y sin avisar al usuario primero. (GA4 ya se integró a pedido explícito del usuario — ver regla de seguridad #11 — esta regla sigue aplicando para cualquier script *nuevo*.)
 - No implementar carrito de compras, pasarela de pagos, ni autenticación de usuarios salvo instrucción explícita.
 
 ---
@@ -92,6 +103,7 @@ Sitio web corporativo para **Epix Code**, una empresa enfocada en optimizar proc
 - ngx-translate para el bilingüe
 - Iconos: SVG inline con paths de Lucide copiados a mano, sin librería instalada (ver regla de seguridad #6)
 - Elementos interactivos (menú móvil, acordeones, etc.) construidos con el propio estado de Angular (signals) — nunca con JavaScript de un framework de UI, para evitar conflictos con el sistema de detección de cambios de Angular.
+- `src/environments/` (`environment.ts` = producción, `environment.development.ts` = `ng serve`/build development, con `fileReplacements` en `angular.json`) — generado con el schematic oficial `ng generate environments`, no a mano. Hoy solo trae `production: boolean`, usado por `analytics.service.ts` para no cargar GA4 en local (ver regla de seguridad #11). Si se necesita otra config por ambiente en el futuro, agregarla ahí en vez de crear un mecanismo nuevo.
 
 ## Estructura sugerida (secciones)
 
@@ -164,11 +176,11 @@ Definir estos tres colores como variables SCSS (`$color-crema`, `$color-negro`, 
 - Basar cualquier elemento visual adicional (iconografía, estilo de las imágenes generadas con IA del punto 9 de seguridad) en el estilo y los colores del logo, para mantener consistencia de marca.
 
 ### Imágenes de fondo por sección (no placeholders — ya son las reales)
-- `FondoHero.png` — hero de Home.
-- `Fondohiw1.png` — hero de Cómo trabajamos. (`Fondohiw2.png` se quitó del repo: se preparó para una segunda franja de esa página que nunca se usó en el código — verificado con grep antes de borrarlo.)
-- `FondoCta.png` — banner de CTA final ("Ready to work smarter?"), compartido entre Home y Servicios (ver "Banner de CTA compartido" abajo). El archivo de diseño original traía dos fotos de personas superpuestas — se pidió explícitamente no usarlas; el fondo que se integró es solo la textura/onda oliva, sin fotos.
+- `FondoHero.jpg` — hero de Home.
+- `Fondohiw1.jpg` — hero de Cómo trabajamos. (`Fondohiw2.png` se quitó del repo: se preparó para una segunda franja de esa página que nunca se usó en el código — verificado con grep antes de borrarlo.)
+- `FondoCta.jpg` — banner de CTA final ("Ready to work smarter?"), compartido entre Home y Servicios (ver "Banner de CTA compartido" abajo). El archivo de diseño original traía dos fotos de personas superpuestas — se pidió explícitamente no usarlas; el fondo que se integró es solo la textura/onda oliva, sin fotos.
 - Servicios (`/services`) **no tiene imagen de fondo** — se le quitó el hero por completo (ver "Página de Servicios" abajo); `FondoHeroServices.png` se quitó del repo por quedar sin usar.
-- Si se agrega una imagen de fondo nueva para otra página, seguir la convención de nombre `Fondo<Sección>.png` en `public/` (mayúscula inicial, sin espacios).
+- Las 3 son **JPEG**, no PNG (se convirtieron en la auditoría de performance: son opacas, sin canal alpha, y JPEG pesa ~90% menos para este tipo de imagen — ver regla de seguridad #9). Si se agrega una imagen de fondo nueva para otra página, seguir la convención de nombre `Fondo<Sección>.jpg` en `public/` (mayúscula inicial, sin espacios) — y solo usar `.png` si la imagen necesita transparencia.
 - **Ojo con el case del nombre de archivo:** macOS (donde se desarrolla) no distingue mayúsculas/minúsculas en el filesystem, pero git sí las registra tal cual, y Hostinger corre Linux (sí distingue). Ya se corrigió un caso real donde git tenía `Fondocta.png`/`fondoheroservices.png` en su índice mientras el archivo en disco (y las referencias en el código, `url('/FondoCta.png')`) usaban otro case — invisible en local, hubiera roto la imagen en producción. Si se renombra solo el case de un archivo (`git mv viejo.png Viejo.png`), confirmar después con `git ls-files public/` que el case coincide exactamente con el que usa el código.
 
 ## Decisiones ya resueltas (quedan aquí como referencia, no reabrir sin pedido explícito)
@@ -181,7 +193,7 @@ Definir estos tres colores como variables SCSS (`$color-crema`, `$color-negro`, 
 - [x] Página de Servicios — rediseñada por completo (ya no es el layout viejo de filas imagen/texto alternadas, y ya tampoco tiene el hero de imagen que tuvo en una iteración intermedia — se quitó a pedido explícito, junto con `FondoHeroServices.png`). Ahora es una intro de texto + tabs (Optimization & AI / Marketing) + tarjetas tipo acordeón por tab. Ver "Página de Servicios (acordeón)" abajo para el detalle de implementación.
 
 ## Banner de CTA compartido (Home + Servicios)
-El banner verde de cierre vive en dos páginas con el mismo contenido, mismo link de Calendly y mismo fondo (`FondoCta.png`), así que su copy se movió a una clave de traducción compartida en vez de duplicarse por página:
+El banner verde de cierre vive en dos páginas con el mismo contenido, mismo link de Calendly y mismo fondo (`FondoCta.jpg`), así que su copy se movió a una clave de traducción compartida en vez de duplicarse por página:
 - Claves i18n: `common.cta.title` / `titleAccent` / `button` / `response` (antes vivían bajo `home.cta.*`; si se busca contenido viejo con ese prefijo, ya no existe).
 - Markup y estilos SÍ están duplicados a propósito en cada página (`.home-cta*` en `home.scss`, `.services-cta*` en `services.scss`) — mismo patrón, prefijo de clase distinto por página. Si se agrega a una tercera página, replicar el mismo patrón (no crear un componente compartido salvo que se repita en 4+ lugares).
 - Toda la tarjeta es un único `<a>` externo a Calendly — el botón visual interno tiene `pointer-events: none`.

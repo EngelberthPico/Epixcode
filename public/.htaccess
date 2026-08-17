@@ -9,9 +9,64 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
 
-# 3. Cabeceras de seguridad
+# 3. Compresión — las imágenes ya van en JPEG/PNG (comprimidas), esto es
+# para el JS/CSS/HTML/XML de texto plano.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# 4. Cache. El bundle de Angular sale con hash de contenido en el nombre
+# (outputHashing:"all" en angular.json, ej. main-QZ4JJBFC.js) — si cambia el
+# contenido, cambia el nombre, así que es seguro cachearlo un año. index.html
+# NO tiene hash y es el que apunta al bundle vigente, así que nunca se
+# cachea, para que un redeploy se vea de inmediato. Los demás assets
+# estáticos (imágenes, favicon) tampoco tienen hash; un mes de cache es un
+# punto medio razonable para un sitio que cambia de vez en cuando.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/xml "access plus 1 day"
+</IfModule>
+
 <IfModule mod_headers.c>
+  # index.html: nunca cacheado (ver comentario arriba). JS/CSS: hasheados,
+  # cache "immutable" de un año — no hay downside porque un cambio de
+  # contenido siempre trae nombre de archivo nuevo.
+  <FilesMatch "^index\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # 5. Cabeceras de seguridad
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+  # Content-Security-Policy — verificada en navegador (sin violaciones) contra
+  # lo que el sitio realmente carga:
+  #   script-src: 'self' (bundle de Angular) + googletagmanager.com (GA4,
+  #     shared/analytics.service.ts, solo se inyecta en producción)
+  #   style-src: 'self' + fonts.googleapis.com (hoja de Google Fonts);
+  #     'unsafe-inline' hace falta porque Angular inyecta el CSS de cada
+  #     componente (ViewEncapsulation.Emulated) como <style> en tiempo de
+  #     ejecución, y este hosting estático no puede generar un nonce por
+  #     request para evitarlo
+  #   font-src: fonts.gstatic.com (los .woff2 de Google Fonts)
+  #   connect-src: dominios de recolección de GA4 + formspree.io (fetch del
+  #     formulario de contacto, ver pages/contact/contact.ts)
+  #   form-action: formspree.io de más, aunque el form usa fetch() y no un
+  #     submit nativo, por si en el futuro cambia esa implementación
+  #   object-src 'none' / base-uri 'self': no hay <object>/<embed> ni razón
+  #     para permitir un <base> inyectado
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; object-src 'none'; base-uri 'self';"
 </IfModule>
