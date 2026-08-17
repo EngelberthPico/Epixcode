@@ -49,6 +49,11 @@
             'nav.howItWorks' | translate
           }}</a>
         </li>
+        <li>
+          <a [routerLink]="'/contact' | langLink" routerLinkActive="active" (click)="closeMenu()">{{
+            'nav.contactUs' | translate
+          }}</a>
+        </li>
       </ul>
 
       <div class="navbar__actions">
@@ -66,9 +71,14 @@
           }
         </div>
 
-        <a class="btn btn--primary navbar__cta" [routerLink]="'/contact' | langLink" (click)="closeMenu()">{{
-          'nav.contact' | translate
-        }}</a>
+        <a
+          class="btn btn--primary navbar__cta"
+          href="https://calendly.com/epixcode/freediagnosticcall"
+          target="_blank"
+          rel="noopener"
+          (click)="closeMenu()"
+          >{{ 'nav.contact' | translate }}</a
+        >
       </div>
     </nav>
   </div>
