@@ -15,7 +15,7 @@
   "common": {
     "cta": {
       "title": "Ready to work smarter?",
-      "titleAccent": "Let's optimize your processes.",
+      "titleAccent": "Let's optimize your processes",
       "button": "Book a free consultation",
       "response": "We typically respond within a few hours."
     }
@@ -24,16 +24,16 @@
     "hero": {
       "badge": "Process optimization powered by AI",
       "title1": "We optimize",
-      "title2": "your processes.",
-      "title3": "You grow faster.",
+      "title2": "your processes",
+      "title3": "More efficiency, better results",
       "subtitle": "We evaluate your business, identify inefficiencies, and design smarter processes powered by automation and AI to deliver real, measurable results.",
       "ctaPrimary": "Book a free consultation",
-      "ctaSecondary": "See how we help"
+      "ctaSecondary": "How it works"
     },
     "problem": {
       "eyebrow": "The problem",
       "title": "Outdated processes",
-      "titleAccent": "hold businesses back.",
+      "titleAccent": "hold businesses back",
       "body": "Too much time is lost to manual work, repetitive tasks, disconnected tools, and inefficient workflows.",
       "items": [
         {
@@ -53,31 +53,27 @@
     "whatWeDo": {
       "eyebrow": "What we do",
       "title": "Smart solutions for",
-      "titleAccent": "smarter businesses.",
-      "body": "We combine strategy, technology and automation to help you work smarter.",
+      "titleAccent": "smarter businesses",
+      "body": "We combine automation, web development and marketing to help your business run better and grow faster.",
       "items": [
         {
-          "title": "Process Evaluation",
-          "desc": "We analyze your current operations and identify gaps and opportunities."
-        },
-        {
-          "title": "Process Optimization",
-          "desc": "We redesign workflows to eliminate waste and improve efficiency."
-        },
-        {
           "title": "Automation & AI",
-          "desc": "We implement automation and AI where it creates the most impact."
+          "desc": "We build smart workflows and integrate AI to eliminate manual work and support better decisions."
         },
         {
-          "title": "Continuous Improvement",
-          "desc": "We measure results and keep optimizing as you grow."
+          "title": "Web Development & Design",
+          "desc": "We design, build and host modern websites, from domain setup to launch and beyond."
+        },
+        {
+          "title": "Marketing & Growth",
+          "desc": "We grow your brand with content, strategy, social media and a focus on customer success."
         }
       ]
     },
     "process": {
       "eyebrow": "How it works",
       "title": "A simple process",
-      "titleAccent": "that drives results.",
+      "titleAccent": "that drives results",
       "items": [
         {
           "number": "01",
@@ -98,9 +94,9 @@
     },
     "results": {
       "eyebrow": "The results",
-      "title1": "Less manual work.",
-      "title2": "More efficiency.",
-      "title3": "Better results.",
+      "title1": "Less manual work",
+      "title2": "More efficiency",
+      "title3": "Better results",
       "body": "We help you build a business that's ready for today, and ready for tomorrow.",
       "stats": [
         {
@@ -128,13 +124,13 @@
       "titlePrefix": "About",
       "subtitle": "We turn operational complexity into competitive advantage.",
       "paragraph1": "Epixcode was founded with a clear mission: help businesses work smarter.",
-      "paragraph2": "We combine deep process understanding with technology and automation to create efficient, scalable and future-ready operations."
+      "paragraph2": "We combine deep process understanding with technology, web development, automation and marketing to help you build a business that's efficient, well-designed and ready to grow."
     },
     "capabilities": {
       "technology": {
         "title": "Technology",
         "items": [
-          "Development",
+          "Web Development",
           "Automation",
           "AI Integration",
           "Systems & Tools"
@@ -169,16 +165,15 @@
     }
   },
   "services": {
-    "hero": {
-      "title1": "Smarter systems.",
-      "title2": "Better business.",
-      "subtitle": "We combine AI, automation and process optimization to help businesses work smarter, operate more efficiently and achieve measurable growth."
-    },
     "intro": {
       "eyebrow": "Our services",
       "title": "End-to-end solutions to",
-      "titleAccent": "optimize your business.",
-      "body": "From identifying inefficiencies to building automated systems and digital strategies, we help you unlock efficiency, reduce costs and grow with clarity."
+      "titleAccent": "optimize your business",
+      "body": "From identifying inefficiencies to building automated systems, modern websites and marketing strategies, we help you unlock efficiency, strengthen your online presence and grow with clarity."
+    },
+    "tabs": {
+      "automation": "Optimization & AI",
+      "marketing": "Marketing"
     },
     "categories": [
       {
@@ -254,13 +249,31 @@
         ]
       },
       {
-        "title": "Marketing",
-        "desc": "A marketing team focused on measurable results, from paid media to content and strategy.",
+        "title": "Web Design & Development",
+        "desc": "We design, build and launch websites that support your business, from the first line of code to going live.",
         "items": [
           {
-            "title": "Media buying",
-            "desc": "We plan and manage paid campaigns across platforms to reach the right audience efficiently."
+            "title": "Website design & development",
+            "desc": "We design and build fast, modern websites tailored to your brand and goals."
           },
+          {
+            "title": "Hosting setup",
+            "desc": "We set up reliable hosting so your site stays fast, secure and available."
+          },
+          {
+            "title": "Domain registration & management",
+            "desc": "We help you register, configure and manage your domain, from DNS to email."
+          },
+          {
+            "title": "Launch & ongoing maintenance",
+            "desc": "We handle the full launch and keep your site updated, secure and running smoothly."
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "desc": "A marketing team focused on measurable results, from content and strategy to social media and customer success.",
+        "items": [
           {
             "title": "Content campaigns",
             "desc": "We create content calendars and campaigns that keep your brand consistent and visible."
@@ -272,6 +285,10 @@
           {
             "title": "Social media consulting",
             "desc": "We guide your social presence with data-driven recommendations."
+          },
+          {
+            "title": "Customer success",
+            "desc": "We help you keep customers engaged, supported and coming back for more."
           }
         ]
       }
@@ -462,14 +479,14 @@
     "whatsapp": "WhatsApp"
   },
   "footer": {
-    "tagline": "Automation, web development, and artificial intelligence to grow your business.",
+    "tagline": "Automation, web development, marketing and artificial intelligence to grow your business.",
     "navTitle": "Navigation",
     "servicesTitle": "Services",
     "services": [
-      "Consulting",
-      "Automation",
+      "Automation & AI",
+      "Web Development",
       "Marketing",
-      "Applied AI"
+      "Consulting"
     ],
     "socialTitle": "Follow us",
     "contactTitle": "Contact",

@@ -12,7 +12,7 @@ import { stripLangPrefix, withLang } from '../lang-url.util';
 // transparente con texto crema y solo pasa a fondo sólido al hacer scroll
 // (ver spec de diseño de Home). Se compara contra la ruta sin el prefijo
 // /es, ya que el mismo hero oscuro aplica en ambos idiomas.
-const HERO_PAGE_PATHS = new Set(['/', '/how-it-works', '/about', '/contact', '/services']);
+const HERO_PAGE_PATHS = new Set(['/', '/how-it-works', '/about', '/contact']);
 
 @Component({
   selector: 'app-navbar',

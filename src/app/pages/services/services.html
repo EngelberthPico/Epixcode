@@ -1,26 +1,40 @@
-<section class="services-hero">
-  <div class="services-hero__inner" appScrollReveal>
-    <h1 class="services-hero__title">
-      {{ 'services.hero.title1' | translate }}<br />
-      <span class="services-hero__title-accent">{{ 'services.hero.title2' | translate }}</span>
-    </h1>
-    <p class="services-hero__subtitle">{{ 'services.hero.subtitle' | translate }}</p>
-  </div>
-</section>
-
 <section class="services-intro">
   <div class="services-intro__inner" appScrollReveal>
     <span class="services-intro__eyebrow">{{ 'services.intro.eyebrow' | translate }}</span>
-    <h2 class="services-intro__title">
+    <h1 class="services-intro__title">
       {{ 'services.intro.title' | translate }}
       <span class="services-intro__title-accent">{{ 'services.intro.titleAccent' | translate }}</span>
-    </h2>
+    </h1>
     <p class="services-intro__body">{{ 'services.intro.body' | translate }}</p>
   </div>
 </section>
 
 <section class="services-categories">
   <div class="services-categories__inner">
+    <div class="services-tabs" role="tablist" appScrollReveal>
+      <button
+        type="button"
+        class="services-tabs__btn"
+        role="tab"
+        [class.services-tabs__btn--active]="activeTab() === 'automation'"
+        [attr.aria-selected]="activeTab() === 'automation'"
+        (click)="setTab('automation')"
+      >
+        {{ 'services.tabs.automation' | translate }}
+      </button>
+      <button
+        type="button"
+        class="services-tabs__btn"
+        role="tab"
+        [class.services-tabs__btn--active]="activeTab() === 'marketing'"
+        [attr.aria-selected]="activeTab() === 'marketing'"
+        (click)="setTab('marketing')"
+      >
+        {{ 'services.tabs.marketing' | translate }}
+      </button>
+    </div>
+
+    @if (activeTab() === 'automation') {
     <!-- 0: Process Evaluation -->
     <article class="services-category" appScrollReveal>
       <button
@@ -330,8 +344,10 @@
         </div>
       </div>
     </article>
+    }
 
-    <!-- 4: Marketing -->
+    @if (activeTab() === 'marketing') {
+    <!-- 4: Web Design & Development -->
     <article class="services-category" appScrollReveal>
       <button
         type="button"
@@ -342,9 +358,9 @@
       >
         <span class="services-category__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M8 6v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <rect width="18" height="7" x="3" y="3" rx="1" stroke="currentColor" stroke-width="1.6" />
+            <rect width="9" height="7" x="3" y="14" rx="1" stroke="currentColor" stroke-width="1.6" />
+            <rect width="5" height="7" x="16" y="14" rx="1" stroke="currentColor" stroke-width="1.6" />
           </svg>
         </span>
         <span class="services-category__head-text">
@@ -368,8 +384,8 @@
             <div class="services-category__item">
               <span class="services-category__item-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <line x1="12" x2="12" y1="2" y2="22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="m16 18 6-6-6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="m8 6-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
               <h4 class="services-category__item-title">{{ 'services.categories.4.items.0.title' | translate }}</h4>
@@ -379,11 +395,10 @@
             <div class="services-category__item">
               <span class="services-category__item-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-                  <path d="M14 2v5a1 1 0 0 0 1 1h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M10 9H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                  <path d="M16 13H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                  <path d="M16 17H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <rect width="20" height="8" x="2" y="2" rx="2" ry="2" stroke="currentColor" stroke-width="1.6" />
+                  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" stroke="currentColor" stroke-width="1.6" />
+                  <line x1="6" x2="6.01" y1="6" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <line x1="6" x2="6.01" y1="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                 </svg>
               </span>
               <h4 class="services-category__item-title">{{ 'services.categories.4.items.1.title' | translate }}</h4>
@@ -394,7 +409,8 @@
               <span class="services-category__item-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" />
-                  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                 </svg>
               </span>
               <h4 class="services-category__item-title">{{ 'services.categories.4.items.2.title' | translate }}</h4>
@@ -404,7 +420,10 @@
             <div class="services-category__item">
               <span class="services-category__item-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
               <h4 class="services-category__item-title">{{ 'services.categories.4.items.3.title' | translate }}</h4>
@@ -414,6 +433,92 @@
         </div>
       </div>
     </article>
+
+    <!-- 5: Marketing -->
+    <article class="services-category" appScrollReveal>
+      <button
+        type="button"
+        class="services-category__head"
+        (click)="toggle(5)"
+        [attr.aria-expanded]="isOpen(5)"
+        aria-controls="services-category-panel-5"
+      >
+        <span class="services-category__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 6v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="services-category__head-text">
+          <span class="services-category__title">{{ 'services.categories.5.title' | translate }}</span>
+          <span class="services-category__desc">{{ 'services.categories.5.desc' | translate }}</span>
+        </span>
+        <span class="services-category__chevron" [class.services-category__chevron--open]="isOpen(5)" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m18 15-6-6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </button>
+
+      <div
+        class="services-category__items-wrap"
+        [class.services-category__items-wrap--open]="isOpen(5)"
+        id="services-category-panel-5"
+      >
+        <div class="services-category__items-inner">
+          <div class="services-category__items">
+            <div class="services-category__item">
+              <span class="services-category__item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                  <path d="M14 2v5a1 1 0 0 0 1 1h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M10 9H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M16 13H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  <path d="M16 17H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </span>
+              <h4 class="services-category__item-title">{{ 'services.categories.5.items.0.title' | translate }}</h4>
+              <p class="services-category__item-desc">{{ 'services.categories.5.items.0.desc' | translate }}</p>
+            </div>
+
+            <div class="services-category__item">
+              <span class="services-category__item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.6" />
+                  <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.6" />
+                </svg>
+              </span>
+              <h4 class="services-category__item-title">{{ 'services.categories.5.items.1.title' | translate }}</h4>
+              <p class="services-category__item-desc">{{ 'services.categories.5.items.1.desc' | translate }}</p>
+            </div>
+
+            <div class="services-category__item">
+              <span class="services-category__item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" />
+                  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <h4 class="services-category__item-title">{{ 'services.categories.5.items.2.title' | translate }}</h4>
+              <p class="services-category__item-desc">{{ 'services.categories.5.items.2.desc' | translate }}</p>
+            </div>
+
+            <div class="services-category__item">
+              <span class="services-category__item-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <h4 class="services-category__item-title">{{ 'services.categories.5.items.3.title' | translate }}</h4>
+              <p class="services-category__item-desc">{{ 'services.categories.5.items.3.desc' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    }
   </div>
 </section>
 

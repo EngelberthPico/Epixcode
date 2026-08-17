@@ -8,9 +8,9 @@
 //
 // Comportamiento por página (ver spec de diseño):
 // - Páginas con hero oscuro (".site-header--hero": Home, About, Contacto,
-//   Cómo trabajamos, Servicios — ver HERO_PAGE_PATHS en navbar.ts): fixed,
-//   flotando sobre el hero. Empieza transparente con texto crema; al hacer
-//   scroll pasa a fondo sólido con blur y texto negro.
+//   Cómo trabajamos — ver HERO_PAGE_PATHS en navbar.ts): fixed, flotando
+//   sobre el hero. Empieza transparente con texto crema; al hacer scroll
+//   pasa a fondo sólido con blur y texto negro.
 // - Resto de páginas: sticky (reserva su espacio, sin solaparse con el
 //   contenido), fondo sólido con blur siempre; solo la sombra aparece con
 //   el scroll.

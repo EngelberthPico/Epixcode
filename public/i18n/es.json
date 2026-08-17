@@ -6,7 +6,7 @@
     "howItWorks": "Cómo trabajamos",
     "projects": "Proyectos",
     "contactUs": "Contáctanos",
-    "contact": "Agenda una asesoría gratuita",
+    "contact": "Agenda Asesoría Gratuita",
     "logoAlt": "Epix Code",
     "toggleMenuOpen": "Abrir menú de navegación",
     "toggleMenuClose": "Cerrar menú de navegación",
@@ -15,7 +15,7 @@
   "common": {
     "cta": {
       "title": "¿Listo para trabajar de forma más inteligente?",
-      "titleAccent": "Optimicemos tus procesos.",
+      "titleAccent": "Optimicemos tus procesos",
       "button": "Agenda una asesoría gratuita",
       "response": "Normalmente respondemos en pocas horas."
     }
@@ -24,16 +24,16 @@
     "hero": {
       "badge": "Optimización de procesos con IA",
       "title1": "Optimizamos",
-      "title2": "tus procesos.",
-      "title3": "Tú creces más rápido.",
+      "title2": "tus procesos",
+      "title3": "Más eficiencia, mejores resultados",
       "subtitle": "Evaluamos tu negocio, identificamos ineficiencias y diseñamos procesos más inteligentes potenciados por automatización e IA para entregar resultados reales y medibles.",
       "ctaPrimary": "Agenda una asesoría gratuita",
-      "ctaSecondary": "Mira cómo ayudamos"
+      "ctaSecondary": "Cómo trabajamos"
     },
     "problem": {
       "eyebrow": "El problema",
       "title": "Los procesos desactualizados",
-      "titleAccent": "frenan a las empresas.",
+      "titleAccent": "detienen a las empresas",
       "body": "Se pierde demasiado tiempo en trabajo manual, tareas repetitivas, herramientas desconectadas y flujos de trabajo ineficientes.",
       "items": [
         {
@@ -53,31 +53,27 @@
     "whatWeDo": {
       "eyebrow": "Qué hacemos",
       "title": "Soluciones inteligentes para",
-      "titleAccent": "negocios más inteligentes.",
-      "body": "Combinamos estrategia, tecnología y automatización para ayudarte a trabajar de forma más inteligente.",
+      "titleAccent": "negocios más inteligentes",
+      "body": "Combinamos automatización, desarrollo web y marketing para ayudar a tu negocio a funcionar mejor y crecer más rápido.",
       "items": [
         {
-          "title": "Evaluación de procesos",
-          "desc": "Analizamos tus operaciones actuales e identificamos brechas y oportunidades."
-        },
-        {
-          "title": "Optimización de procesos",
-          "desc": "Rediseñamos flujos de trabajo para eliminar desperdicio y mejorar la eficiencia."
-        },
-        {
           "title": "Automatización e IA",
-          "desc": "Implementamos automatización e IA donde generan el mayor impacto."
+          "desc": "Creamos flujos de trabajo inteligentes e integramos IA para eliminar el trabajo manual y apoyar mejores decisiones."
         },
         {
-          "title": "Mejora continua",
-          "desc": "Medimos resultados y seguimos optimizando a medida que creces."
+          "title": "Desarrollo y diseño web",
+          "desc": "Diseñamos, construimos y alojamos sitios web modernos, desde la configuración del dominio hasta el lanzamiento y más allá."
+        },
+        {
+          "title": "Marketing y crecimiento",
+          "desc": "Hacemos crecer tu marca con contenido, estrategia, redes sociales y un enfoque en el éxito del cliente."
         }
       ]
     },
     "process": {
       "eyebrow": "Cómo trabajamos",
       "title": "Un proceso simple",
-      "titleAccent": "que genera resultados.",
+      "titleAccent": "que genera resultados",
       "items": [
         {
           "number": "01",
@@ -98,9 +94,9 @@
     },
     "results": {
       "eyebrow": "Los resultados",
-      "title1": "Menos trabajo manual.",
-      "title2": "Más eficiencia.",
-      "title3": "Mejores resultados.",
+      "title1": "Menos trabajo manual",
+      "title2": "Más eficiencia",
+      "title3": "Mejores resultados",
       "body": "Te ayudamos a construir un negocio listo para hoy, y preparado para el futuro.",
       "stats": [
         {
@@ -128,13 +124,13 @@
       "titlePrefix": "Sobre",
       "subtitle": "Convertimos la complejidad operativa en ventaja competitiva.",
       "paragraph1": "Epix Code nació con una misión clara: ayudar a las empresas a trabajar de forma más inteligente.",
-      "paragraph2": "Combinamos un profundo entendimiento de los procesos con tecnología y automatización para crear operaciones eficientes, escalables y preparadas para el futuro."
+      "paragraph2": "Combinamos un profundo entendimiento de los procesos con tecnología, desarrollo web, automatización y marketing para ayudarte a construir un negocio eficiente, bien diseñado y listo para crecer."
     },
     "capabilities": {
       "technology": {
         "title": "Tecnología",
         "items": [
-          "Desarrollo",
+          "Desarrollo web",
           "Automatización",
           "Integración de IA",
           "Sistemas y herramientas"
@@ -169,16 +165,15 @@
     }
   },
   "services": {
-    "hero": {
-      "title1": "Sistemas más inteligentes.",
-      "title2": "Mejor negocio.",
-      "subtitle": "Combinamos IA, automatización y optimización de procesos para ayudar a las empresas a trabajar de forma más inteligente, operar con mayor eficiencia y lograr un crecimiento medible."
-    },
     "intro": {
       "eyebrow": "Nuestros servicios",
       "title": "Soluciones integrales para",
-      "titleAccent": "optimizar tu negocio.",
-      "body": "Desde identificar ineficiencias hasta construir sistemas automatizados y estrategias digitales, te ayudamos a liberar eficiencia, reducir costos y crecer con claridad."
+      "titleAccent": "optimizar tu negocio",
+      "body": "Desde identificar ineficiencias hasta construir sistemas automatizados, sitios web modernos y estrategias de marketing, te ayudamos a ganar eficiencia, fortalecer tu presencia en línea y crecer con claridad."
+    },
+    "tabs": {
+      "automation": "Optimización e IA",
+      "marketing": "Marketing"
     },
     "categories": [
       {
@@ -201,14 +196,14 @@
       },
       {
         "title": "Optimización de procesos",
-        "desc": "Rediseñamos flujos de trabajo y operaciones para eliminar desperdicios, reducir fricción y mejorar el rendimiento.",
+        "desc": "Rediseñamos flujos de trabajo y operaciones para reducir fricción, tiempo y mejorar el rendimiento.",
         "items": [
           {
             "title": "Rediseño de flujos de trabajo",
             "desc": "Simplificamos y reestructuramos los flujos de trabajo para lograr máxima claridad y eficiencia."
           },
           {
-            "title": "Eliminación de desperdicios",
+            "title": "Simplificación de procesos",
             "desc": "Eliminamos pasos, traspasos e ineficiencias innecesarias."
           },
           {
@@ -254,13 +249,31 @@
         ]
       },
       {
-        "title": "Marketing",
-        "desc": "Un equipo de marketing enfocado en resultados medibles, desde pauta pagada hasta contenido y estrategia.",
+        "title": "Diseño y desarrollo web",
+        "desc": "Diseñamos, construimos y lanzamos sitios web que respaldan tu negocio, desde la primera línea de código hasta su puesta en marcha.",
         "items": [
           {
-            "title": "Media buying",
-            "desc": "Planeamos y gestionamos campañas pagadas en distintas plataformas para llegar a la audiencia correcta de forma eficiente."
+            "title": "Diseño y desarrollo de sitios web",
+            "desc": "Diseñamos y construimos sitios web rápidos y modernos, a la medida de tu marca y objetivos."
           },
+          {
+            "title": "Configuración de hosting",
+            "desc": "Configuramos un hosting confiable para que tu sitio se mantenga rápido, seguro y disponible."
+          },
+          {
+            "title": "Registro y gestión de dominios",
+            "desc": "Te ayudamos a registrar, configurar y administrar tu dominio, desde el DNS hasta el correo."
+          },
+          {
+            "title": "Lanzamiento y mantenimiento continuo",
+            "desc": "Nos encargamos del lanzamiento completo y mantenemos tu sitio actualizado, seguro y funcionando sin problemas."
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "desc": "Un equipo de marketing enfocado en resultados medibles, desde contenido y estrategia hasta redes sociales y éxito del cliente.",
+        "items": [
           {
             "title": "Campañas de contenido",
             "desc": "Creamos parrillas y campañas de contenido que mantienen tu marca consistente y visible."
@@ -272,6 +285,10 @@
           {
             "title": "Consultoría de redes sociales",
             "desc": "Guiamos tu presencia en redes con recomendaciones basadas en datos."
+          },
+          {
+            "title": "Éxito del cliente",
+            "desc": "Te ayudamos a mantener a tus clientes comprometidos, atendidos y regresando por más."
           }
         ]
       }
@@ -462,14 +479,14 @@
     "whatsapp": "WhatsApp"
   },
   "footer": {
-    "tagline": "Automatización, desarrollo web e inteligencia artificial para hacer crecer tu negocio.",
+    "tagline": "Automatización, desarrollo web, marketing e inteligencia artificial para hacer crecer tu negocio.",
     "navTitle": "Navegación",
     "servicesTitle": "Servicios",
     "services": [
-      "Consultoría",
-      "Automatizaciones",
+      "Automatización e IA",
+      "Desarrollo web",
       "Marketing",
-      "IA orientada"
+      "Consultoría"
     ],
     "socialTitle": "Síguenos",
     "contactTitle": "Contacto",

@@ -1,50 +1,12 @@
 @use '../../../styles/variables' as *;
 
-// Hero (fondo oscuro con imagen de marca) — el navbar flota transparente
-// encima (ver HERO_PAGE_PATHS en shared/navbar/navbar.ts), por eso el
-// padding-top deja espacio para no quedar debajo de él. min-height iguala
-// la altura visual de los hero de About/Cómo trabajamos (~590-610px en
-// desktop), que son más altos por el contenido extra que tienen debajo del
-// título; acá no hay ese contenido, así que se compensa con altura mínima
-// en vez de agregar secciones que no están en el diseño de Services.
-.services-hero {
-  min-height: 37.5rem;
-  display: flex;
-  align-items: center;
-  padding: 7.5rem 3rem 4rem;
-  background: url('/FondoHeroServices.png') center / cover no-repeat;
-  color: $color-crema;
-}
-
-.services-hero__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.services-hero__title {
-  font-size: clamp(2rem, 4.5vw, 3.25rem);
-  line-height: 1.15;
-  font-weight: 700;
-  color: $color-crema;
-  max-width: 640px;
-  margin: 0 0 1.25rem;
-}
-
-.services-hero__title-accent {
-  color: $color-oliva-light;
-}
-
-.services-hero__subtitle {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: color-mix(in srgb, $color-crema 82%, transparent);
-  max-width: 520px;
-  margin: 0;
-}
-
-// Intro de "Our Services"
+// Intro de "Our Services" — ahora es la primera sección de la página (el
+// hero se quitó a pedido explícito); el navbar ya no flota transparente
+// encima acá (se sacó '/services' de HERO_PAGE_PATHS en navbar.ts), es
+// sticky normal, así que solo hace falta aire de respiro, no compensar
+// solapamiento.
 .services-intro {
-  padding: 5.625rem 3rem 2rem;
+  padding: 7.5rem 3rem 2rem;
   text-align: center;
 }
 
@@ -90,6 +52,41 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+// Selector de tabs (Optimization & AI / Marketing) — mismo patrón de píldora
+// que el selector de idioma del navbar (navbar__lang), a mayor escala.
+.services-tabs {
+  display: inline-flex;
+  align-self: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid color-mix(in srgb, $color-negro 15%, transparent);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.services-tabs__btn {
+  padding: 0.6rem 1.4rem;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  color: $color-negro;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &--active {
+    background: $color-oliva;
+    color: $color-crema;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .services-category {
