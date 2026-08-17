@@ -1,161 +1,329 @@
 @use '../../../styles/variables' as *;
 
-// Hero
+// Hero (fondo oscuro con imagen de marca) — el navbar flota transparente
+// encima (ver HERO_PAGE_PATHS en shared/navbar/navbar.ts), por eso el
+// padding-top deja espacio para no quedar debajo de él. min-height iguala
+// la altura visual de los hero de About/Cómo trabajamos (~590-610px en
+// desktop), que son más altos por el contenido extra que tienen debajo del
+// título; acá no hay ese contenido, así que se compensa con altura mínima
+// en vez de agregar secciones que no están en el diseño de Services.
 .services-hero {
-  padding: 5.625rem 3rem;
+  min-height: 37.5rem;
+  display: flex;
+  align-items: center;
+  padding: 7.5rem 3rem 4rem;
+  background: url('/FondoHeroServices.png') center / cover no-repeat;
+  color: $color-crema;
 }
 
 .services-hero__inner {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.services-hero__title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: $color-crema;
+  max-width: 640px;
+  margin: 0 0 1.25rem;
+}
+
+.services-hero__title-accent {
+  color: $color-oliva-light;
+}
+
+.services-hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, $color-crema 82%, transparent);
+  max-width: 520px;
+  margin: 0;
+}
+
+// Intro de "Our Services"
+.services-intro {
+  padding: 5.625rem 3rem 2rem;
   text-align: center;
 }
 
-.services-hero__eyebrow {
-  font-family: $font-body;
+.services-intro__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.services-intro__eyebrow {
+  display: block;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $color-oliva;
+  margin-bottom: 0.75rem;
 }
 
-.services-hero__title {
-  font-size: clamp(2rem, 4.6vw, 3.375rem);
-  line-height: 1.15;
+.services-intro__title {
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  line-height: 1.25;
   font-weight: 700;
   color: $color-negro;
-  margin: 1rem 0 1.25rem;
+  margin: 0 0 1rem;
 }
 
-.services-hero__subtitle {
-  font-size: 1.125rem;
-  line-height: 1.6;
+.services-intro__title-accent {
+  color: $color-oliva;
+}
+
+.services-intro__body {
+  font-size: 1rem;
+  line-height: 1.7;
   color: color-mix(in srgb, $color-negro 65%, transparent);
-  max-width: 37.5rem;
-  margin: 0 auto;
+  margin: 0;
 }
 
-// Filas alternadas imagen/texto
-.services-list {
+// Categorías de servicios
+.services-categories__inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 3rem 6.25rem;
   display: flex;
   flex-direction: column;
-  gap: 6.25rem;
+  gap: 1.5rem;
 }
 
-.services-row {
+.services-category {
+  border: 1px solid color-mix(in srgb, $color-negro 10%, transparent);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+}
+
+.services-category__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.services-category__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, $color-oliva 10%, transparent);
+  color: $color-oliva;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.services-category__head-text {
+  flex: 1;
+  min-width: 0;
+  // Título y descripción son <span> (no <h3>/<p>) porque van dentro de un
+  // <button> y esos bloques no son contenido válido ahí; se apilan a mano.
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.services-category__title {
+  display: block;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: $color-negro;
+}
+
+.services-category__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, $color-negro 65%, transparent);
+  margin: 0;
+}
+
+.services-category__chevron {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, $color-negro 15%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-oliva;
+  transform: rotate(180deg);
+  transition: transform 250ms ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &--open {
+    transform: rotate(0deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// Acordeón: se anima la altura con el truco de grid-template-rows 0fr/1fr,
+// que funciona sin conocer la altura real del contenido (a diferencia de
+// max-height). El wrapper interno necesita overflow:hidden + min-height:0
+// para que el grid pueda colapsarlo a 0.
+.services-category__items-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+
+  &--open {
+    grid-template-rows: 1fr;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.services-category__items-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.services-category__items {
+  margin-top: 1.75rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: color-mix(in srgb, $color-oliva 6%, $color-crema);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.services-category__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services-category__item-icon {
+  color: $color-oliva;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.services-category__item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $color-negro;
+  margin: 0;
+}
+
+.services-category__item-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, $color-negro 60%, transparent);
+  margin: 0;
+}
+
+// CTA final — mismo patrón que .home-cta (ver home.scss): toda la tarjeta
+// es un solo link externo a Calendly, con el fondo de marca FondoCta.png.
+.services-cta-wrap {
+  padding: 2rem 3rem 7.5rem;
+}
+
+.services-cta {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: center;
-}
-
-.services-row__media {
-  width: 100%;
-  order: 2;
-}
-
-.services-row__content {
-  width: 100%;
-  order: 1;
-}
-
-.services-row__image {
-  width: 100%;
-  height: 340px;
-  border-radius: 1.125rem;
-  border: 1px solid color-mix(in srgb, $color-negro 10%, transparent);
-  overflow: hidden;
-  display: block;
-}
-
-.services-row__number {
-  font-family: $font-heading;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: $color-oliva;
-}
-
-.services-row__title {
-  font-size: clamp(1.5rem, 2.8vw, 2rem);
-  font-weight: 700;
-  color: $color-negro;
-  margin: 0.75rem 0 1rem;
-}
-
-.services-row__body {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: color-mix(in srgb, $color-negro 65%, transparent);
-  margin: 0;
-  max-width: 30ch;
-}
-
-.services-row__list {
-  list-style: none;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.services-row__list-item {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.95rem;
-  color: $color-negro;
-}
-
-.services-row__dot {
-  flex-shrink: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: $color-oliva;
-}
-
-// CTA final
-.services-cta {
-  padding: 6.875rem 3rem;
-  text-align: center;
-  color: $color-negro; // contexto de color para el patrón .dot-grid
-}
-
-.services-cta__inner {
-  max-width: 640px;
+  max-width: 1200px;
   margin: 0 auto;
+  background: url('/FondoCta.png') center / cover no-repeat, $color-oliva;
+  border-radius: 1.5rem;
+  padding: 3rem;
+  text-decoration: none;
+  transition:
+    opacity 350ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -14px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
 }
 
 .services-cta__title {
-  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.25;
   font-weight: 700;
-  color: $color-negro;
-  margin: 0 0 2rem;
+  color: $color-crema;
+  margin: 0 0 1.5rem;
+}
+
+.services-cta__title-accent {
+  color: $color-oliva-light;
+}
+
+.services-cta__button {
+  // El botón es solo visual: el link real es toda la tarjeta .services-cta.
+  pointer-events: none;
+
+  &:hover {
+    transform: none;
+  }
+}
+
+.services-cta__response {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, $color-crema 85%, transparent);
 }
 
 @media (min-width: 768px) {
-  .services-row {
+  .services-cta {
     flex-direction: row;
-    gap: 3.5rem;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .services-row__media,
-  .services-row__content {
-    flex: 1 1 380px;
-    min-width: 300px;
-    order: initial;
+  .services-cta__response {
+    flex-shrink: 0;
+    max-width: 220px;
+    text-align: right;
   }
+}
 
-  .services-row__body {
-    max-width: 46ch;
-  }
-
-  .services-row--reverse {
-    flex-direction: row-reverse;
+@media (min-width: 640px) {
+  .services-category__items {
+    // auto-fit en vez de un número fijo de columnas: la mayoría de
+    // categorías tienen 3 sub-ítems, pero Marketing tiene 4 y así se
+    // acomodan solos sin dejar una columna vacía.
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }

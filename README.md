@@ -10,6 +10,7 @@ Las reglas de negocio, marca y seguridad obligatorias del proyecto viven en [`CL
 - **SCSS** con variables de marca propias (`src/styles/_variables.scss`) — sin Bootstrap ni ningún framework de UI
 - **Angular Router**, una ruta por sección, con revelado al hacer scroll vía `ScrollRevealDirective` (`appScrollReveal`)
 - **@ngx-translate** para el bilingüe (JSON en `public/i18n/`), con el idioma resuelto desde la URL (ver abajo), no desde `localStorage`
+- **Iconos**: SVG inline con paths de [Lucide](https://lucide.dev) copiados a mano — sin ningún paquete de iconos instalado
 - **Reactive Forms** para el formulario de contacto, enviado a un endpoint externo (Formspree), con honeypot anti-spam
 - **Vitest** para pruebas unitarias
 
@@ -65,6 +66,13 @@ El español vive bajo el prefijo `/es/*` (ej. `/es/services`); el inglés es la 
 - `app.ts` — en cada navegación sincroniza `ngx-translate`, `document.documentElement.lang` y, vía `shared/seo.util.ts`, las etiquetas `canonical`/`hreflang` para que Google entienda que cada página y su equivalente en el otro idioma son la misma página.
 
 La ruta `/projects` está **en pausa**: el componente existe en `src/app/pages/projects/` pero no está enlazado en el navbar ni en `app.routes.ts`. No se borra — se reactiva cuando el usuario lo pida explícitamente.
+
+## Convenciones de UI a mantener
+
+- **Páginas con hero oscuro** (`/`, `/about`, `/contact`, `/how-it-works`, `/services` — lista en `HERO_PAGE_PATHS`, `shared/navbar/navbar.ts`): el navbar flota transparente sobre el hero y pasa a sólido al hacer scroll. Si el hero de una página no tiene contenido extra bajo el título (como en Services), igualar su altura visual a la de páginas comparables con `min-height` + `display:flex; align-items:center`, no agregando secciones que no están en el diseño.
+- **Banner de CTA final** ("Ready to work smarter?"): copy compartido en las claves i18n `common.cta.*`, fondo `public/FondoCta.png`. Markup/estilos se duplican por página a propósito (`.home-cta*`, `.services-cta*`) — mismo patrón, prefijo distinto.
+- **Acordeones / menús desplegables**: se implementan con signals de Angular (`signal<ReadonlySet<number>>` + `toggle(i)`), nunca con una librería de JS externa — ver `services.ts` como referencia.
+- **Menú móvil sobre un hero sin scroll**: el header tiene una clase `site-header--menu-open` que fuerza fondo sólido mientras el menú está abierto, para que el contenido del hero no se transparente detrás de los links. Si se agrega una página nueva a `HERO_PAGE_PATHS`, probar el menú hamburguesa sin haber scrolleado.
 
 ## Despliegue (Hostinger)
 

@@ -11,6 +11,14 @@
     "toggleMenuClose": "Close navigation menu",
     "languageSwitcher": "Switch language"
   },
+  "common": {
+    "cta": {
+      "title": "Ready to work smarter?",
+      "titleAccent": "Let's optimize your processes.",
+      "button": "Book a free consultation",
+      "response": "We typically respond within a few hours."
+    }
+  },
   "home": {
     "hero": {
       "badge": "Process optimization powered by AI",
@@ -27,10 +35,18 @@
       "titleAccent": "hold businesses back.",
       "body": "Too much time is lost to manual work, repetitive tasks, disconnected tools, and inefficient workflows.",
       "items": [
-        { "title": "Manual processes" },
-        { "title": "Repetitive tasks" },
-        { "title": "Disconnected tools" },
-        { "title": "Inefficient workflows" }
+        {
+          "title": "Manual processes"
+        },
+        {
+          "title": "Repetitive tasks"
+        },
+        {
+          "title": "Disconnected tools"
+        },
+        {
+          "title": "Inefficient workflows"
+        }
       ]
     },
     "whatWeDo": {
@@ -86,17 +102,23 @@
       "title3": "Better results.",
       "body": "We help you build a business that's ready for today, and ready for tomorrow.",
       "stats": [
-        { "value": "-40%", "label": "Less time spent on manual tasks" },
-        { "value": "-30%", "label": "Lower operational costs" },
-        { "value": "2.5x", "label": "Increase in process efficiency" },
-        { "value": "More time", "label": "To focus on what really matters" }
+        {
+          "value": "-40%",
+          "label": "Less time spent on manual tasks"
+        },
+        {
+          "value": "-30%",
+          "label": "Lower operational costs"
+        },
+        {
+          "value": "2.5x",
+          "label": "Increase in process efficiency"
+        },
+        {
+          "value": "More time",
+          "label": "To focus on what really matters"
+        }
       ]
-    },
-    "cta": {
-      "title": "Ready to work smarter?",
-      "titleAccent": "Let's optimize your processes.",
-      "button": "Book a free consultation",
-      "response": "We typically respond within a few hours."
     }
   },
   "about": {
@@ -110,11 +132,21 @@
     "capabilities": {
       "technology": {
         "title": "Technology",
-        "items": ["Development", "Automation", "AI Integration", "Systems & Tools"]
+        "items": [
+          "Development",
+          "Automation",
+          "AI Integration",
+          "Systems & Tools"
+        ]
       },
       "strategy": {
         "title": "Strategy",
-        "items": ["Process Design", "Operational Strategy", "Efficiency Improvement", "Business Growth"]
+        "items": [
+          "Process Design",
+          "Operational Strategy",
+          "Efficiency Improvement",
+          "Business Growth"
+        ]
       }
     },
     "principles": {
@@ -137,40 +169,112 @@
   },
   "services": {
     "hero": {
-      "eyebrow": "Services",
-      "title": "Automation, development, and AI, all under one team.",
-      "subtitle": "Four areas of work designed to simplify your operations and accelerate your growth."
+      "title1": "Smarter systems.",
+      "title2": "Better business.",
+      "subtitle": "We combine AI, automation and process optimization to help businesses work smarter, operate more efficiently and achieve measurable growth."
     },
-    "automation": {
-      "title": "Process automation",
-      "body": "We identify manual, repetitive tasks and turn them into automated workflows, connecting the tools your team already uses.",
-      "imageAlt": "Process automation illustration"
+    "intro": {
+      "eyebrow": "Our services",
+      "title": "End-to-end solutions to",
+      "titleAccent": "optimize your business.",
+      "body": "From identifying inefficiencies to building automated systems and digital strategies, we help you unlock efficiency, reduce costs and grow with clarity."
     },
-    "webdev": {
-      "title": "Web development",
-      "body": "We build fast, functional, custom-made websites and web apps for your brand, from landing pages to full platforms.",
-      "imageAlt": "Web development illustration"
-    },
-    "ai": {
-      "title": "AI integration",
-      "body": "We embed AI into your processes and products: assistants, intelligent automations, and tools tailored to your business.",
-      "imageAlt": "AI integration illustration"
-    },
-    "marketing": {
-      "title": "Marketing",
-      "body": "A marketing team focused on measurable results.",
-      "imageAlt": "Marketing illustration",
-      "items": [
-        "Media buying",
-        "Content campaigns",
-        "Marketing strategy",
-        "Social media consulting"
-      ]
-    },
-    "cta": {
-      "title": "Let's talk about your project?",
-      "button": "Contact us"
-    }
+    "categories": [
+      {
+        "title": "Process Evaluation",
+        "desc": "We evaluate how your business operates today and identify inefficiencies, bottlenecks and opportunities.",
+        "items": [
+          {
+            "title": "Current state analysis",
+            "desc": "We dive deep into your processes to understand what's working and what's holding you back."
+          },
+          {
+            "title": "Gap identification",
+            "desc": "We uncover gaps, redundancies and bottlenecks that are impacting performance."
+          },
+          {
+            "title": "Opportunity mapping",
+            "desc": "We highlight high-impact opportunities to improve efficiency and drive growth."
+          }
+        ]
+      },
+      {
+        "title": "Process Optimization",
+        "desc": "We redesign workflows and operations to eliminate waste, reduce friction and improve performance.",
+        "items": [
+          {
+            "title": "Workflow redesign",
+            "desc": "We simplify and restructure workflows for maximum clarity and efficiency."
+          },
+          {
+            "title": "Waste elimination",
+            "desc": "We remove unnecessary steps, handoffs and inefficiencies."
+          },
+          {
+            "title": "Performance improvement",
+            "desc": "We implement changes that lead to measurable gains in productivity and quality."
+          }
+        ]
+      },
+      {
+        "title": "Automation & AI",
+        "desc": "We implement automation and AI solutions that streamline tasks and support better decision-making.",
+        "items": [
+          {
+            "title": "Intelligent automation",
+            "desc": "We automate repetitive, time-consuming tasks with smart workflows."
+          },
+          {
+            "title": "AI integration",
+            "desc": "We leverage AI tools to analyze data and generate actionable insights."
+          },
+          {
+            "title": "Smarter decisions",
+            "desc": "We help you make faster, data-driven decisions with confidence."
+          }
+        ]
+      },
+      {
+        "title": "Business Consulting",
+        "desc": "We align processes, technology and strategy with your business goals to drive sustainable growth.",
+        "items": [
+          {
+            "title": "Strategic alignment",
+            "desc": "We ensure your operations and technology support your long-term vision."
+          },
+          {
+            "title": "Technology roadmap",
+            "desc": "We recommend the right tools and systems to scale with you."
+          },
+          {
+            "title": "Sustainable growth",
+            "desc": "We help you build a strong foundation for continuous improvement and growth."
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "desc": "A marketing team focused on measurable results, from paid media to content and strategy.",
+        "items": [
+          {
+            "title": "Media buying",
+            "desc": "We plan and manage paid campaigns across platforms to reach the right audience efficiently."
+          },
+          {
+            "title": "Content campaigns",
+            "desc": "We create content calendars and campaigns that keep your brand consistent and visible."
+          },
+          {
+            "title": "Marketing strategy",
+            "desc": "We define the roadmap that connects your brand, channels and goals."
+          },
+          {
+            "title": "Social media consulting",
+            "desc": "We guide your social presence with data-driven recommendations."
+          }
+        ]
+      }
+    ]
   },
   "howItWorks": {
     "hero": {
@@ -180,9 +284,18 @@
       "subtitle": "We follow a proven 3-step process to understand your business, optimize what matters, and implement solutions that drive results.",
       "cta": "Book a free consultation",
       "features": [
-        { "title": "Less manual work", "desc": "More time for what matters." },
-        { "title": "Lower costs", "desc": "Eliminate waste and inefficiencies." },
-        { "title": "Better results", "desc": "Smarter processes drive growth." }
+        {
+          "title": "Less manual work",
+          "desc": "More time for what matters."
+        },
+        {
+          "title": "Lower costs",
+          "desc": "Eliminate waste and inefficiencies."
+        },
+        {
+          "title": "Better results",
+          "desc": "Smarter processes drive growth."
+        }
       ]
     },
     "process": {
@@ -197,21 +310,33 @@
           "title": "Evaluate",
           "highlight": "We understand your business.",
           "desc": "We dive deep into your operations, analyze your current processes, tools and data to identify inefficiencies, bottlenecks and missed opportunities.",
-          "checklist": ["Process discovery sessions", "Current state analysis", "Opportunity report"]
+          "checklist": [
+            "Process discovery sessions",
+            "Current state analysis",
+            "Opportunity report"
+          ]
         },
         {
           "number": "02",
           "title": "Optimize",
           "highlight": "We design a better way.",
           "desc": "We redesign your processes to eliminate waste, reduce friction and create a clear, efficient workflow aligned with your goals.",
-          "checklist": ["Optimized process map", "Workflow redesign", "Impact & ROI estimation"]
+          "checklist": [
+            "Optimized process map",
+            "Workflow redesign",
+            "Impact & ROI estimation"
+          ]
         },
         {
           "number": "03",
           "title": "Implement",
           "highlight": "We make it happen.",
           "desc": "We implement automation and AI solutions that fit your business, integrate with your systems and deliver measurable results.",
-          "checklist": ["Automation & AI implementation", "System integration", "Team enablement"]
+          "checklist": [
+            "Automation & AI implementation",
+            "System integration",
+            "Team enablement"
+          ]
         }
       ]
     },
@@ -219,11 +344,26 @@
       "eyebrow": "The transformation journey",
       "title": "What you can expect.",
       "items": [
-        { "title": "Kickoff", "desc": "We align on your goals and expectations." },
-        { "title": "Discovery", "desc": "We collect information and map your processes." },
-        { "title": "Insight", "desc": "We identify opportunities and prioritize impact." },
-        { "title": "Build", "desc": "We implement and test the right solutions." },
-        { "title": "Optimize", "desc": "We measure results and continuously improve." }
+        {
+          "title": "Kickoff",
+          "desc": "We align on your goals and expectations."
+        },
+        {
+          "title": "Discovery",
+          "desc": "We collect information and map your processes."
+        },
+        {
+          "title": "Insight",
+          "desc": "We identify opportunities and prioritize impact."
+        },
+        {
+          "title": "Build",
+          "desc": "We implement and test the right solutions."
+        },
+        {
+          "title": "Optimize",
+          "desc": "We measure results and continuously improve."
+        }
       ]
     },
     "results": {
@@ -232,10 +372,22 @@
       "titleAccent": "business.",
       "subtitle": "Our process delivers real results that improve efficiency, reduce costs and drive sustainable growth.",
       "stats": [
-        { "value": "-40%", "label": "Less time spent on manual tasks" },
-        { "value": "-30%", "label": "Lower operational costs" },
-        { "value": "2.5x", "label": "Increase in process efficiency" },
-        { "value": "100%", "label": "Visibility and control of operations" }
+        {
+          "value": "-40%",
+          "label": "Less time spent on manual tasks"
+        },
+        {
+          "value": "-30%",
+          "label": "Lower operational costs"
+        },
+        {
+          "value": "2.5x",
+          "label": "Increase in process efficiency"
+        },
+        {
+          "value": "100%",
+          "label": "Visibility and control of operations"
+        }
       ]
     }
   },
@@ -311,7 +463,12 @@
     "tagline": "Automation, web development, and artificial intelligence to grow your business.",
     "navTitle": "Navigation",
     "servicesTitle": "Services",
-    "services": ["Consulting", "Automation", "Marketing", "Applied AI"],
+    "services": [
+      "Consulting",
+      "Automation",
+      "Marketing",
+      "Applied AI"
+    ],
     "socialTitle": "Follow us",
     "contactTitle": "Contact",
     "rights": "© {{year}} Epix Code. All rights reserved."

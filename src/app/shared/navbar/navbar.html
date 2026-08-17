@@ -3,6 +3,7 @@
   [class.site-header--hero]="isHeroPage()"
   [class.site-header--transparent]="isHeroPage() && !scrolled()"
   [class.site-header--shadow]="scrolled()"
+  [class.site-header--menu-open]="isMenuOpen()"
 >
   <div class="navbar__inner">
     <a class="navbar__brand" [routerLink]="'/' | langLink" (click)="closeMenu()">

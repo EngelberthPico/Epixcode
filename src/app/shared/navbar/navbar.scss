@@ -1,18 +1,16 @@
 @use '../../../styles/variables' as *;
 
-// Nombrado ".site-header" (no ".navbar") a propósito: la librería completa de
-// Bootstrap que importamos en styles.scss define su propia clase ".navbar"
-// (display:flex, justify-content:space-between, etc.). Como esa regla es
-// global y la nuestra está a nivel de componente, coexistían en el mismo
-// <header> y Bootstrap terminaba ganando en las propiedades que nosotros no
-// sobrescribíamos explícitamente — eso rompía el layout (el contenedor
-// interno se encogía a su contenido en vez de ocupar el ancho completo).
+// Nombrado ".site-header" (no ".navbar") a propósito: cuando el proyecto
+// todavía importaba Bootstrap (ya no — ver CLAUDE.md), su CSS global definía
+// su propia clase ".navbar" que ganaba sobre la nuestra en el mismo
+// <header>. Ya no aplica, pero se mantiene el nombre para no reintroducir
+// el choque si alguna vez se vuelve a agregar una librería de CSS global.
 //
 // Comportamiento por página (ver spec de diseño):
-// - Páginas con hero oscuro a pantalla completa (".site-header--hero": Home,
-//   Cómo trabajamos): fixed, flotando sobre el hero. Empieza transparente
-//   con texto crema; al hacer scroll pasa a fondo sólido con blur y texto
-//   negro.
+// - Páginas con hero oscuro (".site-header--hero": Home, About, Contacto,
+//   Cómo trabajamos, Servicios — ver HERO_PAGE_PATHS en navbar.ts): fixed,
+//   flotando sobre el hero. Empieza transparente con texto crema; al hacer
+//   scroll pasa a fondo sólido con blur y texto negro.
 // - Resto de páginas: sticky (reserva su espacio, sin solaparse con el
 //   contenido), fondo sólido con blur siempre; solo la sombra aparece con
 //   el scroll.
@@ -43,6 +41,17 @@
     background: transparent;
     backdrop-filter: none;
     color: $color-crema;
+  }
+
+  // El menú móvil abierto (.navbar__menu--open) es un bloque que crece
+  // dentro de este mismo <header>, así que hereda su fondo. Sobre una
+  // página con hero oscuro y sin scroll, "--transparent" lo deja sin fondo
+  // y el contenido del hero se transparenta detrás de los links — se
+  // fuerza un fondo casi opaco solo mientras el menú está abierto en ese
+  // estado, sin esperar al scroll.
+  &--transparent.site-header--menu-open {
+    background: color-mix(in srgb, $color-negro 96%, transparent);
+    backdrop-filter: blur(10px);
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -138,7 +138,7 @@ Mostrar ejemplos de trabajo realizado en tono de empresa ("hemos desarrollado", 
 ## Navegación: rutas separadas por sección (Angular Router)
 - `/` — Home / Hero
 - `/about` — Sobre nosotros
-- `/services` — Servicios
+- `/services` — Servicios (hero con imagen propia + acordeón de 5 categorías, ver "Página de Servicios" abajo)
 - `/how-it-works` — Cómo trabajamos (proceso de 3 pasos + journey + resultados)
 - `/contact` — Contacto
 - Cada ruta existe también bajo `/es/*` (ver "Idioma" arriba) — no como entradas separadas en `app.routes.ts`, sino como children de una ruta `es` que reutiliza el mismo array de páginas.
@@ -162,16 +162,46 @@ Definir estos tres colores como variables SCSS (`$color-crema`, `$color-negro`, 
 - Assets de marca en `public/`: `logo-icon.png` / `logo-icon-transparent.png` (isotipo, usado como favicon) y `logofondonegro.png` (logo completo sobre fondo negro, usado en navbar/footer sobre fondo oscuro y como imagen de Open Graph).
 - Basar cualquier elemento visual adicional (iconografía, estilo de las imágenes generadas con IA del punto 9 de seguridad) en el estilo y los colores del logo, para mantener consistencia de marca.
 
+### Imágenes de fondo por sección (no placeholders — ya son las reales)
+- `FondoHero.png` — hero de Home.
+- `Fondohiw1.png` / `Fondohiw2.png` — hero y otra franja de Cómo trabajamos.
+- `FondoHeroServices.png` — hero de Servicios.
+- `FondoCta.png` — banner de CTA final ("Ready to work smarter?"), compartido entre Home y Servicios (ver "Banner de CTA compartido" abajo). El archivo de diseño original traía dos fotos de personas superpuestas — se pidió explícitamente no usarlas; el fondo que se integró es solo la textura/onda oliva, sin fotos.
+- Si se agrega una imagen de fondo nueva para otra página, seguir la convención de nombre `Fondo<Sección>.png` en `public/` (mayúscula inicial, sin espacios).
+
 ## Decisiones ya resueltas (quedan aquí como referencia, no reabrir sin pedido explícito)
 - [x] Paleta de colores — crema/negro/oliva (ver "Identidad visual" arriba).
 - [x] Tipografía — **Poppins** (pesos 400–800, cargada vía Google Fonts en `index.html`), jerarquía por peso/tamaño, no por familias distintas.
 - [x] Nombre de marca definitivo — **Epix Code**, wordmark "epix**code**" (oliva en la segunda mitad) en navbar/footer.
 - [x] Textos de "Sobre nosotros" y "Servicios" — reescritos y finalizados en `public/i18n/es.json` / `en.json`; el texto de partida de este documento (sección 2/3 arriba) es histórico, no la copia real del sitio.
 - [x] Icono del sitio — Lucide (paths copiados a mano, ver regla de seguridad #6), reemplazando los SVG dibujados a mano de la primera versión.
-- [x] Banner de CTA en Home ("Ready to work smarter? / Let's optimize your processes.") — **sí va**, al final de Home antes del footer, tarjeta completa como link a `https://calendly.com/epixcode/freediagnosticcall`. Hubo una instrucción explícita anterior de NO agregarlo que luego se revirtió; tratar esta versión como la definitiva salvo nueva instrucción.
+- [x] Banner de CTA ("Ready to work smarter? / Let's optimize your processes.") — **sí va**, al final de Home y de Servicios (y candidato a agregarse a más páginas), tarjeta completa como link a `https://calendly.com/epixcode/freediagnosticcall`. Hubo una instrucción explícita anterior de NO agregarlo que luego se revirtió; tratar esta versión como la definitiva salvo nueva instrucción.
+- [x] Página de Servicios — rediseñada por completo (ya no es el layout viejo de filas imagen/texto alternadas). Hero con imagen propia (`FondoHeroServices.png`) igual de alto que los demás hero del sitio, luego 5 tarjetas tipo acordeón (Process Evaluation, Process Optimization, Automation & AI, Business Consulting, Marketing), cada una con 3–4 sub-ítems con ícono. Ver "Página de Servicios (acordeón)" abajo para el detalle de implementación.
+
+## Banner de CTA compartido (Home + Servicios)
+El banner verde de cierre vive en dos páginas con el mismo contenido, mismo link de Calendly y mismo fondo (`FondoCta.png`), así que su copy se movió a una clave de traducción compartida en vez de duplicarse por página:
+- Claves i18n: `common.cta.title` / `titleAccent` / `button` / `response` (antes vivían bajo `home.cta.*`; si se busca contenido viejo con ese prefijo, ya no existe).
+- Markup y estilos SÍ están duplicados a propósito en cada página (`.home-cta*` en `home.scss`, `.services-cta*` en `services.scss`) — mismo patrón, prefijo de clase distinto por página. Si se agrega este banner a una tercera página, replicar el mismo patrón (no crear un componente compartido salvo que se repita en 4+ lugares).
+- Toda la tarjeta es un único `<a>` externo a Calendly — el botón visual interno tiene `pointer-events: none`.
+
+## Página de Servicios (acordeón)
+- Componente: `src/app/pages/services/services.ts`. Estado de apertura/cierre por tarjeta con un signal `openCategories = signal<ReadonlySet<number>>(...)` (arranca con las 5 abiertas, como en el diseño de referencia) y los métodos `isOpen(i)` / `toggle(i)` — nada de librerías de acordeón ni JS de terceros (ver regla de seguridad #6).
+- Cada cabecera de categoría es un `<button>` (no un `<div>` con click) por accesibilidad — título y descripción van en `<span>` (no `<h3>`/`<p>`) porque esos bloques no son contenido válido dentro de un `<button>`; el apilado vertical se logra con `display:flex; flex-direction:column` en el contenedor, no con los elementos en sí.
+- El colapsable usa el truco de `grid-template-rows: 0fr → 1fr` con transición (no `max-height`), porque anima a la altura real del contenido sin tener que calcularla en JS. Requiere un wrapper con `overflow:hidden; min-height:0` adentro.
+- El grid de sub-ítems usa `grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))`, no un número fijo de columnas — así categorías con 3 ítems y la de Marketing (con 4) se acomodan solas sin dejar hueco.
+- La altura del hero de Servicios se igualó a la de About/Cómo trabajamos (~578–612px medidos en desktop) con `min-height: 37.5rem; display:flex; align-items:center` en vez de agregarle contenido extra que no está en el diseño — si se agrega un hero nuevo sin contenido bajo el título, replicar esta técnica en vez de adivinar con padding.
+
+## Reset global (`styles.scss`)
+El navegador pone ~8px de margin por defecto al `<body>`; sin resetearlo se veía como un borde alrededor de todo el sitio (bug real, ya corregido). `styles.scss` ya tiene `* { box-sizing: border-box; } html, body { margin: 0; padding: 0; }` al principio — no quitarlo.
+
+## Menú móvil sobre hero oscuro (bug conocido, ya corregido)
+En páginas con `.site-header--hero` (ver `HERO_PAGE_PATHS` en `navbar.ts`), si el usuario abre el menú hamburguesa **antes** de hacer scroll, el header sigue en su estado `--transparent` y el contenido del hero se transparentaba detrás de los links del menú, ilegible. Se corrigió con una clase adicional `[class.site-header--menu-open]="isMenuOpen()"` en `navbar.html` + una regla en `navbar.scss` (`&--transparent.site-header--menu-open`) que fuerza un fondo oscuro casi opaco solo mientras el menú está abierto en ese estado. **Si se agrega una página nueva a `HERO_PAGE_PATHS`, probar el menú móvil sin haber hecho scroll** — este bug se repite ahí si algo lo rompe.
+
+## Cómo probar el sitio en mobile en esta sesión de trabajo
+Las herramientas de navegador de este entorno (`resize_window`) no siempre cambian el `viewport` real de la pestaña (se vio `window.innerWidth` quedarse en el ancho de escritorio pese a "redimensionar" con éxito). Workaround que sí funciona: cargar la página real dentro de un `<iframe>` con `style.width` fijo (ej. `390px`) inyectado por JS en la pestaña — un iframe sí dispara los media queries CSS al ancho real que se le da, sin depender del tamaño de la ventana del navegador.
 
 ## Notas de proceso (cómo se ha trabajado en este proyecto)
 - **No inventar datos de negocio no confirmados** (teléfono, dirección, horarios, cifras, testimonios). Si un mockup los sugiere pero Epix Code no los ha dado, omitirlos — no rellenar con algo "razonable".
-- **Verificar siempre con build + navegador antes de dar algo por terminado**: `ng build --configuration production` sin errores, y revisión visual en `ng serve` (incluyendo ambos idiomas cuando aplique), no solo que compile.
+- **Verificar siempre con build + navegador antes de dar algo por terminado**: `ng build --configuration production` sin errores, y revisión visual en `ng serve` (incluyendo ambos idiomas y el ancho mobile — ver "Cómo probar el sitio en mobile" arriba — cuando aplique), no solo que compile.
 - **Al corregir un patrón puntual (ej. una tarjeta sin `prefers-reduced-motion`), revisar todo el proyecto por el mismo patrón**, no solo el caso señalado.
 - **Para datos externos exactos (paths SVG, etc.), usar `curl`, no WebFetch** — WebFetch resume el contenido con un modelo intermedio y puede alterar valores numéricos precisos.

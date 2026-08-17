@@ -11,6 +11,14 @@
     "toggleMenuClose": "Cerrar menú de navegación",
     "languageSwitcher": "Cambiar idioma"
   },
+  "common": {
+    "cta": {
+      "title": "¿Listo para trabajar de forma más inteligente?",
+      "titleAccent": "Optimicemos tus procesos.",
+      "button": "Agenda una asesoría gratuita",
+      "response": "Normalmente respondemos en pocas horas."
+    }
+  },
   "home": {
     "hero": {
       "badge": "Optimización de procesos con IA",
@@ -27,10 +35,18 @@
       "titleAccent": "frenan a las empresas.",
       "body": "Se pierde demasiado tiempo en trabajo manual, tareas repetitivas, herramientas desconectadas y flujos de trabajo ineficientes.",
       "items": [
-        { "title": "Procesos manuales" },
-        { "title": "Tareas repetitivas" },
-        { "title": "Herramientas desconectadas" },
-        { "title": "Flujos de trabajo ineficientes" }
+        {
+          "title": "Procesos manuales"
+        },
+        {
+          "title": "Tareas repetitivas"
+        },
+        {
+          "title": "Herramientas desconectadas"
+        },
+        {
+          "title": "Flujos de trabajo ineficientes"
+        }
       ]
     },
     "whatWeDo": {
@@ -86,17 +102,23 @@
       "title3": "Mejores resultados.",
       "body": "Te ayudamos a construir un negocio listo para hoy, y preparado para el futuro.",
       "stats": [
-        { "value": "-40%", "label": "Menos tiempo en tareas manuales" },
-        { "value": "-30%", "label": "Menores costos operativos" },
-        { "value": "2.5x", "label": "Aumento en eficiencia de procesos" },
-        { "value": "Más tiempo", "label": "Para enfocarte en lo que realmente importa" }
+        {
+          "value": "-40%",
+          "label": "Menos tiempo en tareas manuales"
+        },
+        {
+          "value": "-30%",
+          "label": "Menores costos operativos"
+        },
+        {
+          "value": "2.5x",
+          "label": "Aumento en eficiencia de procesos"
+        },
+        {
+          "value": "Más tiempo",
+          "label": "Para enfocarte en lo que realmente importa"
+        }
       ]
-    },
-    "cta": {
-      "title": "¿Listo para trabajar de forma más inteligente?",
-      "titleAccent": "Optimicemos tus procesos.",
-      "button": "Agenda una asesoría gratuita",
-      "response": "Normalmente respondemos en pocas horas."
     }
   },
   "about": {
@@ -110,11 +132,21 @@
     "capabilities": {
       "technology": {
         "title": "Tecnología",
-        "items": ["Desarrollo", "Automatización", "Integración de IA", "Sistemas y herramientas"]
+        "items": [
+          "Desarrollo",
+          "Automatización",
+          "Integración de IA",
+          "Sistemas y herramientas"
+        ]
       },
       "strategy": {
         "title": "Estrategia",
-        "items": ["Diseño de procesos", "Estrategia operativa", "Mejora de eficiencia", "Crecimiento del negocio"]
+        "items": [
+          "Diseño de procesos",
+          "Estrategia operativa",
+          "Mejora de eficiencia",
+          "Crecimiento del negocio"
+        ]
       }
     },
     "principles": {
@@ -137,40 +169,112 @@
   },
   "services": {
     "hero": {
-      "eyebrow": "Servicios",
-      "title": "Automatización, desarrollo e IA, todo en un mismo equipo.",
-      "subtitle": "Cuatro frentes de trabajo diseñados para simplificar tu operación y acelerar tu crecimiento."
+      "title1": "Sistemas más inteligentes.",
+      "title2": "Mejor negocio.",
+      "subtitle": "Combinamos IA, automatización y optimización de procesos para ayudar a las empresas a trabajar de forma más inteligente, operar con mayor eficiencia y lograr un crecimiento medible."
     },
-    "automation": {
-      "title": "Automatización de procesos",
-      "body": "Identificamos tareas manuales y repetitivas y las convertimos en flujos automáticos, conectando las herramientas que ya usa tu equipo.",
-      "imageAlt": "Ilustración de automatización de procesos"
+    "intro": {
+      "eyebrow": "Nuestros servicios",
+      "title": "Soluciones integrales para",
+      "titleAccent": "optimizar tu negocio.",
+      "body": "Desde identificar ineficiencias hasta construir sistemas automatizados y estrategias digitales, te ayudamos a liberar eficiencia, reducir costos y crecer con claridad."
     },
-    "webdev": {
-      "title": "Desarrollo web",
-      "body": "Construimos sitios y aplicaciones web rápidas, funcionales y a la medida de tu marca, desde landing pages hasta plataformas completas.",
-      "imageAlt": "Ilustración de desarrollo web"
-    },
-    "ai": {
-      "title": "Integración de inteligencia artificial",
-      "body": "Incorporamos IA en tus procesos y productos: asistentes, automatizaciones inteligentes y herramientas a la medida de tu negocio.",
-      "imageAlt": "Ilustración de integración de inteligencia artificial"
-    },
-    "marketing": {
-      "title": "Marketing",
-      "body": "Un equipo de marketing enfocado en resultados medibles.",
-      "imageAlt": "Ilustración de marketing",
-      "items": [
-        "Media buying",
-        "Campañas de contenido",
-        "Estrategias de marketing",
-        "Consultoría de redes sociales"
-      ]
-    },
-    "cta": {
-      "title": "¿Hablamos de tu proyecto?",
-      "button": "Contáctanos"
-    }
+    "categories": [
+      {
+        "title": "Evaluación de procesos",
+        "desc": "Evaluamos cómo opera tu negocio hoy e identificamos ineficiencias, cuellos de botella y oportunidades.",
+        "items": [
+          {
+            "title": "Análisis del estado actual",
+            "desc": "Profundizamos en tus procesos para entender qué funciona y qué te está frenando."
+          },
+          {
+            "title": "Identificación de brechas",
+            "desc": "Descubrimos vacíos, redundancias y cuellos de botella que afectan el rendimiento."
+          },
+          {
+            "title": "Mapeo de oportunidades",
+            "desc": "Señalamos las oportunidades de mayor impacto para mejorar la eficiencia e impulsar el crecimiento."
+          }
+        ]
+      },
+      {
+        "title": "Optimización de procesos",
+        "desc": "Rediseñamos flujos de trabajo y operaciones para eliminar desperdicios, reducir fricción y mejorar el rendimiento.",
+        "items": [
+          {
+            "title": "Rediseño de flujos de trabajo",
+            "desc": "Simplificamos y reestructuramos los flujos de trabajo para lograr máxima claridad y eficiencia."
+          },
+          {
+            "title": "Eliminación de desperdicios",
+            "desc": "Eliminamos pasos, traspasos e ineficiencias innecesarias."
+          },
+          {
+            "title": "Mejora del rendimiento",
+            "desc": "Implementamos cambios que generan mejoras medibles en productividad y calidad."
+          }
+        ]
+      },
+      {
+        "title": "Automatización e IA",
+        "desc": "Implementamos soluciones de automatización e IA que agilizan tareas y apoyan mejores decisiones.",
+        "items": [
+          {
+            "title": "Automatización inteligente",
+            "desc": "Automatizamos tareas repetitivas y que consumen tiempo con flujos de trabajo inteligentes."
+          },
+          {
+            "title": "Integración de IA",
+            "desc": "Aprovechamos herramientas de IA para analizar datos y generar información accionable."
+          },
+          {
+            "title": "Decisiones más inteligentes",
+            "desc": "Te ayudamos a tomar decisiones más rápidas y basadas en datos, con confianza."
+          }
+        ]
+      },
+      {
+        "title": "Consultoría de negocio",
+        "desc": "Alineamos procesos, tecnología y estrategia con los objetivos de tu negocio para impulsar un crecimiento sostenible.",
+        "items": [
+          {
+            "title": "Alineación estratégica",
+            "desc": "Nos aseguramos de que tus operaciones y tecnología respalden tu visión a largo plazo."
+          },
+          {
+            "title": "Hoja de ruta tecnológica",
+            "desc": "Recomendamos las herramientas y sistemas correctos para escalar contigo."
+          },
+          {
+            "title": "Crecimiento sostenible",
+            "desc": "Te ayudamos a construir una base sólida para la mejora continua y el crecimiento."
+          }
+        ]
+      },
+      {
+        "title": "Marketing",
+        "desc": "Un equipo de marketing enfocado en resultados medibles, desde pauta pagada hasta contenido y estrategia.",
+        "items": [
+          {
+            "title": "Media buying",
+            "desc": "Planeamos y gestionamos campañas pagadas en distintas plataformas para llegar a la audiencia correcta de forma eficiente."
+          },
+          {
+            "title": "Campañas de contenido",
+            "desc": "Creamos parrillas y campañas de contenido que mantienen tu marca consistente y visible."
+          },
+          {
+            "title": "Estrategia de marketing",
+            "desc": "Definimos la hoja de ruta que conecta tu marca, tus canales y tus objetivos."
+          },
+          {
+            "title": "Consultoría de redes sociales",
+            "desc": "Guiamos tu presencia en redes con recomendaciones basadas en datos."
+          }
+        ]
+      }
+    ]
   },
   "howItWorks": {
     "hero": {
@@ -180,9 +284,18 @@
       "subtitle": "Seguimos un proceso probado de 3 pasos para entender tu negocio, optimizar lo que importa e implementar soluciones que generan resultados.",
       "cta": "Agenda una asesoría gratuita",
       "features": [
-        { "title": "Menos trabajo manual", "desc": "Más tiempo para lo que importa." },
-        { "title": "Costos más bajos", "desc": "Eliminamos desperdicio e ineficiencias." },
-        { "title": "Mejores resultados", "desc": "Procesos más inteligentes impulsan el crecimiento." }
+        {
+          "title": "Menos trabajo manual",
+          "desc": "Más tiempo para lo que importa."
+        },
+        {
+          "title": "Costos más bajos",
+          "desc": "Eliminamos desperdicio e ineficiencias."
+        },
+        {
+          "title": "Mejores resultados",
+          "desc": "Procesos más inteligentes impulsan el crecimiento."
+        }
       ]
     },
     "process": {
@@ -197,21 +310,33 @@
           "title": "Evaluamos",
           "highlight": "Entendemos tu negocio.",
           "desc": "Profundizamos en tus operaciones y analizamos tus procesos, herramientas y datos actuales para identificar ineficiencias, cuellos de botella y oportunidades no aprovechadas.",
-          "checklist": ["Sesiones de descubrimiento de procesos", "Análisis del estado actual", "Informe de oportunidades"]
+          "checklist": [
+            "Sesiones de descubrimiento de procesos",
+            "Análisis del estado actual",
+            "Informe de oportunidades"
+          ]
         },
         {
           "number": "02",
           "title": "Optimizamos",
           "highlight": "Diseñamos una mejor manera.",
           "desc": "Rediseñamos tus procesos para eliminar desperdicio, reducir fricción y crear un flujo de trabajo claro y eficiente alineado con tus objetivos.",
-          "checklist": ["Mapa de proceso optimizado", "Rediseño de flujo de trabajo", "Estimación de impacto y ROI"]
+          "checklist": [
+            "Mapa de proceso optimizado",
+            "Rediseño de flujo de trabajo",
+            "Estimación de impacto y ROI"
+          ]
         },
         {
           "number": "03",
           "title": "Implementamos",
           "highlight": "Lo hacemos realidad.",
           "desc": "Implementamos soluciones de automatización e IA a la medida de tu negocio, las integramos con tus sistemas y entregamos resultados medibles.",
-          "checklist": ["Implementación de automatización e IA", "Integración de sistemas", "Capacitación del equipo"]
+          "checklist": [
+            "Implementación de automatización e IA",
+            "Integración de sistemas",
+            "Capacitación del equipo"
+          ]
         }
       ]
     },
@@ -219,11 +344,26 @@
       "eyebrow": "El viaje de transformación",
       "title": "Qué puedes esperar.",
       "items": [
-        { "title": "Arranque", "desc": "Alineamos objetivos y expectativas." },
-        { "title": "Descubrimiento", "desc": "Recopilamos información y mapeamos tus procesos." },
-        { "title": "Diagnóstico", "desc": "Identificamos oportunidades y priorizamos el impacto." },
-        { "title": "Construcción", "desc": "Implementamos y probamos las soluciones adecuadas." },
-        { "title": "Optimización", "desc": "Medimos resultados y mejoramos continuamente." }
+        {
+          "title": "Arranque",
+          "desc": "Alineamos objetivos y expectativas."
+        },
+        {
+          "title": "Descubrimiento",
+          "desc": "Recopilamos información y mapeamos tus procesos."
+        },
+        {
+          "title": "Diagnóstico",
+          "desc": "Identificamos oportunidades y priorizamos el impacto."
+        },
+        {
+          "title": "Construcción",
+          "desc": "Implementamos y probamos las soluciones adecuadas."
+        },
+        {
+          "title": "Optimización",
+          "desc": "Medimos resultados y mejoramos continuamente."
+        }
       ]
     },
     "results": {
@@ -232,10 +372,22 @@
       "titleAccent": "negocio.",
       "subtitle": "Nuestro proceso entrega resultados reales que mejoran la eficiencia, reducen costos e impulsan un crecimiento sostenible.",
       "stats": [
-        { "value": "-40%", "label": "Menos tiempo en tareas manuales" },
-        { "value": "-30%", "label": "Menores costos operativos" },
-        { "value": "2.5x", "label": "Aumento en eficiencia de procesos" },
-        { "value": "100%", "label": "Visibilidad y control de las operaciones" }
+        {
+          "value": "-40%",
+          "label": "Menos tiempo en tareas manuales"
+        },
+        {
+          "value": "-30%",
+          "label": "Menores costos operativos"
+        },
+        {
+          "value": "2.5x",
+          "label": "Aumento en eficiencia de procesos"
+        },
+        {
+          "value": "100%",
+          "label": "Visibilidad y control de las operaciones"
+        }
       ]
     }
   },
@@ -311,7 +463,12 @@
     "tagline": "Automatización, desarrollo web e inteligencia artificial para hacer crecer tu negocio.",
     "navTitle": "Navegación",
     "servicesTitle": "Servicios",
-    "services": ["Consultoría", "Automatizaciones", "Marketing", "IA orientada"],
+    "services": [
+      "Consultoría",
+      "Automatizaciones",
+      "Marketing",
+      "IA orientada"
+    ],
     "socialTitle": "Síguenos",
     "contactTitle": "Contacto",
     "rights": "© {{year}} Epix Code. Todos los derechos reservados."
