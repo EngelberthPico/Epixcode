@@ -112,6 +112,12 @@
   padding: 0;
   background: transparent;
   border: none;
+  // Sin esto, un <button> sin color propio hereda el estilo nativo del
+  // navegador (en iOS Safari, un azul de sistema) en vez del negro/crema
+  // del header — currentColor de .navbar__toggle-bar termina siendo ese
+  // azul, no el color real de .site-header.
+  color: inherit;
+  appearance: none;
   cursor: pointer;
 }
 
@@ -174,6 +180,16 @@
   align-self: flex-start;
 }
 
+// Envuelve el selector de idioma + el botón hamburguesa: en móvil ambos
+// quedan pegados a la derecha del header, fuera de .navbar__menu (ver
+// comentario en navbar.html sobre por qué el selector no puede vivir
+// dentro del menú colapsable).
+.navbar__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .navbar__lang {
   display: flex;
   align-items: center;
@@ -205,41 +221,46 @@
 // de idioma + botón de contacto, el grupo entero no cabe en una sola fila
 // antes de los 900px y el flexbox lo empujaba a una segunda línea.
 @media (min-width: 900px) {
-  // Grid de 3 columnas iguales (1fr auto 1fr): al ser los dos costados
-  // "1fr", el bloque central (los links) queda ópticamente centrado en todo
-  // el ancho del navbar sin importar que el logo y las acciones de la
-  // derecha tengan anchos distintos.
+  // Flexbox con `order` explícito, no grid: en desktop hay 2 grupos
+  // independientes a la derecha (idioma y CTA) que ahora viven en
+  // contenedores DOM distintos (.navbar__tools y .navbar__menu, separados
+  // por la necesidad de que el selector de idioma quede visible en móvil
+  // sin abrir el hamburguesa — ver comentario en navbar.html). Un grid de
+  // "1fr auto 1fr" no puede darle a esos dos grupos una sola columna sin
+  // que se superpongan, así que centramos .navbar__links con
+  // margin-inline:auto en su lugar: absorbe el espacio libre por igual a
+  // los dos lados. No es matemáticamente idéntico a "1fr auto 1fr" cuando
+  // el logo y el grupo idioma+CTA difieren mucho en ancho, pero la
+  // diferencia es de unos px, imperceptible a este tamaño — confirmar
+  // visualmente si se agrega/quita algo grande de cualquiera de los dos
+  // lados.
   .navbar__inner {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
     align-items: center;
     gap: 1.5rem;
-  }
-
-  .navbar__brand {
-    justify-self: start;
   }
 
   .navbar__toggle {
     display: none;
   }
 
-  // El <nav> sigue existiendo como contenedor semántico (y como el bloque
-  // que el botón de hamburguesa abre/cierra en móvil), pero en desktop no
-  // debe participar en el layout: con "display: contents" sus hijos
-  // (.navbar__links y .navbar__actions) pasan a ser ítems directos del
-  // grid de .navbar__inner, cada uno en su propia columna.
-  .navbar__menu {
+  // .navbar__menu sigue existiendo como contenedor semántico (y como el
+  // bloque que el botón de hamburguesa abre/cierra en móvil), y
+  // .navbar__tools como el que agrupa idioma+hamburguesa en móvil, pero en
+  // desktop ninguno de los dos debe participar en el layout: con
+  // "display: contents" sus hijos pasan a ser ítems directos del flex de
+  // .navbar__inner, cada uno posicionado con `order` abajo.
+  .navbar__menu,
+  .navbar__tools {
     display: contents;
   }
 
   .navbar__links {
-    grid-column: 2;
-    justify-self: center;
+    order: 1;
+    margin: 0 auto;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    margin: 0;
     gap: 1.5rem;
 
     a {
@@ -247,9 +268,12 @@
     }
   }
 
+  .navbar__lang {
+    order: 2;
+  }
+
   .navbar__actions {
-    grid-column: 3;
-    justify-self: end;
+    order: 3;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;

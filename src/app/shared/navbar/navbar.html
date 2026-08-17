@@ -11,17 +11,44 @@
       <span class="navbar__wordmark">epix<span class="navbar__wordmark-accent">code</span></span>
     </a>
 
-    <button
-      type="button"
-      class="navbar__toggle"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="isMenuOpen()"
-      [attr.aria-label]="(isMenuOpen() ? 'nav.toggleMenuClose' : 'nav.toggleMenuOpen') | translate"
-    >
-      <span class="navbar__toggle-bar"></span>
-      <span class="navbar__toggle-bar"></span>
-      <span class="navbar__toggle-bar"></span>
-    </button>
+    <!-- Antes de .navbar__menu a propósito, en dos sentidos: (1) fuera de
+         .navbar__menu porque en móvil el menú entero está display:none
+         hasta que se abre el hamburguesa, y no hay forma en CSS de "asomar"
+         un descendiente de un ancestro con display:none — el selector de
+         idioma tiene que vivir aquí para quedar visible sin abrir el menú.
+         (2) ANTES del <nav> en el DOM (no después) porque en móvil
+         .navbar__inner es flex-wrap: si .navbar__menu (flex-basis:100%)
+         viniera primero, fuerza su propio salto de línea y empuja
+         .navbar__tools a una tercera línea en vez de quedar junto al logo.
+         En desktop esto no importa: `order` en navbar.scss controla el
+         orden visual real, independiente del DOM. -->
+    <div class="navbar__tools">
+      <div class="navbar__lang" role="group" [attr.aria-label]="'nav.languageSwitcher' | translate">
+        @for (lang of languages; track lang) {
+          <button
+            type="button"
+            class="navbar__lang-btn"
+            [class.navbar__lang-btn--active]="currentLang() === lang"
+            [attr.aria-pressed]="currentLang() === lang"
+            (click)="setLang(lang)"
+          >
+            {{ lang.toUpperCase() }}
+          </button>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="navbar__toggle"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        [attr.aria-label]="(isMenuOpen() ? 'nav.toggleMenuClose' : 'nav.toggleMenuOpen') | translate"
+      >
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+    </div>
 
     <nav class="navbar__menu" [class.navbar__menu--open]="isMenuOpen()">
       <ul class="navbar__links">
@@ -57,20 +84,6 @@
       </ul>
 
       <div class="navbar__actions">
-        <div class="navbar__lang" role="group" [attr.aria-label]="'nav.languageSwitcher' | translate">
-          @for (lang of languages; track lang) {
-            <button
-              type="button"
-              class="navbar__lang-btn"
-              [class.navbar__lang-btn--active]="currentLang() === lang"
-              [attr.aria-pressed]="currentLang() === lang"
-              (click)="setLang(lang)"
-            >
-              {{ lang.toUpperCase() }}
-            </button>
-          }
-        </div>
-
         <a
           class="btn btn--primary navbar__cta"
           href="https://calendly.com/epixcode/freediagnosticcall"
