@@ -68,5 +68,24 @@ RewriteRule ^ index.html [L]
   #     submit nativo, por si en el futuro cambia esa implementación
   #   object-src 'none' / base-uri 'self': no hay <object>/<embed> ni razón
   #     para permitir un <base> inyectado
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; object-src 'none'; base-uri 'self';"
+  #
+  #   'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='
+  #   en script-src: NO es nuestro código — Hostinger/LiteSpeed reescribe
+  #   automáticamente <link rel="stylesheet"> a
+  #   `media="print" onload="this.media='all'"` (carga async del CSS) antes
+  #   de servir el HTML. Sin este hash, la CSP bloqueaba ese onload inline
+  #   y el CSS quedaba cargado pero nunca "activo" (media seguía en
+  #   "print"), rompiendo silenciosamente TODO lo que viene de styles.scss
+  #   (ej. .btn/.btn--primary se veían como un <a> sin estilo del
+  #   navegador) sin afectar el CSS por componente de Angular (inyectado
+  #   aparte, por eso el resto del sitio se veía bien). Confirmado
+  #   inspeccionando el HTML servido en producción — bug real, ya
+  #   corregido. Si esto se rompe de nuevo, revisar primero si Hostinger
+  #   cambió el snippet inyectado (inspeccionar el <link> de styles-*.css
+  #   servido) y recalcular el hash con
+  #   `python3 -c "import hashlib,base64;print('sha256-'+base64.b64encode(hashlib.sha256(b\"CONTENIDO_EXACTO\").digest()).decode())"`
+  #   — más robusto aún sería desactivar la optimización de CSS async en
+  #   hPanel (LiteSpeed Cache / Page Speed) si Hostinger la expone, para no
+  #   depender de este hash en absoluto.
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc=' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; object-src 'none'; base-uri 'self';"
 </IfModule>
