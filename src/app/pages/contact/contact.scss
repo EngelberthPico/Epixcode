@@ -239,3 +239,15 @@
     padding: 2.5rem;
   }
 }
+
+// Botón a Calendly, debajo del texto de tiempo de respuesta.
+.contact-hero__calendly {
+  display: inline-block;
+  margin-top: 1.25rem;
+
+  &:hover {
+    background: $color-oliva-hover;
+    border-color: $color-oliva;
+    color: $color-crema;
+  }
+}

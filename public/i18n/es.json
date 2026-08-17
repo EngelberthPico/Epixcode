@@ -451,7 +451,8 @@
     "direct": {
       "title": "Contacto directo",
       "email": "contact@epixcode.com",
-      "response": "Normalmente respondemos en menos de 24 horas hábiles."
+      "response": "Normalmente respondemos en menos de 24 horas hábiles.",
+      "calendlyButton": "Agenda una asesoría gratuita"
     }
   },
   "social": {

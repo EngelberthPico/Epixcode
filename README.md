@@ -70,7 +70,7 @@ La ruta `/projects` está **en pausa**: el componente existe en `src/app/pages/p
 ## Convenciones de UI a mantener
 
 - **Páginas con hero oscuro** (`/`, `/about`, `/contact`, `/how-it-works`, `/services` — lista en `HERO_PAGE_PATHS`, `shared/navbar/navbar.ts`): el navbar flota transparente sobre el hero y pasa a sólido al hacer scroll. Si el hero de una página no tiene contenido extra bajo el título (como en Services), igualar su altura visual a la de páginas comparables con `min-height` + `display:flex; align-items:center`, no agregando secciones que no están en el diseño.
-- **Banner de CTA final** ("Ready to work smarter?"): copy compartido en las claves i18n `common.cta.*`, fondo `public/FondoCta.png`. Markup/estilos se duplican por página a propósito (`.home-cta*`, `.services-cta*`) — mismo patrón, prefijo distinto.
+- **Banner de CTA final** ("Ready to work smarter?"): copy compartido en las claves i18n `common.cta.*`, fondo `public/FondoCta.png`. Presente en Home y Services. Markup/estilos se duplican por página a propósito (`.home-cta*`, `.services-cta*`) — mismo patrón, prefijo distinto. Contact **no** lo usa — tiene en su lugar un botón simple a Calendly bajo el texto de tiempo de respuesta.
 - **Acordeones / menús desplegables**: se implementan con signals de Angular (`signal<ReadonlySet<number>>` + `toggle(i)`), nunca con una librería de JS externa — ver `services.ts` como referencia.
 - **Menú móvil sobre un hero sin scroll**: el header tiene una clase `site-header--menu-open` que fuerza fondo sólido mientras el menú está abierto, para que el contenido del hero no se transparente detrás de los links. Si se agrega una página nueva a `HERO_PAGE_PATHS`, probar el menú hamburguesa sin haber scrolleado.
 

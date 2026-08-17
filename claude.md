@@ -181,8 +181,9 @@ Definir estos tres colores como variables SCSS (`$color-crema`, `$color-negro`, 
 ## Banner de CTA compartido (Home + Servicios)
 El banner verde de cierre vive en dos páginas con el mismo contenido, mismo link de Calendly y mismo fondo (`FondoCta.png`), así que su copy se movió a una clave de traducción compartida en vez de duplicarse por página:
 - Claves i18n: `common.cta.title` / `titleAccent` / `button` / `response` (antes vivían bajo `home.cta.*`; si se busca contenido viejo con ese prefijo, ya no existe).
-- Markup y estilos SÍ están duplicados a propósito en cada página (`.home-cta*` en `home.scss`, `.services-cta*` en `services.scss`) — mismo patrón, prefijo de clase distinto por página. Si se agrega este banner a una tercera página, replicar el mismo patrón (no crear un componente compartido salvo que se repita en 4+ lugares).
+- Markup y estilos SÍ están duplicados a propósito en cada página (`.home-cta*` en `home.scss`, `.services-cta*` en `services.scss`) — mismo patrón, prefijo de clase distinto por página. Si se agrega a una tercera página, replicar el mismo patrón (no crear un componente compartido salvo que se repita en 4+ lugares).
 - Toda la tarjeta es un único `<a>` externo a Calendly — el botón visual interno tiene `pointer-events: none`.
+- **Contacto NO usa este banner** — se probó (ver commit revertido) y el usuario prefirió, en su lugar, un botón simple `btn btn--primary` a Calendly justo debajo del texto de tiempo de respuesta (`contact.direct.response`), dentro de `.contact-hero__intro`. Clave i18n: `contact.direct.calendlyButton`. No reintroducir el banner ahí sin que se pida explícitamente.
 
 ## Página de Servicios (acordeón)
 - Componente: `src/app/pages/services/services.ts`. Estado de apertura/cierre por tarjeta con un signal `openCategories = signal<ReadonlySet<number>>(...)` (arranca con las 5 abiertas, como en el diseño de referencia) y los métodos `isOpen(i)` / `toggle(i)` — nada de librerías de acordeón ni JS de terceros (ver regla de seguridad #6).

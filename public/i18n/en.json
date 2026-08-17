@@ -451,7 +451,8 @@
     "direct": {
       "title": "Direct contact",
       "email": "contact@epixcode.com",
-      "response": "We typically respond within 24 business hours."
+      "response": "We typically respond within 24 business hours.",
+      "calendlyButton": "Book a free consultation"
     }
   },
   "social": {
