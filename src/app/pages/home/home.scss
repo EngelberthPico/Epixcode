@@ -54,6 +54,7 @@
 
 .hero__title-accent {
   display: inline-block;
+  margin-top: 0.3em;
   font-size: 0.65em;
   color: $color-oliva-light;
 }
@@ -132,13 +133,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.875rem;
-  padding-left: 1.75rem;
-  border-left: 1px solid color-mix(in srgb, $color-crema 12%, transparent);
-
-  &:first-child {
-    padding-left: 0;
-    border-left: none;
-  }
 }
 
 .home-problem__item-icon {
@@ -550,7 +544,7 @@
 }
 
 .home-cta__title-accent {
-  color: $color-oliva-light;
+  color: $color-crema;
 }
 
 .home-cta__button {
@@ -613,5 +607,21 @@
     display: flex;
     align-items: center;
     margin-top: 1.25rem;
+  }
+
+  // A este ancho el grid de .home-problem__list ya cabe en una sola fila de
+  // 4 columnas (4 × 150px + 3 × 2rem de gap ≈ 696px de contenido), así que
+  // ":first-child" coincide con el primer ítem visual y el borde funciona
+  // como separador entre columnas. Por debajo de este breakpoint el grid
+  // puede envolver a 1-2 columnas y el borde quedaba en ítems que no son
+  // los primeros de su fila (o el primero se veía distinto a los demás).
+  .home-problem__item {
+    padding-left: 1.75rem;
+    border-left: 1px solid color-mix(in srgb, $color-crema 12%, transparent);
+
+    &:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
   }
 }

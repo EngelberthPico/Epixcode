@@ -285,7 +285,7 @@
 }
 
 .services-cta__title-accent {
-  color: $color-oliva-light;
+  color: $color-crema;
 }
 
 .services-cta__button {
@@ -322,5 +322,41 @@
     // categorías tienen 3 sub-ítems, pero Marketing tiene 4 y así se
     // acomodan solos sin dejar una columna vacía.
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+// En viewports angostos, icono (52px) + chevron (36px) + gaps del header
+// del acordeón dejaban solo ~78px reales para el texto (ej. en 358px de
+// ancho), forzando que cada palabra de la descripción cayera en su propia
+// línea. Se reducen icono/chevron/gap/padding de la tarjeta solo aquí para
+// devolverle espacio real al texto sin tocar el padding lateral de sección
+// (3rem), que es el mismo en todas las páginas del sitio.
+@media (max-width: 480px) {
+  .services-category {
+    padding: 1.25rem;
+  }
+
+  .services-category__head {
+    gap: 0.75rem;
+  }
+
+  .services-category__icon {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .services-category__chevron {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 }
